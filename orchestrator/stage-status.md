@@ -8,8 +8,8 @@
 | 03 Pricing | DONE | 2026-07-17 | MVP 免费、无登录、无支付 |
 | 04 Compliance | NEEDS_REVIEW | 2026-07-17 | 合同完成；生产数据/IP证据待验 |
 | 05 Copy | DONE | 2026-07-17 | SEO Copy Freeze v1 已冻结 |
-| 06 Design | READY | 2026-07-17 | Copy Freeze 已通过 |
-| 08 Data | WAITING | 2026-07-17 | 等待 Design/Data Contract |
+| 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
+| 08 Data | READY | 2026-07-17 | Design Source 已通过 |
 | 07 Frontend | WAITING | 2026-07-17 | 等待前置合同 |
 | 10 Reviews | WAITING | 2026-07-17 | 等待实现 |
 | 09 QA | WAITING | 2026-07-17 | 等待 reviews GO |

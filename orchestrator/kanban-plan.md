@@ -76,7 +76,7 @@
 - gate：Design Source、Data Contract、本地可运行实现
 - blocked_if：SEO Copy Freeze 未完成
 - downstream：T10
-- status：READY
+- status：RUNNING
 
 ## T10/T04R/T02R — Review
 

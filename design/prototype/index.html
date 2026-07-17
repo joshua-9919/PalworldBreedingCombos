@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Palworld Breeding Calculator 1.0 – Design Source</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Palworld Breeding Combos home">
+      <span class="brand-mark" aria-hidden="true"><i></i><b></b><em></em></span>
+      <span>Palworld <strong>Breeding Combos</strong></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a class="is-active" href="#calculator">Calculator</a>
+      <a href="#popular">All Combos</a>
+      <a href="#chain">Chain Planner</a>
+      <a href="#guide">Breeding Guide</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Built for Palworld 1.0 data</p>
+        <h1>Palworld Breeding Calculator</h1>
+        <p class="lede">Choose two parents to see their offspring, work backward from a target Pal, or build a practical breeding chain from the Pals in your Palbox.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">Choose two parents</a>
+          <a class="button secondary" href="#calculator">Find parents for a target</a>
+        </div>
+      </div>
+      <aside class="version-card" aria-label="Dataset version">
+        <div class="version-top"><span>Field data</span><span class="status"><i></i> prototype</span></div>
+        <dl>
+          <div><dt>Game version</dt><dd>1.0</dd></div>
+          <div><dt>Dataset</dt><dd>Pending validation</dd></div>
+          <div><dt>Last checked</dt><dd>Not production data</dd></div>
+        </dl>
+        <p>Production values will be supplied by the versioned Data Contract.</p>
+      </aside>
+    </section>
+
+    <section class="workbench shell" id="calculator" aria-labelledby="workbench-title">
+      <div class="workbench-head">
+        <div><p class="section-kicker">Breeding workbench</p><h2 id="workbench-title">Start with what you know</h2></div>
+        <p>Game version, dataset version, and last checked date appear with every real result.</p>
+      </div>
+
+      <div class="mode-tabs" role="tablist" aria-label="Calculator mode">
+        <button class="active" role="tab" aria-selected="true">Parents <span>→</span> Child</button>
+        <button role="tab" aria-selected="false">Target <span>→</span> Parents</button>
+        <button role="tab" aria-selected="false">One Parent</button>
+        <button role="tab" aria-selected="false">Owned Pals <span>→</span> Chain</button>
+      </div>
+
+      <form class="calculator-grid">
+        <div class="inputs-panel">
+          <label for="parent-one">Parent 1</label>
+          <button class="select-control" id="parent-one" type="button"><span><small>Choose a Pal</small>Search by name or Paldeck number</span><b>⌄</b></button>
+          <div class="connector" aria-hidden="true"><span></span><b>+</b><span></span></div>
+          <label for="parent-two">Parent 2</label>
+          <button class="select-control" id="parent-two" type="button"><span><small>Choose a Pal</small>Search by name or Paldeck number</span><b>⌄</b></button>
+          <button class="button primary full" type="button">Calculate offspring</button>
+        </div>
+
+        <output class="result-panel" aria-live="polite">
+          <div class="empty-egg" aria-hidden="true"><span></span></div>
+          <p class="result-label">Expected offspring</p>
+          <h3>Choose two parents</h3>
+          <p>Select a Pal in each field to calculate a versioned result. This prototype does not contain production breeding data.</p>
+          <div class="result-meta">
+            <span>Rule type <b>—</b></span>
+            <span>Verification <b>Waiting</b></span>
+          </div>
+        </output>
+      </form>
+    </section>
+
+    <section class="paper-section" id="guide">
+      <div class="shell">
+        <p class="section-kicker dark">The field method</p>
+        <div class="section-title-row"><h2>Find the breeding combo you need</h2><p>Start with what you know instead of scanning a spreadsheet.</p></div>
+        <div class="method-grid">
+          <article><span>01</span><h3>Parents to offspring</h3><p>Select two Pals and see the resulting species, including special-combination handling.</p></article>
+          <article><span>02</span><h3>Target to parents</h3><p>Choose the Pal you want and compare validated parent pairs.</p></article>
+          <article id="chain"><span>03</span><h3>Chains from your Palbox</h3><p>Limit routes to owned Pals and exclude parents that do not fit your save.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-section shell">
+      <div class="trust-copy">
+        <p class="section-kicker">Evidence before eggs</p>
+        <h2>Why the data version matters</h2>
+        <p>A breeding result is only useful when it matches the game data you are playing. This site publishes the supported game version, dataset revision, generated date, and verification status.</p>
+        <a class="text-link" href="#">View data sources and changes <span>→</span></a>
+      </div>
+      <div class="data-ledger" aria-label="Data ledger illustration">
+        <div><span>Game version</span><b>1.0</b></div>
+        <div><span>Source revision</span><b>required</b></div>
+        <div><span>Verification</span><b>visible</b></div>
+        <div><span>Known gaps</span><b>published</b></div>
+      </div>
+    </section>
+
+    <section class="popular shell" id="popular">
+      <div class="section-title-row inverse"><h2>Popular Palworld breeding searches</h2><p>Data-driven links will appear only after roster validation.</p></div>
+      <div class="placeholder-list">
+        <span>Target Pal page</span><span>Target Pal page</span><span>Target Pal page</span><span>Target Pal page</span>
+      </div>
+    </section>
+
+    <section class="faq paper-section">
+      <div class="shell narrow">
+        <p class="section-kicker dark">Quick answers</p>
+        <h2>Palworld breeding calculator FAQ</h2>
+        <details open><summary>How does Palworld breeding work?</summary><p>Most offspring are determined from the parents’ hidden breeding values, while special combinations can override the normal calculation. The exact rules and roster must match the game and dataset version shown with the result.</p></details>
+        <details><summary>Can I find parents for a specific Pal?</summary><p>Yes. Choose Target → Parents, select the Pal you want, and compare its validated direct parent pairs.</p></details>
+        <details><summary>Is this an official Palworld tool?</summary><p>No. Palworld Breeding Combos is an independent, unofficial fan-made tool and is not affiliated with or endorsed by Pocketpair.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid"><p><strong>Palworld Breeding Combos</strong><br>Independent, unofficial fan-made tool.</p><nav aria-label="Footer"><a href="#">Data Sources</a><a href="#">About</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Disclaimer</a></nav></div>
+  </footer>
+</body>
+</html>
