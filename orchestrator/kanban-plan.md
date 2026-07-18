@@ -102,7 +102,7 @@
 - gate：QA_GO，无 P0/P1
 - blocked_if：任一 review 未 GO
 - downstream：Owner Review
-- status：READY
+- status：DONE（QA_GO_CANDIDATE）
 
 ## T11/T12 — Launch and data review
 

@@ -49,8 +49,8 @@
 | 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
-| 09 QA | student-site-qa-acceptance | READY | SEO/PM/Compliance 均已 GO_FOR_QA；下一阶段执行候选验收 |
-| Owner Review | owner | WAITING | 生产部署与公开动作授权 |
+| 09 QA | student-site-qa-acceptance | DONE | QA_GO_CANDIDATE：移动端 8 类任务、0 Console/Network 错误；生产 smoke 留在 Launch Gate |
+| Owner Review | owner | WAITING_OWNER | 等待数据发布风险、Terms 字段、免费范围及 Cloudflare/DNS 授权 |
 | 11 launch | site-ops-growth-launch | BLOCKED_SETUP | GitHub/Cloudflare/DNS/GSC/Bing 权限 |
 | 12 data review | site-data-review-iteration | WAITING | 上线后数据四态与 Iterate/Scale/Kill |
 
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：09 candidate QA
-- waiting：Owner production review
+- running：无
+- waiting：Owner production review（外部人工决策）
 - blocked：11 生产上线与公开推广
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck；09 QA_GO_CANDIDATE

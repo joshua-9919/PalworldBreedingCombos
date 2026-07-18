@@ -1,3 +1,3 @@
 # Next Automatic Action
 
-10 SEO、02 PM 与 04 Compliance 均已达到 GO_FOR_QA。完整 300 Pal / 44,851 combination candidate 可通过专用 noindex 模式预览，最短链无关分支和 Astralym 同种反查已修复并有回归测试。总控下一步执行 09 QA：覆盖 parents→child、target→parents、one-parent、owned→chain、分享 URL、移动端、console/network、SEO/法律路由和 fail-closed production gate。QA_GO 后进入 Owner Review；当前不得部署生产或绑定 DNS。
+09 QA 已达到 QA_GO_CANDIDATE：390×844 移动端真实浏览器执行 8 类任务，Console/Network 均为 0 错误，candidate 保持 noindex 与空 sitemap，production validator 继续返回 `PROVENANCE_GATE`。下一步是 Owner Review；必须由 Owner 明确确认数据发布风险、Terms operator/governing-law、免费无广告范围、是否允许 Cloudflare 部署和绑定 DNS。确认前不得生产部署或公开推广。

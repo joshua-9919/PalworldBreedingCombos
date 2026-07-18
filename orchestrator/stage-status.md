@@ -12,7 +12,7 @@
 | 08 Data | NEEDS_REVIEW | 2026-07-18 | 300 Pal 候选完成公开双源修复与完整快照交叉比对；权利审查待确认 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
 | 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
-| 09 QA | READY | 2026-07-18 | 使用 300 Pal / 44,851 combination 的 noindex candidate preview 执行真实任务验收 |
-| Owner Review | WAITING | 2026-07-17 | 等待 QA_GO |
+| 09 QA | DONE | 2026-07-18 | QA_GO_CANDIDATE；390×844、8 类任务、0 Console/Network 错误 |
+| Owner Review | WAITING_OWNER | 2026-07-18 | 等待发布风险、Terms、免费范围与生产部署人工确认 |
 | 11 Launch | BLOCKED | 2026-07-17 | 缺 GitHub/Cloudflare/DNS/GSC/Bing 权限与 Owner 授权 |
 | 12 Data Review | WAITING | 2026-07-17 | 等待生产数据 |

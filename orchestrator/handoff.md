@@ -3,7 +3,7 @@
 ## 当前结论
 
 - 状态：[NEEDS_REVIEW]
-- 一句话结论：SEO、PM、Compliance 已全部 GO_FOR_QA；完整 candidate noindex 预览和关键回归测试通过，下一步进入独立 QA。
+- 一句话结论：独立 candidate QA 已通过；当前进入 WAITING_OWNER，未经明确授权不得生产部署、绑定 DNS 或公开推广。
 
 ## 关键输入
 
@@ -26,4 +26,4 @@
 
 ## 下一阶段
 
-- 09 QA → QA_GO 后 Owner Review。
+- Owner Review → 授权后执行 production deploy + smoke recheck。
