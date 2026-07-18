@@ -22,7 +22,7 @@ for (const route of ["privacy", "terms", "disclaimer", "data-sources"]) {
 if (!allHtml.includes("independent, unofficial")) errors.push("unofficial fan-tool disclosure missing");
 if (!pages.disclaimer.includes("not affiliated with, endorsed by, or sponsored by Pocketpair")) errors.push("Pocketpair non-affiliation disclosure missing");
 if (!pages.privacy.includes("localStorage") || !pages.privacy.includes("Clear selection")) errors.push("localStorage behavior/deletion instructions missing from Privacy");
-if (!pages.privacy.includes("does not load a configured analytics or advertising script")) errors.push("analytics default not disclosed");
+if (!pages.privacy.includes("Plausible analytics") || !pages.privacy.includes("plausible.shipsolo.io")) errors.push("analytics provider not disclosed");
 if (!pages["data-sources"].includes("PalCalc") || !pages["data-sources"].includes("Palworld Tools") || !pages["data-sources"].includes("PalDB")) errors.push("candidate and corroboration sources not disclosed");
 if (!pages.disclaimer.includes("Guidelines for Derivative Works")) errors.push("official derivative-work guideline boundary missing");
 
@@ -30,7 +30,7 @@ for (const claim of ["100% accurate", "official calculator", "guaranteed accurat
   if (allHtml.toLowerCase().includes(claim)) errors.push(`prohibited claim found: ${claim}`);
 }
 for (const match of allHtml.matchAll(/<script[^>]+src="([^"]+)"/g)) {
-  if (/^https?:\/\//.test(match[1])) errors.push(`external script loads before launch review: ${match[1]}`);
+  if (/^https?:\/\//.test(match[1]) && match[1] !== "https://plausible.shipsolo.io/js/pa-Tuwmm86GExPpwNCxPPO8b.js") errors.push(`unapproved external script: ${match[1]}`);
 }
 if (!app.includes('localStorage.getItem("pbc-owned-pals")') || !app.includes('localStorage.removeItem("pbc-owned-pals")')) errors.push("owned-Pals local storage lifecycle is incomplete");
 
@@ -39,4 +39,4 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-console.log(JSON.stringify({ status: "pass", legalRoutes: 5, externalScripts: 0, prohibitedClaims: 0 }, null, 2));
+console.log(JSON.stringify({ status: "pass", legalRoutes: 5, approvedExternalScripts: 1, prohibitedClaims: 0 }, null, 2));

@@ -21,4 +21,4 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 
 - GSC/Bing verification and sitemap submission are not authorized.
 - Public promotion and directory/community submission are not authorized.
-- No analytics script or fabricated analytics ID is installed.
+- Plausible privacy-friendly analytics is installed using the Owner-provided site script from `plausible.shipsolo.io`; Privacy discloses the provider and aggregate-measurement purpose.
