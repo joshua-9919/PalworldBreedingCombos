@@ -14,5 +14,5 @@
 | 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
 | 09 QA | DONE | 2026-07-18 | QA_GO_CANDIDATE；390×844、8 类任务、0 Console/Network 错误 |
 | Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
-| 11 Launch | PARTIAL_LIVE | 2026-07-18 | Pages production 已上线并通过 smoke；主域名绑定待 Dashboard 操作；GSC/Bing/推广未授权 |
+| 11 Launch | LIVE | 2026-07-18 | Pages production 及 root/www 主域名已上线，HTTP 200/canonical/robots/sitemap/formula-noindex smoke 通过 |
 | 12 Data Review | WAITING | 2026-07-17 | 等待生产数据 |

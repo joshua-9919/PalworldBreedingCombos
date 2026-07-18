@@ -1,3 +1,3 @@
 # Next Automatic Action
 
-Pages production 已在 `985d664` 上线并通过 HTTPS/canonical/robots/sitemap/formula-noindex smoke。下一步在 Cloudflare Dashboard 为 `palworld-breeding-combos` 绑定 `palworldbreedingcombos.com` 与 `www`，然后复测主域名；GSC/Bing 提交和公开推广仍未授权，不得执行。
+Production 已在 `985d664` 上线，`palworldbreedingcombos.com` 与 `www` 均已绑定并通过 HTTP 200/canonical/robots/sitemap/formula-noindex smoke。下一阶段等待 Owner 确认是否授权 GSC/Bing 验证与 sitemap 提交；公开推广仍未授权。

@@ -6,7 +6,7 @@
 - 影响：无法 push、部署、绑定生产域名或产出真实 smoke evidence
 - 当前处理：不阻塞本地研究、产品、设计和实现
 - Owner 解锁动作：在本地 QA_GO 后提供对应登录态/授权，并明确允许生产部署
-- status：PARTIAL_CLOSED_PAGES_LIVE_DOMAIN_BINDING_PENDING
+- status：CLOSED_PAGES_AND_CUSTOM_DOMAINS_LIVE_2026_07_18
 
 ## B02 — Search and analytics properties
 

@@ -19,7 +19,7 @@
 
 - [x] 注册主域名 `palworldbreedingcombos.com`
 - [x] GitHub 仓库已连接：`joshua-9919/PalworldBreedingCombos`
-- [x] Cloudflare Pages 权限已验证并完成首次生产部署；主域名绑定待控制台操作
+- [x] Cloudflare Pages 生产部署及 root/www 主域名绑定已完成
 - [ ] 准备 GSC、Bing Webmaster Tools 与分析工具登录态
 - [x] 在 QA_GO 后确认允许生产部署与 DNS 绑定
 - [ ] 在上线后确认是否允许社区发帖、目录提交等公开推广
@@ -51,7 +51,7 @@
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
 | 09 QA | student-site-qa-acceptance | DONE | QA_GO_CANDIDATE：移动端 8 类任务、0 Console/Network 错误；生产 smoke 留在 Launch Gate |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | PARTIAL_LIVE | Pages 生产环境已上线并通过 smoke；主域名待控制台绑定，GSC/Bing/推广未授权 |
+| 11 launch | site-ops-growth-launch | LIVE | Pages 与 root/www 主域名已上线并通过 smoke；GSC/Bing/推广未授权 |
 | 12 data review | site-data-review-iteration | WAITING | 上线后数据四态与 Iterate/Scale/Kill |
 
 ## Risks
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：11 custom-domain binding / final domain smoke
+- running：无
 - waiting：GSC/Bing 与公开推广授权
-- blocked：当前会话无法控制 Cloudflare Dashboard；Wrangler 不支持 Pages custom-domain 绑定
+- blocked：GSC/Bing 与公开推广未授权（不影响站点访问）
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck；09 QA_GO_CANDIDATE

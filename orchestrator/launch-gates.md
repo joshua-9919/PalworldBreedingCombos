@@ -1,6 +1,6 @@
 # Production Launch Gate — 2026-07-18
 
-Status: `PAGES_LIVE_DOMAIN_BINDING_PENDING`
+Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 
 ## Completed
 
@@ -13,11 +13,11 @@ Status: `PAGES_LIVE_DOMAIN_BINDING_PENDING`
 - Production Pages URL: <https://palworld-breeding-combos.pages.dev/>.
 - Deployment URL: <https://76fdec13.palworld-breeding-combos.pages.dev/>.
 - Live smoke: HTTP 200; security headers present; homepage `index,follow`; canonical points to the primary domain; robots allows crawling; sitemap contains nine approved URLs; formula guide is `noindex,nofollow` and excluded from sitemap.
+- Cloudflare custom domains attached: <https://palworldbreedingcombos.com/> and <https://www.palworldbreedingcombos.com/>.
+- Final domain smoke: both hosts return HTTP 200; both publish the root-domain canonical; root robots allows search crawling and references the production sitemap.
 
 ## Pending gates
 
-- `palworldbreedingcombos.com` is not yet attached to the Pages project. Current root-domain request returns Cloudflare 522 from its prior DNS/origin state.
-- Wrangler has no Pages custom-domain command and browser automation is unavailable in this session. Bind both `palworldbreedingcombos.com` and `www.palworldbreedingcombos.com` in Cloudflare Pages > palworld-breeding-combos > Custom domains, then repeat HTTPS/canonical/robots/sitemap smoke.
 - GSC/Bing verification and sitemap submission are not authorized.
 - Public promotion and directory/community submission are not authorized.
 - No analytics script or fabricated analytics ID is installed.
