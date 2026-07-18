@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "capturedAt": "2026-07-18T09:20:00Z",
+  "sources": [
+    {
+      "sourceId": "palworld-tools-build-24088745",
+      "url": "https://www.palworld.tools/breeding",
+      "independenceNote": "Public 1.0 calculator identifies its data as extracted from Palworld build 24088745; no PalCalc attribution was found on the reviewed page.",
+      "assertions": [
+        { "name": "Astralym", "paldexNo": "204", "breedingPower": 10 },
+        { "name": "Cryolinx Terra", "paldexNo": "132B", "breedingPower": 470 },
+        { "name": "Nitewing", "paldexNo": "51", "breedingPower": 2560 },
+        { "name": "Lamball", "paldexNo": "1", "breedingPower": 3050 }
+      ]
+    },
+    {
+      "sourceId": "paldb-v1-0-0",
+      "url": "https://paldb.cc/en/",
+      "independenceNote": "Public database exposes game-style internal codes, CombiRank and unique-combination fields and labels pages v1.0.0.",
+      "assertions": [
+        { "name": "Astralym", "paldexNo": "204", "breedingPower": 10, "detailUrl": "https://paldb.cc/en/Astralym" },
+        { "name": "Cryolinx Terra", "paldexNo": "132B", "breedingPower": 470, "detailUrl": "https://paldb.cc/en/Cryolinx_Terra" }
+      ]
+    }
+  ]
+}

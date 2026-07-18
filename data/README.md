@@ -34,14 +34,17 @@ The current reproducible candidate is pinned to `tylercamp/palcalc` v1.17.6 / co
 node scripts/import-palcalc.mjs \
   --db /path/to/PalCalc.Model/db.json \
   --breeding /path/to/PalCalc.Model/breeding.json \
+  --overrides data/verification/palworld-1.0-overrides.json \
   --revision v1.17.6 \
   --out /tmp/pbc-launch-candidate.json
 
 node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json
+node scripts/verify-cross-source.mjs /tmp/pbc-launch-candidate.json data/verification/cross-source-samples.json
+node scripts/verify-palworld-tools-snapshot.mjs /tmp/pbc-launch-candidate.json /tmp/palworld-tools-breeding.html
 node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json --production # must remain blocked until independently verified
 ```
 
-The importer preserves gender-specific combinations, emits no images, marks every Pal non-indexable and does not copy competitor pages.
+The importer preserves gender-specific combinations, emits no images, marks every Pal non-indexable and does not copy competitor pages. The snapshot verifier compares the complete roster/ranks and all comparable unique combinations from a temporary public-page download without committing or redistributing that page.
 
 ## Build behavior
 

@@ -36,6 +36,6 @@
 
 - 类型：数据/IP
 - 影响：没有来源、revision/hash、转换与验证记录的数据不得上线
-- 当前处理：Data Contract、source ledger schema、synthetic fixture 和验证脚本已建立；已固定 PalCalc v1.17.6 / commit `8b7e2f7` 为候选交叉验证源，记录 SHA-256，并完成 299 Pal / 44,851 combinations 的可重复 importer；候选保持 partially-verified、不可索引且不能 production build
-- Owner 解锁动作：需要一份由用户合法持有的 Palworld 1.0 Windows 安装目录进行独立本地提取/比对，或提供 Pocketpair 明确授权的数据源；不要上传游戏文件到聊天
+- 当前处理：Data Contract、source ledger、synthetic fixture 和验证脚本已建立；固定 PalCalc v1.17.6 / commit `8b7e2f7`，以两处公开 1.0 数据修复 Astralym #204 后形成 300 Pal / 44,851 combinations 候选；Palworld Tools 完整快照比对为 288/288 ranks、0 冲突及 251/251 可映射 unique combinations。候选仍为 partially-verified、不可索引且不能 production build
+- Owner 解锁动作：无需安装游戏；上线前确认编译后的游戏事实数据可发布边界，或取得 Pocketpair 明确授权的数据源
 - status：OPEN_BLOCKS_LAUNCH

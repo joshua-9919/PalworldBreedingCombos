@@ -1,3 +1,3 @@
 # Next Automatic Action
 
-07 前端 P1 修复与 PalCalc v1.17.6 候选 importer 已完成。总控下一步需要从用户合法持有的 Palworld 1.0 Windows 安装目录独立提取 `CombiRank`、优先级和 `DT_PalCombiUnique`，与固定候选的 299 Pal / 44,851 combinations 做 checksum 与差异比对。不要上传游戏文件或密钥到聊天；只需在本机提供安装目录可读路径。完成独立比对前，production validator 必须返回 `PROVENANCE_GATE`。
+07 前端与 08 候选数据已完成。无需安装游戏：PalCalc v1.17.6 经双源证据补入 Astralym #204 后为 300 Pal / 44,851 combinations；Palworld Tools 快照交叉比对 288/288 ranks、0 冲突及 251/251 可映射 unique combinations。总控下一步执行 publication-rights/合规复核，并决定是否可把候选升级为 production verified；确认前 production validator 必须返回 `PROVENANCE_GATE`。

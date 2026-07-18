@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 
 const args = Object.fromEntries(process.argv.slice(2).map((value, index, all) => value.startsWith("--") ? [value.slice(2), all[index + 1]] : null).filter(Boolean));
 if (!args.db || !args.breeding || !args.out || !args.revision) {
-  console.error("Usage: node scripts/import-palcalc.mjs --db <db.json> --breeding <breeding.json> --revision <tag-or-sha> --out <candidate.json>");
+  console.error("Usage: node scripts/import-palcalc.mjs --db <db.json> --breeding <breeding.json> [--overrides <overrides.json>] --revision <tag-or-sha> --out <candidate.json>");
   process.exit(2);
 }
 
@@ -31,6 +31,16 @@ const pals = db.Pals.map((source) => ({
   indexable: false
 }));
 
+let overrideBuffer;
+if (args.overrides) {
+  overrideBuffer = await readFile(resolve(args.overrides));
+  const overrides = JSON.parse(overrideBuffer);
+  for (const pal of overrides.pals || []) {
+    if (pals.some((existing) => existing.id === pal.id || existing.slug === pal.slug)) throw new Error(`Override duplicates Pal ${pal.id}`);
+    pals.push(pal);
+  }
+}
+
 const idByInternalName = new Map(db.Pals.map((pal) => [pal.InternalName, slugify(pal.InternalName)]));
 const combinations = breeding.Breeding.map((source) => {
   const parentA = { id: idByInternalName.get(source.Parent1InternalName), gender: source.Parent1Gender };
@@ -54,7 +64,7 @@ const dataset = {
     gameVersion: "1.0",
     datasetVersion: `palcalc-${db.Version}-${args.revision}`.replace(/[^a-zA-Z0-9._-]/g, "-"),
     generatedAt,
-    sourceRevision: `tylercamp/palcalc@${args.revision};db-sha256:${sha256(dbBuffer)};breeding-sha256:${sha256(breedingBuffer)}`,
+    sourceRevision: `tylercamp/palcalc@${args.revision};db-sha256:${sha256(dbBuffer)};breeding-sha256:${sha256(breedingBuffer)}${overrideBuffer ? `;overrides-sha256:${sha256(overrideBuffer)}` : ""}`,
     verificationStatus: "partially-verified",
     recordCounts: { pals: pals.length, specialCombinations: 0, combinations: combinations.length }
   },
@@ -62,7 +72,7 @@ const dataset = {
   specialCombinations: [],
   combinations,
   knownGaps: [
-    "Candidate is normalized from a pinned third-party MIT repository; independent extraction from locally owned Palworld 1.0 game files is still required.",
+    "Candidate is normalized from a pinned third-party MIT repository plus evidence-linked corrections; public-source rights and accuracy review is still required.",
     "Combination rule classification is not inferred; rows are treated as a versioned lookup table.",
     "One parent pair is gender-dependent and must retain parent gender in the product result.",
     "Availability and entity-page indexability remain unverified."
@@ -78,5 +88,6 @@ console.log(JSON.stringify({
   combinations: combinations.length,
   dbSha256: sha256(dbBuffer),
   breedingSha256: sha256(breedingBuffer),
+  overridesSha256: overrideBuffer ? sha256(overrideBuffer) : null,
   datasetSha256: sha256(Buffer.from(JSON.stringify(dataset)))
 }, null, 2));

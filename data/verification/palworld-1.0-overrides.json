@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "reviewStatus": "cross-source-derived",
+  "pals": [
+    {
+      "id": "worldtreedragon",
+      "slug": "astralym",
+      "name": "Astralym",
+      "paldexNo": "204",
+      "breedingPower": 10,
+      "breedable": true,
+      "rarityClass": "epic",
+      "availability": "special",
+      "aliases": [],
+      "verificationStatus": "derived",
+      "indexable": false
+    }
+  ],
+  "evidence": [
+    {
+      "sourceId": "palworld-tools-build-24088745",
+      "url": "https://www.palworld.tools/breeding",
+      "observed": "Astralym #204, internal code WorldTreeDragon, breeding power 10"
+    },
+    {
+      "sourceId": "paldb-v1-0-0-astralym",
+      "url": "https://paldb.cc/en/Astralym",
+      "observed": "Astralym #204, Code WorldTreeDragon, CombiRank 10, CombiDuplicatePriority 1000, IgnoreCombi 1, same-species result"
+    }
+  ]
+}
