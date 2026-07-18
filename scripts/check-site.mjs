@@ -17,7 +17,7 @@ async function walk(dir) {
 await walk(root);
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
-  for (const required of ["<title>", "name=\"description\"", "rel=\"canonical\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:url\""]) {
+  for (const required of ["<title>", "name=\"description\"", "rel=\"canonical\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:url\"", "property=\"og:image\"", "name=\"twitter:image\""]) {
     if (!html.includes(required)) errors.push(`${file}: missing ${required}`);
   }
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
@@ -48,7 +48,7 @@ for (const file of htmlFiles) {
   if (canonical && sitemap.includes(`<loc>${canonical}</loc>`)) errors.push(`${file}: noindex canonical appears in sitemap`);
 }
 
-for (const required of ["robots.txt", "sitemap.xml", "404.html", "favicon.svg", "assets/dataset.json", "assets/app.js", "assets/styles.css"]) {
+for (const required of ["robots.txt", "sitemap.xml", "404.html", "favicon.svg", "site.webmanifest", "brand/logo-mark.png", "brand/logo-mark-512.png", "brand/apple-touch-icon.png", "brand/og-default.png", "assets/dataset.json", "assets/app.js", "assets/chain-engine.js", "assets/pair-engine.js", "assets/styles.css"]) {
   try { await stat(join(root, required)); } catch { errors.push(`missing build artifact ${required}`); }
 }
 

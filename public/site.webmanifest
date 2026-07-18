@@ -1,0 +1,17 @@
+{
+  "name": "Palworld Breeding Combos",
+  "short_name": "Breeding Combos",
+  "description": "Independent breeding calculator, combos database and chain planner.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07110f",
+  "theme_color": "#07110f",
+  "icons": [
+    {
+      "src": "/brand/logo-mark-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

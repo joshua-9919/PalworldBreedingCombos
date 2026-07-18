@@ -1,3 +1,6 @@
+import { findShortestChain } from "./chain-engine.js";
+import { buildParentPairs } from "./pair-engine.js";
+
 const root = document.documentElement;
 const datasetUrl = root.dataset.datasetUrl;
 
@@ -36,7 +39,8 @@ function updateQuery(values) {
 
 const metaMarkup = () => {
   const manifest = dataset.manifest;
-  return `<div class="result-meta"><span>Game version <b>${escapeHtml(manifest.gameVersion)}</b></span><span>Dataset <b>${escapeHtml(manifest.datasetVersion)}</b></span><span>Source revision <b>${escapeHtml(manifest.sourceRevision)}</b></span><span>Verification <b>${escapeHtml(manifest.verificationStatus)}</b></span></div>`;
+  const generated = new Date(manifest.generatedAt).toISOString().slice(0, 10);
+  return `<div class="result-meta"><span>Game version <b>${escapeHtml(manifest.gameVersion)}</b></span><span>Dataset <b>${escapeHtml(manifest.datasetVersion)}</b></span><span>Generated <b>${escapeHtml(generated)}</b></span><span>Source revision <b>${escapeHtml(manifest.sourceRevision)}</b></span><span>Verification <b>${escapeHtml(manifest.verificationStatus)}</b></span></div>`;
 };
 
 function canonicalPair(a, b) { return [a, b].sort(); }
@@ -54,8 +58,7 @@ function findChild(parentAId, parentBId) {
   return { ok: false, message: "No validated result exists for this pair in the active dataset." };
 }
 
-const parentPairs = (targetId) => combinations().filter((combo) => combo.childId === targetId)
-  .map((combo) => ({ ...combo, parentA: palsById.get(combo.parentAId), parentB: palsById.get(combo.parentBId) }));
+const parentPairs = (targetId) => buildParentPairs({ targetId, pals: dataset.pals, combinations: combinations() });
 
 function renderError(output, message, heading = "Check this selection") {
   output.classList.remove("result-ready", "hidden");
@@ -143,27 +146,6 @@ function initOneParent(params) {
   }
 }
 
-function findShortestChain(ownedIds, targetId, constraints) {
-  const available = new Set(ownedIds);
-  const steps = [];
-  if (available.has(targetId)) return { ok: true, steps };
-  const allowed = (pal) => pal && (!constraints.excludeLegendary || pal.rarityClass !== "legendary") && (!constraints.excludeUnavailable || (pal.breedable && pal.availability !== "unavailable"));
-  for (let generation = 0; generation < dataset.pals.length; generation += 1) {
-    let changed = false;
-    for (const combo of combinations()) {
-      if (combo.parentAGender !== "WILDCARD" || combo.parentBGender !== "WILDCARD") continue;
-      const involved = [combo.parentAId, combo.parentBId, combo.childId].map((id) => palsById.get(id));
-      if (!involved.every(allowed)) continue;
-      if (available.has(combo.parentAId) && available.has(combo.parentBId) && !available.has(combo.childId)) {
-        available.add(combo.childId); steps.push(combo); changed = true;
-        if (combo.childId === targetId) return { ok: true, steps };
-      }
-    }
-    if (!changed) break;
-  }
-  return { ok: false, message: "No route was found. Try adding owned Pals or relaxing one of the active constraints." };
-}
-
 function initChain(params) {
   const form = document.querySelector("[data-chain-form]");
   const output = document.querySelector("[data-chain-result]");
@@ -181,7 +163,7 @@ function initChain(params) {
       excludeUnavailable: form.elements.namedItem("excludeUnavailable").checked
     };
     updateQuery({ target: target.slug, excludeLegendary: constraints.excludeLegendary ? "1" : "", excludeUnavailable: constraints.excludeUnavailable ? "1" : "" });
-    const result = findShortestChain(owned, target.id, constraints);
+    const result = findShortestChain({ ownedIds: owned, targetId: target.id, constraints, pals: dataset.pals, combinations: combinations() });
     if (!result.ok) return renderError(output, result.message);
     output.classList.add("result-ready");
     output.innerHTML = `<p class="result-label">Shortest available chain</p><h3>${result.steps.length ? `${result.steps.length} breeding step${result.steps.length === 1 ? "" : "s"}` : "Already in your Palbox"}</h3><div class="pair-list">${result.steps.map((step) => `<div class="pair-row"><span>${escapeHtml(palsById.get(step.parentAId).name)} + ${escapeHtml(palsById.get(step.parentBId).name)}</span><span>→</span><span>${escapeHtml(palsById.get(step.childId).name)}</span></div>`).join("")}</div>${metaMarkup()}`;

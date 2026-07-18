@@ -46,6 +46,16 @@ node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json --production # mus
 
 The importer preserves gender-specific combinations, emits no images, marks every Pal non-indexable and does not copy competitor pages. The snapshot verifier compares the complete roster/ranks and all comparable unique combinations from a temporary public-page download without committing or redistributing that page.
 
+Review the complete candidate without enabling production output or indexing:
+
+```bash
+npm run build:candidate -- /tmp/pbc-launch-candidate.json
+npm run check
+npm run check:compliance
+npm run check:chain
+npm run check:pairs -- /tmp/pbc-launch-candidate.json
+```
+
 ## Build behavior
 
 - Development: explicitly load `data/fixtures/dataset.fixture.json` and render a permanent `Fixture data` warning.

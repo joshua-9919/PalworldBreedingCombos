@@ -46,10 +46,10 @@
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 backend/data | backend-auto-site-cloudflare-workers | NEEDS_REVIEW | 300 Pal / 44,851 rows 候选完成双源修复与公开快照交叉比对；权利审查待确认 |
 | 07 frontend | frontend-site-automation | DONE | searchable inputs、chain constraints、URL state 与 invalid shared state 已验证 |
-| 10 SEO review | seo-launch-workflow | NEEDS_REVIEW | 本地 schema matrix/技术 PASS；线上/GSC 等待 |
+| 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
-| 02 PM acceptance | product-definition-prd | NEEDS_REPAIR | 本地 shell PASS；MVP production NO-GO |
-| 09 QA | student-site-qa-acceptance | BLOCKED | PM/SEO/Compliance 尚未全部 GO |
+| 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
+| 09 QA | student-site-qa-acceptance | READY | SEO/PM/Compliance 均已 GO_FOR_QA；下一阶段执行候选验收 |
 | Owner Review | owner | WAITING | 生产部署与公开动作授权 |
 | 11 launch | site-ops-growth-launch | BLOCKED_SETUP | GitHub/Cloudflare/DNS/GSC/Bing 权限 |
 | 12 data review | site-data-review-iteration | WAITING | 上线后数据四态与 Iterate/Scale/Kill |
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：10 SEO + 02 PM production recheck
-- waiting：09 QA（等 SEO/PM GO）；Owner production review
-- blocked：09 QA；11 生产上线与公开推广
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation
+- running：09 candidate QA
+- waiting：Owner production review
+- blocked：11 生产上线与公开推广
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck

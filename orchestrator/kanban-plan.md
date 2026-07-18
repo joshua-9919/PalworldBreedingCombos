@@ -89,7 +89,7 @@
 - gate：SEO_GO、COMPLIANCE_GO、PM_GO
 - blocked_if：实现不可运行
 - downstream：T09
-- status：RUNNING（Compliance GO_FOR_QA；SEO/PM 待复核）
+- status：DONE_FOR_QA
 
 ## T09 — QA
 
@@ -102,7 +102,7 @@
 - gate：QA_GO，无 P0/P1
 - blocked_if：任一 review 未 GO
 - downstream：Owner Review
-- status：WAITING
+- status：READY
 
 ## T11/T12 — Launch and data review
 

@@ -6,9 +6,12 @@
   "scripts": {
     "validate:data": "node scripts/validate-data.mjs data/fixtures/dataset.fixture.json",
     "build:fixture": "node scripts/build-site.mjs --fixture",
+    "build:candidate": "node scripts/build-site.mjs --candidate",
     "build:production": "node scripts/build-site.mjs --production",
     "build": "node scripts/build-site.mjs --production",
     "check": "node scripts/check-site.mjs dist",
-    "check:compliance": "node scripts/check-compliance.mjs dist"
+    "check:compliance": "node scripts/check-compliance.mjs dist",
+    "check:chain": "node scripts/check-chain-engine.mjs",
+    "check:pairs": "node scripts/check-pair-engine.mjs"
   }
 }
