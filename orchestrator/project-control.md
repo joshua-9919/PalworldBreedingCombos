@@ -45,10 +45,10 @@
 | 05 copy | site-copywriting-student | DONE | SEO Copy Freeze 已冻结 |
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 backend/data | backend-auto-site-cloudflare-workers | NEEDS_REVIEW | Data Contract/fixture/validator 完成；launch data 待来源验证 |
-| 07 frontend | frontend-site-automation | READY | 可使用明确 fixture 开发，不得作为生产数据 |
-| 10 SEO review | seo-launch-workflow | WAITING | indexability、schema、sitemap、canonical |
-| 04 compliance recheck | student-site-compliance-pipeline | WAITING | 实现与政策一致 |
-| 02 PM acceptance | product-definition-prd | WAITING | 满足 PRD 与竞品最低能力 |
+| 07 frontend | frontend-site-automation | NEEDS_REVIEW | 本地实现/构建/smoke 完成；生产数据与部署待解锁 |
+| 10 SEO review | seo-launch-workflow | READY | indexability、schema、sitemap、canonical |
+| 04 compliance recheck | student-site-compliance-pipeline | READY | 实现与政策一致 |
+| 02 PM acceptance | product-definition-prd | READY | 满足 PRD 与竞品最低能力 |
 | 09 QA | student-site-qa-acceptance | WAITING | 真实任务、移动端、控制台与网络证据 |
 | Owner Review | owner | WAITING | 生产部署与公开动作授权 |
 | 11 launch | site-ops-growth-launch | BLOCKED_SETUP | GitHub/Cloudflare/DNS/GSC/Bing 权限 |
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：07 Frontend implementation
-- waiting：10 Reviews、09 QA
+- running：10 SEO + 04 Compliance + 02 PM reviews
+- waiting：09 QA
 - blocked：11 生产上线与公开推广
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract；05 SEO Copy Freeze；06 Design Source；08 Data Contract（launch data 未解锁）
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract；05 SEO Copy Freeze；06 Design Source；08 Data Contract（launch data 未解锁）；07 Frontend local implementation

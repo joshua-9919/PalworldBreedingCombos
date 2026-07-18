@@ -1,0 +1,12 @@
+{
+  "name": "palworld-breeding-combos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:data": "node scripts/validate-data.mjs data/fixtures/dataset.fixture.json",
+    "build:fixture": "node scripts/build-site.mjs --fixture",
+    "build": "node scripts/build-site.mjs --production",
+    "check": "node scripts/check-site.mjs dist"
+  }
+}
