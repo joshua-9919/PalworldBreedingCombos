@@ -12,7 +12,7 @@
 - 禁止事项：不得自称官方；不得复制竞品数据或受保护素材；不得在未确认权利与来源时使用游戏图片；不得未经 Owner Review 绑定生产 DNS 或公开推广
 - 上线期望：快速 BUILD_NOW；不牺牲数据准确性与 QA
 - 当前模式：automation_factory
-- 当前状态：RUNNING
+- 当前状态：LIVE_REVIEWED
 - 唯一事实源：本文件 + `stage-dag.md` + `kanban-plan.md`
 
 ## Owner 只需要处理
@@ -20,7 +20,7 @@
 - [x] 注册主域名 `palworldbreedingcombos.com`
 - [x] GitHub 仓库已连接：`joshua-9919/PalworldBreedingCombos`
 - [x] Cloudflare Pages 生产部署及 root/www 主域名绑定已完成
-- [ ] 准备 GSC、Bing Webmaster Tools 与分析工具登录态
+- [x] GSC、Bing Webmaster Tools sitemap 已提交；Plausible 已安装并收到首个测试访问
 - [x] 在 QA_GO 后确认允许生产部署与 DNS 绑定
 - [ ] 在上线后确认是否允许社区发帖、目录提交等公开推广
 
@@ -49,22 +49,23 @@
 | 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
-| 09 QA | student-site-qa-acceptance | DONE | QA_GO_CANDIDATE：移动端 8 类任务、0 Console/Network 错误；生产 smoke 留在 Launch Gate |
+| 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 生产全站复验通过；0 站点 Console 错误，P0=0，P1=1（10 MB 数据载荷） |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | LIVE | Pages 与 root/www 主域名已上线并通过 smoke；GSC/Bing/推广未授权 |
-| 12 data review | site-data-review-iteration | WAITING | 上线后数据四态与 Iterate/Scale/Kill |
+| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 均已上线/提交；公开推广未授权 |
+| 12 data review | site-data-review-iteration | BASELINE | 首轮结论 ITERATE；数据量不足以 Scale/Kill，等待真实自然流量 |
 
 ## Risks
 
 - P0：1.0 繁殖数据若不准确，工具核心价值失效；在数据源、版本和交叉验证完成前不得宣称完整准确。
 - P1：`Palworld` 属品牌词；必须明确非官方、避免官方视觉冒充，并保留域名/IP投诉风险。
 - P1：1.0 热点窗口短，近期大量新 EMD 站已经进入 SERP。
-- P1：缺 GitHub/Cloudflare/GSC/Bing 权限，当前无法形成真实上线证据。
+- P1：全站客户端数据文件约 10.18 MB，一次远程请求实测 14.1 秒；需拆分、压缩或按需加载。
+- P2：`www` 当前返回 200 而非 301 到主域；canonical 已指向主域，但仍建议统一跳转。
 - P2：没有付费关键词 API，精确 volume/KD/CPC 暂缺；不得编造。
 
 ## Current State
 
 - running：无
-- waiting：GSC/Bing 与公开推广授权
-- blocked：GSC/Bing 与公开推广未授权（不影响站点访问）
+- waiting：真实自然流量积累与公开推广授权
+- blocked：公开推广未授权（不影响站点访问与自然收录）
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck；09 QA_GO_CANDIDATE

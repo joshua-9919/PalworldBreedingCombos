@@ -17,8 +17,10 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 - Final domain smoke: both hosts return HTTP 200; both publish the root-domain canonical; root robots allows search crawling and references the production sitemap.
 - Public contact address: `contact@palworldbreedingcombos.com`; Cloudflare Email Routing is enabled with locked DNS records and an active route to the Owner's verified private destination. The private destination address is not published by the site or repository.
 
-## Pending gates
+## Post-launch verification
 
-- GSC/Bing verification and sitemap submission are not authorized.
-- Public promotion and directory/community submission are not authorized.
-- Plausible privacy-friendly analytics is installed using the Owner-provided site script from `plausible.shipsolo.io`; Privacy discloses the provider and aggregate-measurement purpose.
+- Google Search Console domain ownership is verified and the production sitemap was submitted successfully (10 URLs).
+- Bing Webmaster Tools accepted the production sitemap successfully (10 URLs).
+- Plausible privacy-friendly analytics is installed using the Owner-provided site script from `plausible.shipsolo.io`; Privacy discloses the provider and aggregate-measurement purpose. The dashboard received the first QA visit.
+- Public promotion and directory/community submission remain unauthorized.
+- Production QA found no P0 defects. The primary P1 follow-up is the 10.18 MB client dataset payload; `www` canonical-host redirect is a P2 follow-up.
