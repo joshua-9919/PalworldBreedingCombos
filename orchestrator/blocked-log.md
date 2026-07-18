@@ -36,6 +36,6 @@
 
 - 类型：数据/IP
 - 影响：没有来源、revision/hash、转换与验证记录的数据不得上线
-- 当前处理：实现阶段先建立 Data Contract 和验证管线，不复制竞品数据库
+- 当前处理：Data Contract、source ledger schema、synthetic fixture 和验证脚本已建立；不复制竞品数据库
 - Owner 解锁动作：无；由流水线在 Data Gate 交付证据
 - status：OPEN_BLOCKS_LAUNCH

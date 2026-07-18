@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://palworldbreedingcombos.com/schemas/dataset-v1.json",
+  "title": "Palworld Breeding Dataset v1",
+  "type": "object",
+  "required": ["manifest", "pals", "specialCombinations", "knownGaps"],
+  "additionalProperties": false,
+  "properties": {
+    "manifest": {
+      "type": "object",
+      "required": [
+        "contractVersion",
+        "environment",
+        "gameVersion",
+        "datasetVersion",
+        "generatedAt",
+        "sourceRevision",
+        "verificationStatus",
+        "recordCounts"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": "1.0.0" },
+        "environment": { "enum": ["fixture", "launch"] },
+        "gameVersion": { "type": "string", "minLength": 1 },
+        "datasetVersion": { "type": "string", "pattern": "^[a-zA-Z0-9._-]+$" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "sourceRevision": { "type": "string", "minLength": 1 },
+        "verificationStatus": {
+          "enum": ["fixture", "unverified", "partially-verified", "verified"]
+        },
+        "recordCounts": {
+          "type": "object",
+          "required": ["pals", "specialCombinations"],
+          "additionalProperties": false,
+          "properties": {
+            "pals": { "type": "integer", "minimum": 0 },
+            "specialCombinations": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "pals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pal" }
+    },
+    "specialCombinations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/specialCombination" }
+    },
+    "knownGaps": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "$defs": {
+    "pal": {
+      "type": "object",
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "paldexNo",
+        "breedingPower",
+        "breedable",
+        "rarityClass",
+        "availability",
+        "aliases",
+        "verificationStatus",
+        "indexable"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "name": { "type": "string", "minLength": 1 },
+        "paldexNo": { "type": "string", "minLength": 1 },
+        "breedingPower": { "type": ["integer", "null"], "minimum": 0 },
+        "breedable": { "type": "boolean" },
+        "rarityClass": { "enum": ["common", "uncommon", "rare", "epic", "legendary", "unknown"] },
+        "availability": { "enum": ["early", "mid", "late", "legendary", "special", "unavailable", "unknown"] },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "verificationStatus": { "enum": ["fixture", "unverified", "derived", "verified", "unknown"] },
+        "indexable": { "type": "boolean" }
+      }
+    },
+    "specialCombination": {
+      "type": "object",
+      "required": ["parentAId", "parentBId", "childId", "verificationStatus"],
+      "additionalProperties": false,
+      "properties": {
+        "parentAId": { "type": "string" },
+        "parentBId": { "type": "string" },
+        "childId": { "type": "string" },
+        "verificationStatus": { "enum": ["fixture", "unverified", "verified"] }
+      }
+    }
+  }
+}

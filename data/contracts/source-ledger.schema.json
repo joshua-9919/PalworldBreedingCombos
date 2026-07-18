@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://palworldbreedingcombos.com/schemas/source-ledger-v1.json",
+  "title": "Dataset Source Ledger v1",
+  "type": "object",
+  "required": ["ledgerVersion", "datasetVersion", "sources", "transform", "review"],
+  "additionalProperties": false,
+  "properties": {
+    "ledgerVersion": { "const": "1.0.0" },
+    "datasetVersion": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sourceId", "sourceType", "locator", "revision", "rightsBasis", "retrievedAt", "checksum"],
+        "additionalProperties": false,
+        "properties": {
+          "sourceId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+          "sourceType": { "enum": ["official-game-file", "official-documentation", "licensed-open-data", "manual-verification", "other"] },
+          "locator": { "type": "string", "minLength": 1 },
+          "revision": { "type": "string", "minLength": 1 },
+          "rightsBasis": { "type": "string", "minLength": 1 },
+          "retrievedAt": { "type": "string", "format": "date-time" },
+          "checksum": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "transform": {
+      "type": "object",
+      "required": ["script", "revision", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "script": { "type": "string", "minLength": 1 },
+        "revision": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["reviewer", "reviewedAt", "status", "knownGaps"],
+      "additionalProperties": false,
+      "properties": {
+        "reviewer": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "status": { "enum": ["blocked", "partially-verified", "verified"] },
+        "knownGaps": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    }
+  }
+}

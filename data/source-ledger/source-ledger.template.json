@@ -1,0 +1,26 @@
+{
+  "ledgerVersion": "1.0.0",
+  "datasetVersion": "REPLACE_BEFORE_LAUNCH",
+  "sources": [
+    {
+      "sourceId": "replace-source",
+      "sourceType": "other",
+      "locator": "REPLACE_BEFORE_LAUNCH",
+      "revision": "REPLACE_BEFORE_LAUNCH",
+      "rightsBasis": "REPLACE_BEFORE_LAUNCH_AND_REVIEW",
+      "retrievedAt": "1970-01-01T00:00:00Z",
+      "checksum": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "transform": {
+    "script": "REPLACE_BEFORE_LAUNCH",
+    "revision": "REPLACE_BEFORE_LAUNCH",
+    "description": "REPLACE_BEFORE_LAUNCH"
+  },
+  "review": {
+    "reviewer": "REPLACE_BEFORE_LAUNCH",
+    "reviewedAt": "1970-01-01T00:00:00Z",
+    "status": "blocked",
+    "knownGaps": ["Template only. This is not launch evidence."]
+  }
+}

@@ -44,8 +44,8 @@
 | 04 compliance | student-site-compliance-pipeline | NEEDS_REVIEW | 本地合同完成；生产数据/IP证据待验 |
 | 05 copy | site-copywriting-student | DONE | SEO Copy Freeze 已冻结 |
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
-| 08 backend/data | backend-auto-site-cloudflare-workers | READY | 前端可消费数据契约与版本化数据 |
-| 07 frontend | frontend-site-automation | WAITING | 页面、交互、SEO、分析钩子 |
+| 08 backend/data | backend-auto-site-cloudflare-workers | NEEDS_REVIEW | Data Contract/fixture/validator 完成；launch data 待来源验证 |
+| 07 frontend | frontend-site-automation | READY | 可使用明确 fixture 开发，不得作为生产数据 |
 | 10 SEO review | seo-launch-workflow | WAITING | indexability、schema、sitemap、canonical |
 | 04 compliance recheck | student-site-compliance-pipeline | WAITING | 实现与政策一致 |
 | 02 PM acceptance | product-definition-prd | WAITING | 满足 PRD 与竞品最低能力 |
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：08 Data Contract
-- waiting：07 Frontend、10 Reviews、09 QA
+- running：07 Frontend implementation
+- waiting：10 Reviews、09 QA
 - blocked：11 生产上线与公开推广
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract；05 SEO Copy Freeze；06 Design Source
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract；05 SEO Copy Freeze；06 Design Source；08 Data Contract（launch data 未解锁）

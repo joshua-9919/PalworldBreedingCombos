@@ -9,8 +9,8 @@
 | 04 Compliance | NEEDS_REVIEW | 2026-07-17 | 合同完成；生产数据/IP证据待验 |
 | 05 Copy | DONE | 2026-07-17 | SEO Copy Freeze v1 已冻结 |
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
-| 08 Data | READY | 2026-07-17 | Design Source 已通过 |
-| 07 Frontend | WAITING | 2026-07-17 | 等待前置合同 |
+| 08 Data | NEEDS_REVIEW | 2026-07-18 | Contract/fixture/validator 完成；launch data 待来源验证 |
+| 07 Frontend | READY | 2026-07-18 | 可用显式 fixture 开发 |
 | 10 Reviews | WAITING | 2026-07-17 | 等待实现 |
 | 09 QA | WAITING | 2026-07-17 | 等待 reviews GO |
 | Owner Review | WAITING | 2026-07-17 | 等待 QA_GO |

@@ -1,0 +1,81 @@
+{
+  "manifest": {
+    "contractVersion": "1.0.0",
+    "environment": "fixture",
+    "gameVersion": "fixture-only",
+    "datasetVersion": "fixture.v1",
+    "generatedAt": "2026-07-18T00:00:00Z",
+    "sourceRevision": "synthetic-no-game-data",
+    "verificationStatus": "fixture",
+    "recordCounts": {
+      "pals": 4,
+      "specialCombinations": 1
+    }
+  },
+  "pals": [
+    {
+      "id": "fixture-sprout",
+      "slug": "fixture-sprout",
+      "name": "Fixture Sprout",
+      "paldexNo": "F001",
+      "breedingPower": 100,
+      "breedable": true,
+      "rarityClass": "common",
+      "availability": "early",
+      "aliases": [],
+      "verificationStatus": "fixture",
+      "indexable": false
+    },
+    {
+      "id": "fixture-cinder",
+      "slug": "fixture-cinder",
+      "name": "Fixture Cinder",
+      "paldexNo": "F002",
+      "breedingPower": 200,
+      "breedable": true,
+      "rarityClass": "uncommon",
+      "availability": "mid",
+      "aliases": [],
+      "verificationStatus": "fixture",
+      "indexable": false
+    },
+    {
+      "id": "fixture-tide",
+      "slug": "fixture-tide",
+      "name": "Fixture Tide",
+      "paldexNo": "F003",
+      "breedingPower": 150,
+      "breedable": true,
+      "rarityClass": "rare",
+      "availability": "mid",
+      "aliases": [],
+      "verificationStatus": "fixture",
+      "indexable": false
+    },
+    {
+      "id": "fixture-egg",
+      "slug": "fixture-egg",
+      "name": "Fixture Egg",
+      "paldexNo": "F004",
+      "breedingPower": null,
+      "breedable": false,
+      "rarityClass": "unknown",
+      "availability": "special",
+      "aliases": [],
+      "verificationStatus": "fixture",
+      "indexable": false
+    }
+  ],
+  "specialCombinations": [
+    {
+      "parentAId": "fixture-cinder",
+      "parentBId": "fixture-sprout",
+      "childId": "fixture-tide",
+      "verificationStatus": "fixture"
+    }
+  ],
+  "knownGaps": [
+    "Synthetic fixture contains no Palworld game records.",
+    "Normal breeding formula is intentionally not implemented by this fixture."
+  ]
+}
