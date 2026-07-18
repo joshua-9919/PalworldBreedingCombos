@@ -13,6 +13,6 @@
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
 | 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
 | 09 QA | DONE | 2026-07-18 | QA_GO_CANDIDATE；390×844、8 类任务、0 Console/Network 错误 |
-| Owner Review | WAITING_OWNER | 2026-07-18 | 等待发布风险、Terms、免费范围与生产部署人工确认 |
-| 11 Launch | BLOCKED | 2026-07-17 | 缺 GitHub/Cloudflare/DNS/GSC/Bing 权限与 Owner 授权 |
+| Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
+| 11 Launch | RUNNING_SETUP | 2026-07-18 | 执行 Cloudflare 登录态与生产构建 preflight；GSC/Bing/推广未授权 |
 | 12 Data Review | WAITING | 2026-07-17 | 等待生产数据 |

@@ -1,0 +1,22 @@
+{
+  "approvalVersion": "1.0.0",
+  "approvedAt": "2026-07-18T10:55:00Z",
+  "operatorType": "individual",
+  "publicOperatorName": "Palworld Breeding Combos",
+  "jurisdiction": "Republic of Indonesia",
+  "approvedScope": {
+    "free": true,
+    "advertising": false,
+    "affiliateMarketing": false,
+    "payments": false,
+    "officialAffiliationClaim": false,
+    "gameMediaAssets": false
+  },
+  "productionActions": {
+    "cloudflareDeploy": true,
+    "bindPrimaryDomain": true,
+    "searchConsoleSubmission": false,
+    "publicPromotion": false
+  },
+  "riskAcceptance": "Owner approved publication of the compiled factual breeding dataset under the documented conservative fan-tool scope. This approval does not represent Pocketpair permission or legal advice."
+}
