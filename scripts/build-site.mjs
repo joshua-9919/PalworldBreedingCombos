@@ -123,7 +123,11 @@ for (const [path, html] of pages) {
   const pageHtml = path === "/guide/breeding-formula/"
     ? html.replace('name="robots" content="index,follow"', 'name="robots" content="noindex,nofollow"')
     : html;
-  const emailSafeHtml = pageHtml.replaceAll(
+  const sourceSafeHtml = pageHtml.replaceAll(
+    escapeHtml(dataset.manifest.sourceRevision),
+    `<!--email_off-->${escapeHtml(dataset.manifest.sourceRevision)}<!--/email_off-->`
+  );
+  const emailSafeHtml = sourceSafeHtml.replaceAll(
     '<a href="mailto:contact@palworldbreedingcombos.com">contact@palworldbreedingcombos.com</a>',
     '<!--email_off--><a href="mailto:contact@palworldbreedingcombos.com">contact@palworldbreedingcombos.com</a><!--/email_off-->'
   );
