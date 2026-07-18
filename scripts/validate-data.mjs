@@ -24,6 +24,7 @@ if (!dataset || typeof dataset !== "object") fail("root must be an object");
 if (!dataset.manifest || typeof dataset.manifest !== "object") fail("manifest is required");
 if (!Array.isArray(dataset.pals)) fail("pals must be an array");
 if (!Array.isArray(dataset.specialCombinations)) fail("specialCombinations must be an array");
+if (dataset.combinations !== undefined && !Array.isArray(dataset.combinations)) fail("combinations must be an array when provided");
 if (!Array.isArray(dataset.knownGaps)) fail("knownGaps must be an array");
 
 const manifest = dataset.manifest ?? {};
@@ -35,6 +36,7 @@ if (!isString(manifest.generatedAt) || Number.isNaN(Date.parse(manifest.generate
 if (!isString(manifest.sourceRevision)) fail("manifest.sourceRevision is required");
 if (production && manifest.environment !== "launch") fail("FIXTURE_FORBIDDEN: production validation requires environment=launch");
 if (production && manifest.verificationStatus === "fixture") fail("FIXTURE_FORBIDDEN: fixture verification status cannot ship");
+if (production && manifest.verificationStatus !== "verified") fail("PROVENANCE_GATE: production requires manifest.verificationStatus=verified");
 
 const pals = Array.isArray(dataset.pals) ? dataset.pals : [];
 const ids = new Set();
@@ -68,8 +70,27 @@ for (const [index, combo] of combos.entries()) {
   comboKeys.add(key);
 }
 
+const combinations = Array.isArray(dataset.combinations) ? dataset.combinations : [];
+const combinationKeys = new Set();
+for (const [index, combo] of combinations.entries()) {
+  const label = `combinations[${index}]`;
+  for (const field of ["parentAId", "parentBId", "childId"]) {
+    if (!ids.has(combo?.[field])) fail(`${label}.${field} references missing Pal ${combo?.[field]}`);
+  }
+  if (combo?.parentAId > combo?.parentBId) fail(`${label} parents must use canonical ascending ID order`);
+  for (const field of ["parentAGender", "parentBGender"]) {
+    if (!["WILDCARD", "MALE", "FEMALE"].includes(combo?.[field])) fail(`${label}.${field} is invalid`);
+  }
+  const key = `${combo?.parentAId}|${combo?.parentAGender}|${combo?.parentBId}|${combo?.parentBGender}|${combo?.childId}`;
+  if (combinationKeys.has(key)) fail(`${label} duplicates ${key}`);
+  combinationKeys.add(key);
+  if (production && manifest.verificationStatus === "verified" && combo?.verificationStatus !== "verified") fail(`${label} is not verified for production`);
+}
+
 if (manifest.recordCounts?.pals !== pals.length) fail("manifest.recordCounts.pals does not match pals length");
 if (manifest.recordCounts?.specialCombinations !== combos.length) fail("manifest.recordCounts.specialCombinations does not match combinations length");
+if (manifest.recordCounts?.combinations !== undefined && manifest.recordCounts.combinations !== combinations.length) fail("manifest.recordCounts.combinations does not match combinations length");
+if (production && combinations.length === 0) fail("production dataset requires a non-empty combinations lookup table");
 
 if (errors.length) {
   console.error("DATASET_INVALID");
@@ -83,5 +104,6 @@ console.log(JSON.stringify({
   datasetVersion: manifest.datasetVersion,
   pals: pals.length,
   specialCombinations: combos.length,
+  combinations: combinations.length,
   productionChecked: production
 }, null, 2));

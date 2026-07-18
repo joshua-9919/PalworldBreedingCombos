@@ -1,0 +1,40 @@
+{
+  "ledgerVersion": "1.0.0",
+  "datasetVersion": "palcalc-v26-v1.17.6",
+  "sources": [
+    {
+      "sourceId": "palcalc-db-v1-17-6",
+      "sourceType": "other",
+      "locator": "https://github.com/tylercamp/palcalc/blob/8b7e2f779e47fddae16ddcb973e828ba20c02b80/PalCalc.Model/db.json",
+      "revision": "8b7e2f779e47fddae16ddcb973e828ba20c02b80",
+      "rightsBasis": "Candidate normalization from tylercamp/palcalc, whose repository code is MIT licensed. Extracted Palworld game data remains subject to separate IP review; this record is not production clearance.",
+      "retrievedAt": "2026-07-18T09:09:38Z",
+      "checksum": "sha256:803d891afdb18bd00e24332844a7276bbe5c0855170ef90ef142f2f4d7698ed1"
+    },
+    {
+      "sourceId": "palcalc-breeding-v1-17-6",
+      "sourceType": "other",
+      "locator": "https://github.com/tylercamp/palcalc/blob/8b7e2f779e47fddae16ddcb973e828ba20c02b80/PalCalc.Model/breeding.json",
+      "revision": "8b7e2f779e47fddae16ddcb973e828ba20c02b80",
+      "rightsBasis": "Candidate normalization from tylercamp/palcalc, whose repository code is MIT licensed. Extracted Palworld game data remains subject to separate IP review; this record is not production clearance.",
+      "retrievedAt": "2026-07-18T09:09:38Z",
+      "checksum": "sha256:1af1e4d6b461599ec3b80a2195002337ff484ed3c28ce57e27def96138262ec2"
+    }
+  ],
+  "transform": {
+    "script": "scripts/import-palcalc.mjs",
+    "revision": "working-tree-candidate",
+    "description": "Normalize pinned PalCalc db and complete breeding lookup into the local launch-data contract without copying images or UI assets. Preserve gender-specific rows and keep every record non-indexable pending review."
+  },
+  "review": {
+    "reviewer": "Codex automated source intake; Owner and independent game-file review pending",
+    "reviewedAt": "2026-07-18T09:09:38Z",
+    "status": "partially-verified",
+    "knownGaps": [
+      "Independent extraction from a locally owned Palworld 1.0 installation has not been compared.",
+      "MIT repository license does not itself grant rights to Pocketpair game data.",
+      "The upstream v26 database must be mapped to an exact Palworld 1.0 build before production.",
+      "One parent pair has gender-dependent offspring and requires product handling."
+    ]
+  }
+}

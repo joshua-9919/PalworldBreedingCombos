@@ -36,6 +36,6 @@
 
 - 类型：数据/IP
 - 影响：没有来源、revision/hash、转换与验证记录的数据不得上线
-- 当前处理：Data Contract、source ledger schema、synthetic fixture 和验证脚本已建立；不复制竞品数据库
-- Owner 解锁动作：无；由流水线在 Data Gate 交付证据
+- 当前处理：Data Contract、source ledger schema、synthetic fixture 和验证脚本已建立；已固定 PalCalc v1.17.6 / commit `8b7e2f7` 为候选交叉验证源，记录 SHA-256，并完成 299 Pal / 44,851 combinations 的可重复 importer；候选保持 partially-verified、不可索引且不能 production build
+- Owner 解锁动作：需要一份由用户合法持有的 Palworld 1.0 Windows 安装目录进行独立本地提取/比对，或提供 Pocketpair 明确授权的数据源；不要上传游戏文件到聊天
 - status：OPEN_BLOCKS_LAUNCH

@@ -35,7 +35,8 @@
           "additionalProperties": false,
           "properties": {
             "pals": { "type": "integer", "minimum": 0 },
-            "specialCombinations": { "type": "integer", "minimum": 0 }
+            "specialCombinations": { "type": "integer", "minimum": 0 },
+            "combinations": { "type": "integer", "minimum": 0 }
           }
         }
       }
@@ -47,6 +48,10 @@
     "specialCombinations": {
       "type": "array",
       "items": { "$ref": "#/$defs/specialCombination" }
+    },
+    "combinations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/combination" }
     },
     "knownGaps": {
       "type": "array",
@@ -97,6 +102,19 @@
         "parentBId": { "type": "string" },
         "childId": { "type": "string" },
         "verificationStatus": { "enum": ["fixture", "unverified", "verified"] }
+      }
+    },
+    "combination": {
+      "type": "object",
+      "required": ["parentAId", "parentAGender", "parentBId", "parentBGender", "childId", "verificationStatus"],
+      "additionalProperties": false,
+      "properties": {
+        "parentAId": { "type": "string" },
+        "parentAGender": { "enum": ["WILDCARD", "MALE", "FEMALE"] },
+        "parentBId": { "type": "string" },
+        "parentBGender": { "enum": ["WILDCARD", "MALE", "FEMALE"] },
+        "childId": { "type": "string" },
+        "verificationStatus": { "enum": ["unverified", "verified"] }
       }
     }
   }

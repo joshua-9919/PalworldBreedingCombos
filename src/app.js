@@ -5,6 +5,10 @@ let dataset;
 let palsById;
 let palsByLookup;
 
+const combinations = () => dataset.combinations || dataset.specialCombinations.map((combo) => ({
+  ...combo, parentAGender: "WILDCARD", parentBGender: "WILDCARD"
+}));
+
 function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>'"]/g, (char) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
@@ -44,12 +48,13 @@ function findChild(parentAId, parentBId) {
   if (!parentA.breedable || !parentB.breedable) return { ok: false, message: "One selected Pal is marked unbreedable in this dataset." };
   if (parentAId === parentBId) return { ok: true, child: parentA, rule: "same-species", verification: parentA.verificationStatus };
   const [a, b] = canonicalPair(parentAId, parentBId);
-  const special = dataset.specialCombinations.find((combo) => combo.parentAId === a && combo.parentBId === b);
-  if (special) return { ok: true, child: palsById.get(special.childId), rule: "special", verification: special.verificationStatus };
+  const matches = combinations().filter((combo) => combo.parentAId === a && combo.parentBId === b);
+  if (matches.length === 1) return { ok: true, child: palsById.get(matches[0].childId), rule: "versioned lookup", verification: matches[0].verificationStatus };
+  if (matches.length > 1) return { ok: true, choices: matches, rule: "gender-dependent", verification: matches[0].verificationStatus };
   return { ok: false, message: "No validated result exists for this pair in the active dataset." };
 }
 
-const parentPairs = (targetId) => dataset.specialCombinations.filter((combo) => combo.childId === targetId)
+const parentPairs = (targetId) => combinations().filter((combo) => combo.childId === targetId)
   .map((combo) => ({ ...combo, parentA: palsById.get(combo.parentAId), parentB: palsById.get(combo.parentBId) }));
 
 function renderError(output, message, heading = "Check this selection") {
@@ -69,6 +74,11 @@ function initParentsCalculator(params) {
     const result = findChild(parentA?.id, parentB?.id);
     if (!result.ok) return renderError(output, result.message);
     updateQuery({ mode: "parents", parentA: parentA.slug, parentB: parentB.slug });
+    if (result.choices) {
+      output.classList.add("result-ready");
+      output.innerHTML = `<p class="result-label">Gender-dependent offspring</p><h3>Parent genders change the child</h3><div class="pair-list">${result.choices.map((choice) => `<div class="pair-row"><span>${escapeHtml(palsById.get(choice.parentAId).name)} (${escapeHtml(choice.parentAGender.toLowerCase())}) + ${escapeHtml(palsById.get(choice.parentBId).name)} (${escapeHtml(choice.parentBGender.toLowerCase())})</span><span>→</span><span>${escapeHtml(palsById.get(choice.childId).name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+      return;
+    }
     output.classList.add("result-ready");
     output.innerHTML = `<p class="result-label">Expected offspring</p><h3 class="result-title">${escapeHtml(result.child.name)}</h3><p>Rule type: ${escapeHtml(result.rule)}. Verification: ${escapeHtml(result.verification)}.</p>${metaMarkup()}`;
   };
@@ -90,9 +100,9 @@ function initTargetLookup(params) {
     if (!target) return renderError(output, "Enter a Pal name or Paldeck number from the suggestions.");
     updateQuery({ mode: "target", target: target.slug });
     const pairs = parentPairs(target.id);
-    if (!pairs.length) return renderError(output, "No direct special parent pairs are validated for this target in the active dataset.");
+    if (!pairs.length) return renderError(output, "No direct parent pairs are available for this target in the active dataset.");
     output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><div class="pair-list">${pairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+    output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><div class="pair-list">${pairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}${pair.parentAGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentAGender.toLowerCase())})` : ""}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}${pair.parentBGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentBGender.toLowerCase())})` : ""}</span></div>`).join("")}</div>${metaMarkup()}`;
   };
   input.addEventListener("change", render);
   if (params.has("target")) {
@@ -111,11 +121,19 @@ function initOneParent(params) {
     const parent = resolvePal(input.value);
     if (!parent) return renderError(output, "Enter a Pal name or Paldeck number from the suggestions.");
     updateQuery({ mode: "one-parent", parent: parent.slug });
-    const results = dataset.specialCombinations.filter((combo) => combo.parentAId === parent.id || combo.parentBId === parent.id)
-      .map((combo) => ({ partner: palsById.get(combo.parentAId === parent.id ? combo.parentBId : combo.parentAId), child: palsById.get(combo.childId) }));
+    const results = combinations().filter((combo) => combo.parentAId === parent.id || combo.parentBId === parent.id)
+      .map((combo) => {
+        const parentIsA = combo.parentAId === parent.id;
+        return {
+          partner: palsById.get(parentIsA ? combo.parentBId : combo.parentAId),
+          parentGender: parentIsA ? combo.parentAGender : combo.parentBGender,
+          partnerGender: parentIsA ? combo.parentBGender : combo.parentAGender,
+          child: palsById.get(combo.childId)
+        };
+      });
     if (!results.length) return renderError(output, "No validated partner results exist for this Pal in the active dataset.");
     output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Partner results</p><h3>${escapeHtml(parent.name)}</h3><div class="pair-list">${results.map((item) => `<div class="pair-row"><span>+ ${escapeHtml(item.partner.name)}</span><span>→</span><span>${escapeHtml(item.child.name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+    output.innerHTML = `<p class="result-label">Partner results</p><h3>${escapeHtml(parent.name)}</h3><div class="pair-list">${results.map((item) => `<div class="pair-row"><span>${item.parentGender !== "WILDCARD" ? `${escapeHtml(item.parentGender.toLowerCase())} + ` : "+ "}${escapeHtml(item.partner.name)}${item.partnerGender !== "WILDCARD" ? ` (${escapeHtml(item.partnerGender.toLowerCase())})` : ""}</span><span>→</span><span>${escapeHtml(item.child.name)}</span></div>`).join("")}</div>${metaMarkup()}`;
   };
   input.addEventListener("change", render);
   if (params.has("parent")) {
@@ -132,7 +150,8 @@ function findShortestChain(ownedIds, targetId, constraints) {
   const allowed = (pal) => pal && (!constraints.excludeLegendary || pal.rarityClass !== "legendary") && (!constraints.excludeUnavailable || (pal.breedable && pal.availability !== "unavailable"));
   for (let generation = 0; generation < dataset.pals.length; generation += 1) {
     let changed = false;
-    for (const combo of dataset.specialCombinations) {
+    for (const combo of combinations()) {
+      if (combo.parentAGender !== "WILDCARD" || combo.parentBGender !== "WILDCARD") continue;
       const involved = [combo.parentAId, combo.parentBId, combo.childId].map((id) => palsById.get(id));
       if (!involved.every(allowed)) continue;
       if (available.has(combo.parentAId) && available.has(combo.parentBId) && !available.has(combo.childId)) {

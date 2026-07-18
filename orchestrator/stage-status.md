@@ -9,7 +9,7 @@
 | 04 Compliance | NEEDS_REVIEW | 2026-07-17 | 合同完成；生产数据/IP证据待验 |
 | 05 Copy | DONE | 2026-07-17 | SEO Copy Freeze v1 已冻结 |
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
-| 08 Data | NEEDS_REVIEW | 2026-07-18 | Contract/fixture/validator 完成；launch data 待来源验证 |
+| 08 Data | NEEDS_REVIEW | 2026-07-18 | v1.17.6 候选 importer/ledger 完成；独立游戏文件比对待解锁 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
 | 10 Reviews | NEEDS_REVIEW | 2026-07-18 | 本地 P1 修复完成；生产数据、SEO 与合规门禁仍阻塞 |
 | 09 QA | BLOCKED | 2026-07-18 | 等待 PM/SEO/Compliance 全部 GO |

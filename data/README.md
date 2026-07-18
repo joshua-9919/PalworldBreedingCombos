@@ -12,8 +12,8 @@ The MVP does not need Workers, D1, R2, authentication, payments, uploads, or ser
 ```text
 data/contracts/       machine-readable schemas and query contract
 data/fixtures/        synthetic development-only data
+data/source-ledger/   pinned candidate source evidence and production ledger
 data/launch/          production candidate data; absent until provenance gate passes
-data/source-ledger/   source, license, revision, transform and verification evidence
 scripts/              deterministic validation/build tooling
 ```
 
@@ -24,6 +24,24 @@ Rules:
 3. The frontend must display `gameVersion`, `datasetVersion`, `generatedAt`, `verificationStatus` and known gaps from the active manifest.
 4. No production build may silently fall back from missing launch data to fixtures.
 5. Every published source must have a ledger record with a reviewable rights/provenance basis.
+6. Third-party candidates are generated outside `data/launch/`; `partially-verified` candidates may pass structural validation but must fail `--production`.
+
+## Candidate intake
+
+The current reproducible candidate is pinned to `tylercamp/palcalc` v1.17.6 / commit `8b7e2f779e47fddae16ddcb973e828ba20c02b80`.
+
+```bash
+node scripts/import-palcalc.mjs \
+  --db /path/to/PalCalc.Model/db.json \
+  --breeding /path/to/PalCalc.Model/breeding.json \
+  --revision v1.17.6 \
+  --out /tmp/pbc-launch-candidate.json
+
+node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json
+node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json --production # must remain blocked until independently verified
+```
+
+The importer preserves gender-specific combinations, emits no images, marks every Pal non-indexable and does not copy competitor pages.
 
 ## Build behavior
 
