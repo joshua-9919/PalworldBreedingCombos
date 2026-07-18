@@ -17,7 +17,7 @@ async function walk(dir) {
 await walk(root);
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
-  for (const required of ["<title>", "name=\"description\"", "rel=\"canonical\"", "name=\"robots\""]) {
+  for (const required of ["<title>", "name=\"description\"", "rel=\"canonical\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:url\""]) {
     if (!html.includes(required)) errors.push(`${file}: missing ${required}`);
   }
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
@@ -29,6 +29,14 @@ for (const file of htmlFiles) {
     const target = clean === "/" ? join(root, "index.html") : join(root, clean.slice(1), "index.html");
     try { await stat(target); } catch { errors.push(`${file}: broken route ${href}`); }
   }
+}
+
+const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
+for (const file of htmlFiles) {
+  const html = await readFile(file, "utf8");
+  if (!html.includes('name="robots" content="noindex,nofollow"')) continue;
+  const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+  if (canonical && sitemap.includes(`<loc>${canonical}</loc>`)) errors.push(`${file}: noindex canonical appears in sitemap`);
 }
 
 for (const required of ["robots.txt", "sitemap.xml", "404.html", "favicon.svg", "assets/dataset.json", "assets/app.js", "assets/styles.css"]) {

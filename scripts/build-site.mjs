@@ -51,7 +51,7 @@ function datasetStrip() {
 
 function document({ path, title, description, active, body, schema }) {
   const canonical = `${origin}${path}`;
-  return `<!doctype html><html lang="en" data-dataset-url="/assets/dataset.json"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="robots" content="${noindex ? "noindex,nofollow" : "index,follow"}"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/styles.css">${schema ? `<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, "\\u003c")}</script>` : ""}</head><body>${header(active)}${datasetStrip()}<main>${body}</main>${footer()}<script type="module" src="/assets/app.js"></script></body></html>`;
+  return `<!doctype html><html lang="en" data-dataset-url="/assets/dataset.json"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="robots" content="${noindex ? "noindex,nofollow" : "index,follow"}"><meta property="og:type" content="website"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta name="twitter:card" content="summary"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/styles.css">${schema ? `<script type="application/ld+json">${JSON.stringify(schema).replace(/</g, "\\u003c")}</script>` : ""}</head><body>${header(active)}${datasetStrip()}<main>${body}</main>${footer()}<script type="module" src="/assets/app.js"></script></body></html>`;
 }
 
 const emptyResult = (attribute = "data-result") => `<output class="result-panel" ${attribute} aria-live="polite"><div class="empty-egg" aria-hidden="true"><span></span></div><p class="result-label">Expected offspring</p><h3>Choose a Pal to get started</h3><p>Results will show their game version, dataset version, and verification status.</p></output>`;
@@ -85,7 +85,7 @@ for (const [path, html] of pages) {
   await writeFile(file, html);
 }
 
-const sitemapPaths = pages.map(([path]) => path);
+const sitemapPaths = noindex ? [] : pages.map(([path]) => path);
 await writeFile(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapPaths.map((path) => `<url><loc>${origin}${path}</loc></url>`).join("")}</urlset>`);
 await writeFile(join(out, "robots.txt"), noindex ? "User-agent: *\nDisallow: /\n" : `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile(join(out, "favicon.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#07110f"/><path d="M32 16c-8 0-13 10-13 20 0 9 5 14 13 14s13-5 13-14c0-10-5-20-13-20Z" fill="none" stroke="#f3b849" stroke-width="4"/><circle cx="13" cy="13" r="5" fill="none" stroke="#b7c9a4" stroke-width="3"/><circle cx="51" cy="13" r="5" fill="none" stroke="#b7c9a4" stroke-width="3"/><path d="m17 16 8 8m22-8-8 8" stroke="#b7c9a4" stroke-width="3"/></svg>`);

@@ -10,9 +10,9 @@
 | 05 Copy | DONE | 2026-07-17 | SEO Copy Freeze v1 已冻结 |
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 Data | NEEDS_REVIEW | 2026-07-18 | Contract/fixture/validator 完成；launch data 待来源验证 |
-| 07 Frontend | NEEDS_REVIEW | 2026-07-18 | 本地实现/构建/smoke 完成；生产数据和部署待解锁 |
-| 10 Reviews | READY | 2026-07-18 | SEO/PM/合规可并行复核 |
-| 09 QA | WAITING | 2026-07-17 | 等待 reviews GO |
+| 07 Frontend | NEEDS_REPAIR | 2026-07-18 | 搜索 selector、chain filters、URL state 等 P1 |
+| 10 Reviews | NEEDS_REVIEW | 2026-07-18 | 本地复核完成；PM NO-GO、生产 SEO/合规阻塞 |
+| 09 QA | BLOCKED | 2026-07-18 | 等待 PM/SEO/Compliance 全部 GO |
 | Owner Review | WAITING | 2026-07-17 | 等待 QA_GO |
 | 11 Launch | BLOCKED | 2026-07-17 | 缺 GitHub/Cloudflare/DNS/GSC/Bing 权限与 Owner 授权 |
 | 12 Data Review | WAITING | 2026-07-17 | 等待生产数据 |

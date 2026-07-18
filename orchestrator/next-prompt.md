@@ -1,3 +1,3 @@
 # Next Automatic Action
 
-Frontend local implementation 已完成，生产仍受 launch data 与 Cloudflare setup 阻塞。总控下一步并行执行 SEO、PM 与合规复核；全部 GO 后进入 QA。Owner 当前无需复制 Prompt 或手动接棒。
+SEO、PM 与合规首轮复核已完成。总控下一步进入 07/08 repair loop：先修 searchable selector、chain filters、URL state 与 schema；实体页和正常公式等待 launch data/provenance。Owner 当前无需复制 Prompt 或手动接棒。
