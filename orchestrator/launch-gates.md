@@ -15,6 +15,7 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 - Live smoke: HTTP 200; security headers present; homepage `index,follow`; canonical points to the primary domain; robots allows crawling; sitemap contains nine approved URLs; formula guide is `noindex,nofollow` and excluded from sitemap.
 - Cloudflare custom domains attached: <https://palworldbreedingcombos.com/> and <https://www.palworldbreedingcombos.com/>.
 - Final domain smoke: both hosts return HTTP 200; both publish the root-domain canonical; root robots allows search crawling and references the production sitemap.
+- Public contact address: `contact@palworldbreedingcombos.com`; Cloudflare Email Routing is enabled with locked DNS records and an active route to the Owner's verified private destination. The private destination address is not published by the site or repository.
 
 ## Pending gates
 
