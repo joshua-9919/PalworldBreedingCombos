@@ -6,6 +6,7 @@
   "scripts": {
     "validate:data": "node scripts/validate-data.mjs data/fixtures/dataset.fixture.json",
     "build:fixture": "node scripts/build-site.mjs --fixture",
+    "build:production": "node scripts/build-site.mjs --production",
     "build": "node scripts/build-site.mjs --production",
     "check": "node scripts/check-site.mjs dist"
   }

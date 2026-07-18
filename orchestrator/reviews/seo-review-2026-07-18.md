@@ -37,7 +37,7 @@ Status: LOCAL_TECHNICAL_PASS / PRODUCTION_BLOCKED
 ### Content/schema gaps before SEO_GO
 
 - Entity pages are intentionally absent until verified launch records meet the unique-value gate.
-- Homepage has WebApplication schema, but full Route Contract schema coverage for FAQPage, WebSite, CollectionPage, Article, BreadcrumbList and ItemList remains incomplete.
+- Route-level WebSite, WebApplication, FAQPage, CollectionPage, ItemList, Article and BreadcrumbList coverage is present for current pages; build checks parse every emitted JSON-LD block.
 - OG image is absent; it requires an approved original asset before launch.
 - Production formula/examples remain withheld until data validation; this is safer than publishing unsupported claims but leaves a competitive content gap.
 
@@ -45,7 +45,7 @@ Status: LOCAL_TECHNICAL_PASS / PRODUCTION_BLOCKED
 
 - P0: production accidentally built from fixture — prevented by validator.
 - P0: indexable thin/entity pages from unverified data — currently prevented.
-- P1: incomplete schema matrix before launch.
+- CLOSED locally: current-route schema matrix and JSON parsing validation.
 - P1: no production URL/GSC/Bing/HTTPS/Crawler Hints evidence.
 - P1: no verified entity-page inventory or launch sitemap.
 - P2: no OG image or Ahrefs audit.
