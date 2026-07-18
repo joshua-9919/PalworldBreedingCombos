@@ -8,6 +8,7 @@
     "build:fixture": "node scripts/build-site.mjs --fixture",
     "build:production": "node scripts/build-site.mjs --production",
     "build": "node scripts/build-site.mjs --production",
-    "check": "node scripts/check-site.mjs dist"
+    "check": "node scripts/check-site.mjs dist",
+    "check:compliance": "node scripts/check-compliance.mjs dist"
   }
 }

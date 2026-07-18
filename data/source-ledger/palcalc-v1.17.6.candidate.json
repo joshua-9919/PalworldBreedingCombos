@@ -19,22 +19,49 @@
       "rightsBasis": "Candidate normalization from tylercamp/palcalc, whose repository code is MIT licensed. Extracted Palworld game data remains subject to separate IP review; this record is not production clearance.",
       "retrievedAt": "2026-07-18T09:09:38Z",
       "checksum": "sha256:1af1e4d6b461599ec3b80a2195002337ff484ed3c28ce57e27def96138262ec2"
+    },
+    {
+      "sourceId": "palworld-tools-build-24088745",
+      "sourceType": "other",
+      "locator": "https://www.palworld.tools/breeding",
+      "revision": "Palworld-1.0-build-24088745-snapshot-2026-07-18",
+      "rightsBasis": "Read-only corroboration of roster ranks and comparable unique combinations. No page HTML, UI, prose, images or bulk export is committed or redistributed; this is verification evidence, not publication clearance.",
+      "retrievedAt": "2026-07-18T09:20:00Z",
+      "checksum": "not-retained-temporary-snapshot"
+    },
+    {
+      "sourceId": "paldb-v1-0-selected-records",
+      "sourceType": "other",
+      "locator": "https://paldb.cc/en/",
+      "revision": "v1.0.0-pages-reviewed-2026-07-18",
+      "rightsBasis": "Read-only corroboration of selected CombiRank and internal-code assertions. No page HTML, UI, prose, images or bulk export is committed or redistributed; this is verification evidence, not publication clearance.",
+      "retrievedAt": "2026-07-18T09:20:00Z",
+      "checksum": "not-applicable-selected-assertions"
+    },
+    {
+      "sourceId": "astralym-reviewed-overlay",
+      "sourceType": "other",
+      "locator": "data/verification/palworld-1.0-overrides.json",
+      "revision": "1.0.0",
+      "rightsBasis": "Locally authored factual correction supported by two linked public sources; contains no third-party media or prose.",
+      "retrievedAt": "2026-07-18T09:35:32Z",
+      "checksum": "sha256:7150c371bc6624b58dd1514b725dab91c73d27b2db2bc9a17154dbc796b47236"
     }
   ],
   "transform": {
     "script": "scripts/import-palcalc.mjs",
-    "revision": "working-tree-candidate",
-    "description": "Normalize pinned PalCalc db and complete breeding lookup into the local launch-data contract without copying images or UI assets. Preserve gender-specific rows and keep every record non-indexable pending review."
+    "revision": "6ba0b9b",
+    "description": "Normalize pinned PalCalc data, apply one evidence-linked factual overlay and cross-check public source facts without copying images, UI, page text or stored snapshots. Preserve gender-specific rows and keep every record non-indexable pending review."
   },
   "review": {
-    "reviewer": "Codex automated source intake; Owner and independent game-file review pending",
-    "reviewedAt": "2026-07-18T09:09:38Z",
+    "reviewer": "Codex automated source intake and cross-source technical review; Owner publication-risk review pending",
+    "reviewedAt": "2026-07-18T10:30:00Z",
     "status": "partially-verified",
     "knownGaps": [
-      "Independent extraction from a locally owned Palworld 1.0 installation has not been compared.",
-      "MIT repository license does not itself grant rights to Pocketpair game data.",
-      "The upstream v26 database must be mapped to an exact Palworld 1.0 build before production.",
-      "One parent pair has gender-dependent offspring and requires product handling."
+      "MIT repository licensing does not itself grant rights to Pocketpair game data.",
+      "Public corroboration supports technical accuracy but does not itself provide publication permission.",
+      "Pocketpair's derivative-work guideline does not expressly approve a factual calculator/database and restricts highly commercial or profit-oriented use.",
+      "Operator identity, governing law and final publication-risk acceptance remain Owner decisions."
     ]
   }
 }

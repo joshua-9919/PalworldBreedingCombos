@@ -41,13 +41,13 @@
 | 01 research | keyword-research-agent | DONE | BUILD_NOW；竞品最低能力已固化 |
 | 02 PRD | product-definition-prd | DONE | PRD v1 与 Route Contract 已冻结 |
 | 03 pricing | site-pricing-calibration | DONE | MVP 免费、无登录、无支付 |
-| 04 compliance | student-site-compliance-pipeline | NEEDS_REVIEW | 本地合同完成；生产数据/IP证据待验 |
+| 04 compliance | student-site-compliance-pipeline | DONE | 数据/IP、隐私、品牌与官方指南边界已固化 |
 | 05 copy | site-copywriting-student | DONE | SEO Copy Freeze 已冻结 |
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 backend/data | backend-auto-site-cloudflare-workers | NEEDS_REVIEW | 300 Pal / 44,851 rows 候选完成双源修复与公开快照交叉比对；权利审查待确认 |
 | 07 frontend | frontend-site-automation | DONE | searchable inputs、chain constraints、URL state 与 invalid shared state 已验证 |
 | 10 SEO review | seo-launch-workflow | NEEDS_REVIEW | 本地 schema matrix/技术 PASS；线上/GSC 等待 |
-| 04 compliance recheck | student-site-compliance-pipeline | NEEDS_REVIEW | 本地 PASS；provenance/Owner legal 阻塞生产 |
+| 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | NEEDS_REPAIR | 本地 shell PASS；MVP production NO-GO |
 | 09 QA | student-site-qa-acceptance | BLOCKED | PM/SEO/Compliance 尚未全部 GO |
 | Owner Review | owner | WAITING | 生产部署与公开动作授权 |
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：08 publication-rights review gate（无需安装游戏）
-- waiting：10/04/02 production recheck
+- running：10 SEO + 02 PM production recheck
+- waiting：09 QA（等 SEO/PM GO）；Owner production review
 - blocked：09 QA；11 生产上线与公开推广
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract；05 SEO Copy Freeze；06 Design Source；08 Data Contract（launch data 未解锁）；07 Frontend local implementation
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation

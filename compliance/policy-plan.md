@@ -26,6 +26,8 @@ This is an implementation policy, not legal advice.
 | Ads/affiliate | not approved | new compliance and disclosure review before activation |
 | Email/contact form | not planned | use no placeholder form; publish a real contact route only when available |
 
+Pocketpair's official derivative-work guideline permits fan derivative works subject to prohibited activities, including highly commercial/profit-oriented use and content that could be mistaken for an official product. It does not expressly grant permission for a factual calculator/database. Therefore the launch-safe scope remains free, ad-free, affiliate-free, text/data-first and clearly unofficial; monetization requires a new review or express permission.
+
 ## 3. IP, brand and asset policy
 
 - The site is independent and unofficial; it must not imply endorsement by Pocketpair or the Palworld team.
@@ -35,6 +37,7 @@ This is an implementation policy, not legal advice.
 - Until rights are verified, use original abstract eggs, nodes, elemental glyphs and text-first Pal cards instead of official art.
 - Every production dataset must document source, license/permission basis, revision/hash, transformation and verification status.
 - Publicly observable game facts do not automatically grant permission to copy another site's curated database or media assets.
+- Public calculators and databases are corroboration only. Do not store or redistribute their page HTML, bulk exports, prose, UI or artwork.
 
 ## 4. Accuracy and claim policy
 
@@ -84,6 +87,7 @@ No refund route is needed while there is no payment. Add refund/cancellation ter
 - P1: `all/complete/accurate` claims exceed verified coverage — repair copy.
 - P1: legal/footer routes are missing or 404 — repair before QA_GO.
 - P2: formal legal review for operator identity, governing law and limitation wording remains Owner responsibility before production.
+- P1: Pocketpair's published derivative-work guideline does not expressly cover this calculator/database and prohibits highly commercial or profit-oriented use — keep the MVP non-monetized and obtain a fresh review before ads, affiliate links or payments.
 
 ## 9. Compliance Gate
 

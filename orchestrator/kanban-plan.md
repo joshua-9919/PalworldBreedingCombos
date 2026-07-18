@@ -76,7 +76,7 @@
 - gate：Design Source、Data Contract、本地可运行实现
 - blocked_if：SEO Copy Freeze 未完成
 - downstream：T10
-- status：RUNNING
+- status：DONE
 
 ## T10/T04R/T02R — Review
 
@@ -89,7 +89,7 @@
 - gate：SEO_GO、COMPLIANCE_GO、PM_GO
 - blocked_if：实现不可运行
 - downstream：T09
-- status：WAITING
+- status：RUNNING（Compliance GO_FOR_QA；SEO/PM 待复核）
 
 ## T09 — QA
 
