@@ -6,7 +6,7 @@
 - 影响：无法 push、部署、绑定生产域名或产出真实 smoke evidence
 - 当前处理：不阻塞本地研究、产品、设计和实现
 - Owner 解锁动作：在本地 QA_GO 后提供对应登录态/授权，并明确允许生产部署
-- status：OPEN
+- status：PARTIAL_CLOSED_PAGES_LIVE_DOMAIN_BINDING_PENDING
 
 ## B02 — Search and analytics properties
 
@@ -38,4 +38,4 @@
 - 影响：没有来源、revision/hash、转换与验证记录的数据不得上线
 - 当前处理：Data Contract、source ledger、synthetic fixture 和验证脚本已建立；固定 PalCalc v1.17.6 / commit `8b7e2f7`，以两处公开 1.0 数据修复 Astralym #204 后形成 300 Pal / 44,851 combinations 候选；Palworld Tools 完整快照比对为 288/288 ranks、0 冲突及 251/251 可映射 unique combinations。候选仍为 partially-verified、不可索引且不能 production build
 - Owner 解锁动作：无需安装游戏；QA_GO 后明确接受按“免费、无广告/affiliate/payment、非官方、无游戏素材”边界发布编译后的事实数据，或先取得法律意见/Pocketpair 明确许可；同时补齐 Terms 的 operator 与 governing-law 字段
-- status：OPEN_BLOCKS_LAUNCH
+- status：CLOSED_OWNER_APPROVED_2026_07_18

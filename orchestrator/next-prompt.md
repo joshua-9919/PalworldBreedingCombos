@@ -1,3 +1,3 @@
 # Next Automatic Action
 
-Owner Review 已完成：个人运营，公开名 `Palworld Breeding Combos`，适用印度尼西亚法律；批准免费/无广告/affiliate/payment、非官方、无游戏素材范围发布，并允许 Cloudflare 部署及绑定主域名。总控下一步执行 Cloudflare preflight、生产数据 promotion/build 与部署 smoke；GSC/Bing 提交和公开推广仍未授权，不得执行。
+Pages production 已在 `985d664` 上线并通过 HTTPS/canonical/robots/sitemap/formula-noindex smoke。下一步在 Cloudflare Dashboard 为 `palworld-breeding-combos` 绑定 `palworldbreedingcombos.com` 与 `www`，然后复测主域名；GSC/Bing 提交和公开推广仍未授权，不得执行。

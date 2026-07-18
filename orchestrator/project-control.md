@@ -19,9 +19,9 @@
 
 - [x] 注册主域名 `palworldbreedingcombos.com`
 - [x] GitHub 仓库已连接：`joshua-9919/PalworldBreedingCombos`
-- [ ] 准备 Cloudflare Pages/DNS 权限
+- [x] Cloudflare Pages 权限已验证并完成首次生产部署；主域名绑定待控制台操作
 - [ ] 准备 GSC、Bing Webmaster Tools 与分析工具登录态
-- [ ] 在 QA_GO 后确认是否允许生产部署与 DNS 绑定
+- [x] 在 QA_GO 后确认允许生产部署与 DNS 绑定
 - [ ] 在上线后确认是否允许社区发帖、目录提交等公开推广
 
 ## Product Decision
@@ -44,14 +44,14 @@
 | 04 compliance | student-site-compliance-pipeline | DONE | 数据/IP、隐私、品牌与官方指南边界已固化 |
 | 05 copy | site-copywriting-student | DONE | SEO Copy Freeze 已冻结 |
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
-| 08 backend/data | backend-auto-site-cloudflare-workers | NEEDS_REVIEW | 300 Pal / 44,851 rows 候选完成双源修复与公开快照交叉比对；权利审查待确认 |
+| 08 backend/data | backend-auto-site-cloudflare-workers | DONE | 300 Pal / 44,851 rows 生产数据已经 Owner 批准并通过 production validator |
 | 07 frontend | frontend-site-automation | DONE | searchable inputs、chain constraints、URL state 与 invalid shared state 已验证 |
 | 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
 | 09 QA | student-site-qa-acceptance | DONE | QA_GO_CANDIDATE：移动端 8 类任务、0 Console/Network 错误；生产 smoke 留在 Launch Gate |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | RUNNING_SETUP | 检查 Cloudflare 登录态；GSC/Bing 与公开推广仍未授权 |
+| 11 launch | site-ops-growth-launch | PARTIAL_LIVE | Pages 生产环境已上线并通过 smoke；主域名待控制台绑定，GSC/Bing/推广未授权 |
 | 12 data review | site-data-review-iteration | WAITING | 上线后数据四态与 Iterate/Scale/Kill |
 
 ## Risks
@@ -64,7 +64,7 @@
 
 ## Current State
 
-- running：11 production setup / Cloudflare preflight
+- running：11 custom-domain binding / final domain smoke
 - waiting：GSC/Bing 与公开推广授权
-- blocked：取决于 Cloudflare 登录态检查结果
+- blocked：当前会话无法控制 Cloudflare Dashboard；Wrangler 不支持 Pages custom-domain 绑定
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck；09 QA_GO_CANDIDATE

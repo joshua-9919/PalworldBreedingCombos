@@ -9,10 +9,10 @@
 | 04 Compliance | DONE_FOR_QA | 2026-07-18 | 官方指南、来源披露、隐私/IP/品牌边界及自动检查完成；生产前等 Owner |
 | 05 Copy | DONE | 2026-07-17 | SEO Copy Freeze v1 已冻结 |
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
-| 08 Data | NEEDS_REVIEW | 2026-07-18 | 300 Pal 候选完成公开双源修复与完整快照交叉比对；权利审查待确认 |
+| 08 Data | DONE | 2026-07-18 | 300 Pal / 44,851 combinations 已促进为 Owner-approved production dataset 并通过生产校验 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
 | 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
 | 09 QA | DONE | 2026-07-18 | QA_GO_CANDIDATE；390×844、8 类任务、0 Console/Network 错误 |
 | Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
-| 11 Launch | RUNNING_SETUP | 2026-07-18 | 执行 Cloudflare 登录态与生产构建 preflight；GSC/Bing/推广未授权 |
+| 11 Launch | PARTIAL_LIVE | 2026-07-18 | Pages production 已上线并通过 smoke；主域名绑定待 Dashboard 操作；GSC/Bing/推广未授权 |
 | 12 Data Review | WAITING | 2026-07-17 | 等待生产数据 |

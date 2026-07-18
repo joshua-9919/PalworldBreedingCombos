@@ -1,0 +1,23 @@
+# Production Launch Gate — 2026-07-18
+
+Status: `PAGES_LIVE_DOMAIN_BINDING_PENDING`
+
+## Completed
+
+- Owner publication approval recorded for an individual-operated, free, ad-free, affiliate-free, payment-free, unofficial fan tool without game media assets.
+- Operator public name: `Palworld Breeding Combos`; governing law and jurisdiction: Republic of Indonesia.
+- Production dataset promoted and validated: 300 Pals, 44,851 combinations, dataset `palcalc-v26-v1.17.6-owner-approved-20260718`.
+- Production build, site check, compliance check, chain-engine check and pair-engine check passed.
+- Git commit `985d664` pushed to `origin/agent/site-foundation`.
+- Cloudflare Pages project `palworld-breeding-combos` created and production deployment completed.
+- Production Pages URL: <https://palworld-breeding-combos.pages.dev/>.
+- Deployment URL: <https://76fdec13.palworld-breeding-combos.pages.dev/>.
+- Live smoke: HTTP 200; security headers present; homepage `index,follow`; canonical points to the primary domain; robots allows crawling; sitemap contains nine approved URLs; formula guide is `noindex,nofollow` and excluded from sitemap.
+
+## Pending gates
+
+- `palworldbreedingcombos.com` is not yet attached to the Pages project. Current root-domain request returns Cloudflare 522 from its prior DNS/origin state.
+- Wrangler has no Pages custom-domain command and browser automation is unavailable in this session. Bind both `palworldbreedingcombos.com` and `www.palworldbreedingcombos.com` in Cloudflare Pages > palworld-breeding-combos > Custom domains, then repeat HTTPS/canonical/robots/sitemap smoke.
+- GSC/Bing verification and sitemap submission are not authorized.
+- Public promotion and directory/community submission are not authorized.
+- No analytics script or fabricated analytics ID is installed.
