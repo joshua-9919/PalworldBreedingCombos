@@ -119,6 +119,24 @@ Steps:
 2. H3 `Set practical limits` — `Exclude unavailable or legendary parents when you need a route that fits your current save.`
 3. H3 `Check the result details` — `Review each step, the calculation type, and the dataset version before spending Cake.`
 
+### New-player task chooser
+
+Kicker: `New to breeding?`
+
+H2: `What this calculator helps you do`
+
+Intro: `Choose the situation that matches your game. You do not need to understand breeding values or formulas first.`
+
+1. `I have two parents` — `See which Pal they produce`
+2. `I want a specific Pal` — `Find parents that can breed it`
+3. `I want a reachable route` — `Start from Pals in my Palbox`
+
+Quick-start steps:
+
+1. `Pick your goal` — use one of the three starting points.
+2. `Search for Pals` — type an English name or Paldeck number.
+3. `Check the result` — review the breeding steps and Palworld 1.0 data version before using Cake.
+
 ### H2: `Popular Palworld breeding searches`
 
 Intro: `Open a Pal page to compare direct parent pairs, practical routes, and notable offspring.`

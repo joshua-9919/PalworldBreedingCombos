@@ -59,6 +59,21 @@ h1 { margin: 0; max-width: 760px; font-size: clamp(42px, 6vw, 72px); letter-spac
 .button.primary:hover { background: var(--egg-400); transform: translateY(-1px); }
 .button.secondary { color: var(--text-on-dark); border-color: var(--line-dark); background: transparent; }
 .button.full { width: 100%; margin-top: 8px; }
+.getting-started { margin-bottom:24px; padding:34px 30px; color:var(--text-on-paper); background:var(--paper-100); }
+.getting-started .section-kicker { color:#536f5d; }
+.getting-started-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.7fr); gap:48px; align-items:end; }
+.getting-started-head h2 { margin:0; font-size:clamp(30px,3.5vw,43px); }
+.getting-started-head > p { margin:0; color:#52625b; }
+.goal-grid { margin-top:28px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.goal-grid a { min-width:0; padding:22px; display:flex; flex-direction:column; color:var(--text-on-paper); text-decoration:none; border:1px solid var(--line-paper); background:#fbf7ec; }
+.goal-grid a:hover { border-color:#789b69; transform:translateY(-2px); }
+.goal-grid span { color:#65776e; font:700 11px/1.4 monospace; text-transform:uppercase; letter-spacing:.06em; }
+.goal-grid h3 { margin:18px 0 10px; font-size:24px; }
+.goal-grid p { margin:0 0 20px; color:#52625b; font-size:14px; }
+.goal-grid strong { margin-top:auto; color:#3e674f; font-size:14px; }
+.quick-steps { margin:28px 0 0; padding:22px 0 0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; border-top:1px solid var(--line-paper); list-style-position:inside; }
+.quick-steps li { min-width:0; color:#3f5349; }
+.quick-steps b, .quick-steps span { display:block; }.quick-steps b { display:inline; margin-left:4px; }.quick-steps span { margin:4px 0 0 20px; color:#65776e; font-size:13px; }
 .popular-targets { margin-bottom:56px; padding:28px 30px; border:1px solid var(--line-dark); background:var(--ink-900); }
 .popular-targets > div:first-child { display:flex; align-items:end; gap:24px; flex-wrap:wrap; }
 .popular-targets h2 { margin:0; font-size:32px; }.popular-targets > div:first-child > p:last-child { max-width:520px; margin:0 0 2px auto; color:var(--text-muted); font-size:14px; }
@@ -119,6 +134,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline:3px solid
   .calculator-grid { grid-template-columns:1fr; }
   .method-grid { grid-template-columns:1fr; }.method-grid article, .method-grid article + article { min-height:0; padding:24px 0; border-right:0; border-bottom:1px solid var(--line-paper); }.method-grid h3 { margin:18px 0 8px; }
   .trust-section { grid-template-columns:1fr; gap:38px; }
+  .getting-started-head { grid-template-columns:1fr; gap:14px; }.goal-grid { grid-template-columns:1fr; }.quick-steps { grid-template-columns:1fr; gap:14px; }
   .popular-targets { padding:24px 20px; }.popular-targets > div:first-child { display:block; }.popular-targets > div:first-child > p:last-child { margin:10px 0 0; }.popular-target-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .placeholder-list { grid-template-columns:1fr 1fr; }
 }
@@ -127,6 +143,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline:3px solid
   .shell, .site-header { width:min(calc(100% - 24px), var(--content)); }
   .brand { font-size:15px; }.hero { padding-top:42px; }.lede { font-size:17px; }.hero-actions { display:grid; }.button { width:100%; }
   .hero { max-width:calc(100% - 24px); }
+  .getting-started { padding:26px 20px; }.goal-grid a { padding:19px; }
   .workbench { width:100%; max-width:100%; overflow:hidden; border-left:0; border-right:0; }.workbench-head, .calculator-grid { padding:22px 16px; }.mode-tabs { width:100%; max-width:100%; padding:0 12px; overflow-x:auto; }.inputs-panel { padding:18px 14px; }.result-panel { min-width:0; min-height:320px; padding:26px 18px; }
   .paper-section { padding:64px 0; }.trust-section { padding:72px 0; }.placeholder-list, .popular-target-grid { grid-template-columns:1fr; }
   .footer-grid { display:block; }.footer-grid nav { margin-top:18px; }
