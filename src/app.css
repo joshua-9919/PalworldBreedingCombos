@@ -23,6 +23,8 @@
 .result-panel.result-ready > p { margin-inline: auto; text-align: center; }
 .result-title { color: var(--egg-400); }
 .pair-list { width: 100%; margin-top: 20px; display: grid; gap: 8px; }
+.result-count { margin: 4px auto 0 !important; color: var(--text-muted); font-size: 13px; }
+.result-more { width: 100%; margin-top: 16px; }
 .pair-row { padding: 12px 14px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; color: var(--text-on-dark); border: 1px solid var(--line-dark); background: var(--ink-850); }
 .pair-row span:nth-child(2) { color: var(--egg-500); }
 .pair-row span:last-child { text-align: right; }
@@ -30,6 +32,7 @@
 .error-notice { color: #7b2c20; border-color: var(--danger); background: #ffe2dc; }
 .dataset-strip { padding: 10px 0; color: var(--text-muted); font: 12px/1.5 "SFMono-Regular", monospace; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); }
 .dataset-strip .shell { display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap; }
+.dataset-strip a { color: var(--moss-300); text-decoration: none; }
 .directory-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
 .directory-card { padding: 20px; color: var(--text-on-paper); text-decoration: none; border: 1px solid var(--line-paper); background: var(--paper-100); }
 .directory-card small { display: block; color: #65776e; }

@@ -104,8 +104,13 @@ function initTargetLookup(params) {
     updateQuery({ mode: "target", target: target.slug });
     const pairs = parentPairs(target.id);
     if (!pairs.length) return renderError(output, "No direct parent pairs are available for this target in the active dataset.");
-    output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><div class="pair-list">${pairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}${pair.parentAGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentAGender.toLowerCase())})` : ""}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}${pair.parentBGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentBGender.toLowerCase())})` : ""}</span></div>`).join("")}</div>${metaMarkup()}`;
+    const renderPairs = (showAll = false) => {
+      const visiblePairs = showAll ? pairs : pairs.slice(0, 24);
+      output.classList.add("result-ready");
+      output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><p class="result-count">Showing ${visiblePairs.length.toLocaleString()} of ${pairs.length.toLocaleString()} validated pairs</p><div class="pair-list">${visiblePairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}${pair.parentAGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentAGender.toLowerCase())})` : ""}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}${pair.parentBGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentBGender.toLowerCase())})` : ""}</span></div>`).join("")}</div>${!showAll && pairs.length > visiblePairs.length ? `<button class="button secondary result-more" type="button" data-show-all-pairs>Show all ${pairs.length.toLocaleString()} combinations</button>` : ""}${metaMarkup()}`;
+      output.querySelector("[data-show-all-pairs]")?.addEventListener("click", () => renderPairs(true));
+    };
+    renderPairs();
   };
   input.addEventListener("change", render);
   if (params.has("target")) {
