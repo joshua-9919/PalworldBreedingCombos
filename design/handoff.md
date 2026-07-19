@@ -17,7 +17,7 @@ Used by `/`, `/combos/`, `/chain/` and calculator portions of entity pages.
 
 ### Guide shell
 
-Used by `/guide/`, `/guide/breeding-formula/`, `/data-sources/`, legal and About pages.
+Used by `/how-to-use/`, `/guide/`, `/guide/breeding-formula/`, `/data-sources/`, legal and About pages.
 
 - Narrower reading column on paper canvas.
 - Dark page masthead with breadcrumb, title and last-updated metadata.

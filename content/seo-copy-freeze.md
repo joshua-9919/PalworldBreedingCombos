@@ -20,7 +20,7 @@ Plan Palworld breeding combos you can actually make from the Pals you already ow
 - Calculator
 - All Combos
 - Chain Planner
-- Breeding Guide
+- How to Use
 
 ### Global trust line
 
@@ -218,6 +218,22 @@ CTA: `Open the calculator`
 - H2: `Planning a multi-step chain`
 - H2: `Checking data versions and changes`
 - CTA: `Test a parent pair`
+
+## `/how-to-use/` — Product walkthrough
+
+- Title: `How to Use the Palworld Breeding Calculator`
+- Meta description: `Learn how to use the Palworld breeding calculator, reverse combo lookup and Chain Planner with step-by-step examples for Palworld 1.0.`
+- Primary query: `how to use palworld breeding calculator`
+- H1: `How to Use the Palworld Breeding Calculator`
+- H2: `Choose the right calculator mode`
+- H2: `Calculate the child from two parents`
+- H2: `Find parents for a target Pal`
+- H2: `Start with one parent`
+- H2: `Build a breeding chain from your Palbox`
+- H2: `Key terms in plain English`
+- H2: `Common problems`
+- CTA: task-specific links to Calculator, All Combos and Chain Planner
+- Evidence boundary: original interface instructions and examples from the active production dataset; no game screenshots or third-party copy.
 
 ## `/guide/breeding-basics/` — Beginner guide
 
