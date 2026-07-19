@@ -22,6 +22,7 @@
 .select-native option { color: #111; background: #fff; }
 .pal-search { padding-right: 14px; }
 .pal-search::placeholder { color: #83938b; opacity: 1; }
+.lookup-button { margin-top: 10px; }
 .field-help { display:block; margin:-3px 0 8px; color:var(--text-muted); font-size:12px; line-height:1.45; text-transform:none; letter-spacing:0; }
 .field-divider { height: 1px; margin: 24px 0; background: var(--line-dark); }
 .result-panel.result-ready { align-items: stretch; text-align: left; }

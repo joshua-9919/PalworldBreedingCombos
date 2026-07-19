@@ -97,8 +97,12 @@ function initParentsCalculator(params) {
 function initTargetLookup(params) {
   const input = document.querySelector("[data-target-select]");
   const output = document.querySelector("[data-target-result]");
+  const oneParentOutput = document.querySelector("[data-one-result]");
+  const runButton = document.querySelector("[data-run-target]");
   if (!input || !output) return;
   const render = () => {
+    output.classList.remove("hidden");
+    oneParentOutput?.classList.add("hidden");
     const target = resolvePal(input.value);
     if (!target) return renderError(output, "Enter a Pal name or Paldeck number from the suggestions.");
     updateQuery({ mode: "target", target: target.slug });
@@ -113,6 +117,12 @@ function initTargetLookup(params) {
     renderPairs();
   };
   input.addEventListener("change", render);
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    render();
+  });
+  runButton?.addEventListener("click", render);
   if (params.has("target")) {
     const target = resolvePal(params.get("target"));
     if (!target) return renderError(output, "This shared target is not available in the active dataset.", "Invalid shared URL");
@@ -123,9 +133,12 @@ function initTargetLookup(params) {
 function initOneParent(params) {
   const input = document.querySelector("[data-one-parent]");
   const output = document.querySelector("[data-one-result]");
+  const targetOutput = document.querySelector("[data-target-result]");
+  const runButton = document.querySelector("[data-run-one-parent]");
   if (!input || !output) return;
   const render = () => {
     output.classList.remove("hidden");
+    targetOutput?.classList.add("hidden");
     const parent = resolvePal(input.value);
     if (!parent) return renderError(output, "Enter a Pal name or Paldeck number from the suggestions.");
     updateQuery({ mode: "one-parent", parent: parent.slug });
@@ -144,6 +157,12 @@ function initOneParent(params) {
     output.innerHTML = `<p class="result-label">Partner results</p><h3>${escapeHtml(parent.name)}</h3><div class="pair-list">${results.map((item) => `<div class="pair-row"><span>${item.parentGender !== "WILDCARD" ? `${escapeHtml(item.parentGender.toLowerCase())} + ` : "+ "}${escapeHtml(item.partner.name)}${item.partnerGender !== "WILDCARD" ? ` (${escapeHtml(item.partnerGender.toLowerCase())})` : ""}</span><span>→</span><span>${escapeHtml(item.child.name)}</span></div>`).join("")}</div>${metaMarkup()}`;
   };
   input.addEventListener("change", render);
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    render();
+  });
+  runButton?.addEventListener("click", render);
   if (params.has("parent")) {
     const parent = resolvePal(params.get("parent"));
     if (!parent) return renderError(output, "This shared parent is not available in the active dataset.", "Invalid shared URL");

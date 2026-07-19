@@ -21,7 +21,7 @@ for (const route of ["privacy", "terms", "disclaimer", "data-sources"]) {
 }
 if (!allHtml.includes("independent, unofficial")) errors.push("unofficial fan-tool disclosure missing");
 if (!pages.disclaimer.includes("not affiliated with, endorsed by, or sponsored by Pocketpair")) errors.push("Pocketpair non-affiliation disclosure missing");
-if (!pages.privacy.includes("localStorage") || !pages.privacy.includes("Clear selection")) errors.push("localStorage behavior/deletion instructions missing from Privacy");
+if (!pages.privacy.includes("localStorage") || !pages.privacy.includes("Clear my Palbox")) errors.push("localStorage behavior/deletion instructions missing from Privacy");
 if (!pages.privacy.includes("Plausible analytics") || !pages.privacy.includes("plausible.shipsolo.io")) errors.push("analytics provider not disclosed");
 if (!pages["data-sources"].includes("PalCalc") || !pages["data-sources"].includes("Palworld Tools") || !pages["data-sources"].includes("PalDB")) errors.push("candidate and corroboration sources not disclosed");
 if (!pages.disclaimer.includes("Guidelines for Derivative Works")) errors.push("official derivative-work guideline boundary missing");
