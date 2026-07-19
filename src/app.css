@@ -40,6 +40,7 @@
 .dataset-strip { padding: 10px 0; color: var(--text-muted); font: 12px/1.5 "SFMono-Regular", monospace; border-top: 1px solid var(--line-dark); border-bottom: 1px solid var(--line-dark); }
 .dataset-strip .shell { display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap; }
 .dataset-strip a { color: var(--moss-300); text-decoration: none; }
+.dataset-strip + footer { border-top: 0; }
 .directory-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
 .directory-card { padding: 20px; color: var(--text-on-paper); text-decoration: none; border: 1px solid var(--line-paper); background: var(--paper-100); }
 .directory-card small { display: block; color: #65776e; }
