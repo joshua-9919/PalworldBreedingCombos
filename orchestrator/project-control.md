@@ -49,17 +49,17 @@
 | 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
-| 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 生产全站复验通过；0 站点 Console 错误，P0=0，P1=1（10 MB 数据载荷） |
+| 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 2026-07-19 全站复验与真实任务通过；404 索引缺陷已修复，P0=0，P1=0，剩余 P2=3 |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
 | 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 均已上线/提交；公开推广未授权 |
-| 12 data review | site-data-review-iteration | BASELINE | 首轮结论 ITERATE；数据量不足以 Scale/Kill，等待真实自然流量 |
+| 12 data review | site-data-review-iteration | ITERATE | QA 行为通过，但 Plausible/GSC/Bing 尚无代表性 cohort；满 7 天且 100 次非 QA 访问后复盘 |
 
 ## Risks
 
 - P0：1.0 繁殖数据若不准确，工具核心价值失效；在数据源、版本和交叉验证完成前不得宣称完整准确。
 - P1：`Palworld` 属品牌词；必须明确非官方、避免官方视觉冒充，并保留域名/IP投诉风险。
 - P1：1.0 热点窗口短，近期大量新 EMD 站已经进入 SERP。
-- P1：全站客户端数据文件约 10.18 MB，一次远程请求实测 14.1 秒；需拆分、压缩或按需加载。
+- P2：数据源文件 7.54 MB 未压缩；线上 gzip 传输实测 340 KB / 0.37 秒，但 `max-age=0` 且仍为整包客户端解析，需用真实移动端数据持续观察。
 - P2：`www` 当前返回 200 而非 301 到主域；canonical 已指向主域，但仍建议统一跳转。
 - P2：没有付费关键词 API，精确 volume/KD/CPC 暂缺；不得编造。
 
@@ -68,4 +68,4 @@
 - running：无
 - waiting：真实自然流量积累与公开推广授权
 - blocked：公开推广未授权（不影响站点访问与自然收录）
-- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend local implementation；10 SEO recheck；09 QA_GO_CANDIDATE
+- done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）

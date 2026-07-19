@@ -17,9 +17,12 @@ async function walk(dir) {
 await walk(root);
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
-  for (const required of ["<title>", "name=\"description\"", "rel=\"canonical\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:url\"", "property=\"og:image\"", "name=\"twitter:image\""]) {
+  for (const required of ["<title>", "name=\"description\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:image\"", "name=\"twitter:image\""]) {
     if (!html.includes(required)) errors.push(`${file}: missing ${required}`);
   }
+  const is404 = file.endsWith("404.html");
+  if (!is404 && (!html.includes('rel="canonical"') || !html.includes('property="og:url"'))) errors.push(`${file}: missing canonical URL metadata`);
+  if (is404 && (!html.includes('name="robots" content="noindex,nofollow"') || html.includes('rel="canonical"') || html.includes('type="application/ld+json"'))) errors.push(`${file}: 404 must be noindex without canonical or schema`);
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
     try {
       const schema = JSON.parse(match[1]);
@@ -28,7 +31,7 @@ for (const file of htmlFiles) {
       errors.push(`${file}: invalid JSON-LD (${error.message})`);
     }
   }
-  if (!html.includes('<script type="application/ld+json">')) errors.push(`${file}: missing JSON-LD`);
+  if (!is404 && !html.includes('<script type="application/ld+json">')) errors.push(`${file}: missing JSON-LD`);
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
     const href = match[1];
     if (href === "#" || href.startsWith("javascript:")) errors.push(`${file}: invalid internal link ${href}`);

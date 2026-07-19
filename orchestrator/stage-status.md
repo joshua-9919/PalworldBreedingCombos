@@ -12,7 +12,7 @@
 | 08 Data | DONE | 2026-07-18 | 300 Pal / 44,851 combinations 已促进为 Owner-approved production dataset 并通过生产校验 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
 | 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
-| 09 QA | DONE_PRODUCTION | 2026-07-18 | 生产端移动/桌面、核心任务、路由、SEO 与控制台复验；P0=0，P1=1 |
+| 09 QA | DONE_PRODUCTION | 2026-07-19 | 桌面/390 px 移动端全功能、按钮、路由、SEO、404 与生产交付复验；P0=0，P1=0，P2=3 |
 | Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
 | 11 Launch | LIVE | 2026-07-18 | Pages production 及 root/www 主域名已上线，HTTP 200/canonical/robots/sitemap/formula-noindex smoke 通过 |
-| 12 Data Review | BASELINE | 2026-07-18 | Plausible 已收到测试访问；GSC/Bing sitemap 成功；真实流量不足，结论 ITERATE |
+| 12 Data Review | ITERATE | 2026-07-19 | 技术与 QA 行为通过；真实 cohort 不足，满 7 天且 100 次非 QA 访问后再判定 Scale/Kill |
