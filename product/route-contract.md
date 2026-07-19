@@ -8,6 +8,7 @@ Canonical origin: `https://palworldbreedingcombos.com`
 | `/combos/` | yes | self | combo directory | roster, pair counts, filters | CollectionPage, ItemList |
 | `/chain/` | yes | self | chain tool | roster, combinations | WebApplication, FAQPage |
 | `/guide/` | yes | self | guide hub | editorial facts/citations | Article, BreadcrumbList |
+| `/guide/breeding-basics/` | yes | self | beginner guide | original editorial copy, official overview link | Article, FAQPage, BreadcrumbList |
 | `/guide/breeding-formula/` | yes | self | guide | formula, exceptions, examples | Article, FAQPage, BreadcrumbList |
 | `/breeding/{pal-slug}/` | yes | self | entity guide/tool | unique Pal record, direct pairs, notable offspring | Article, BreadcrumbList, ItemList |
 | `/data-sources/` | yes | self | trust/changelog | dataset metadata and source policy | WebPage, BreadcrumbList |
@@ -31,7 +32,7 @@ Canonical origin: `https://palworldbreedingcombos.com`
 ## Navigation contract
 
 Primary: Calculator, All Combos, Chain Planner, Breeding Guide.
-Trust/footer: Data Sources, About, Privacy, Terms, Disclaimer.
+Trust/footer: Breeding Basics, Data Sources, About, Privacy, Terms, Disclaimer.
 
 ## Owner Review entry
 

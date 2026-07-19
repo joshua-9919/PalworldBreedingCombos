@@ -61,6 +61,11 @@ h1 { margin: 0; max-width: 760px; font-size: clamp(42px, 6vw, 72px); letter-spac
 .button.full { width: 100%; margin-top: 8px; }
 .getting-started { margin-bottom:24px; padding:34px 30px; color:var(--text-on-paper); background:var(--paper-100); }
 .getting-started .section-kicker { color:#536f5d; }
+.game-intro { padding:0 0 26px; display:grid; grid-template-columns:minmax(0,1.45fr) minmax(220px,.55fr); gap:12px 40px; align-items:end; border-bottom:1px solid var(--line-paper); }
+.game-intro .section-kicker { grid-column:1/-1; margin:0; }.game-intro p:not(.section-kicker) { margin:0; color:#465950; font-size:17px; line-height:1.7; }.game-intro strong { color:var(--text-on-paper); }.game-intro a { justify-self:end; color:#3e674f; font-weight:750; text-decoration:none; }
+.term-strip { margin:0 0 30px; padding:22px 0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); border-bottom:1px solid var(--line-paper); }
+.term-strip div { min-width:0; padding:0 14px; border-right:1px solid var(--line-paper); }.term-strip div:first-child { padding-left:0; }.term-strip div:last-child { padding-right:0; border-right:0; }
+.term-strip dt { color:#365747; font-weight:800; }.term-strip dd { margin:2px 0 0; color:#65776e; font-size:12px; line-height:1.45; overflow-wrap:anywhere; }
 .getting-started-head { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.7fr); gap:48px; align-items:end; }
 .getting-started-head h2 { margin:0; font-size:clamp(30px,3.5vw,43px); }
 .getting-started-head > p { margin:0; color:#52625b; }
@@ -134,6 +139,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline:3px solid
   .calculator-grid { grid-template-columns:1fr; }
   .method-grid { grid-template-columns:1fr; }.method-grid article, .method-grid article + article { min-height:0; padding:24px 0; border-right:0; border-bottom:1px solid var(--line-paper); }.method-grid h3 { margin:18px 0 8px; }
   .trust-section { grid-template-columns:1fr; gap:38px; }
+  .game-intro { grid-template-columns:1fr; gap:12px; }.game-intro a { justify-self:start; }.term-strip { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 0; }.term-strip div:nth-child(3) { border-right:0; }.term-strip div:nth-child(4) { padding-left:0; }
   .getting-started-head { grid-template-columns:1fr; gap:14px; }.goal-grid { grid-template-columns:1fr; }.quick-steps { grid-template-columns:1fr; gap:14px; }
   .popular-targets { padding:24px 20px; }.popular-targets > div:first-child { display:block; }.popular-targets > div:first-child > p:last-child { margin:10px 0 0; }.popular-target-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   .placeholder-list { grid-template-columns:1fr 1fr; }
@@ -143,7 +149,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline:3px solid
   .shell, .site-header { width:min(calc(100% - 24px), var(--content)); }
   .brand { font-size:15px; }.hero { padding-top:42px; }.lede { font-size:17px; }.hero-actions { display:grid; }.button { width:100%; }
   .hero { max-width:calc(100% - 24px); }
-  .getting-started { padding:26px 20px; }.goal-grid a { padding:19px; }
+  .getting-started { padding:26px 20px; }.game-intro p:not(.section-kicker) { font-size:15px; }.term-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }.term-strip div, .term-strip div:nth-child(3) { padding:0 12px; border-right:1px solid var(--line-paper); }.term-strip div:nth-child(odd) { padding-left:0; }.term-strip div:nth-child(even) { padding-right:0; border-right:0; }.goal-grid a { padding:19px; }
   .workbench { width:100%; max-width:100%; overflow:hidden; border-left:0; border-right:0; }.workbench-head, .calculator-grid { padding:22px 16px; }.mode-tabs { width:100%; max-width:100%; padding:0 12px; overflow-x:auto; }.inputs-panel { padding:18px 14px; }.result-panel { min-width:0; min-height:320px; padding:26px 18px; }
   .paper-section { padding:64px 0; }.trust-section { padding:72px 0; }.placeholder-list, .popular-target-grid { grid-template-columns:1fr; }
   .footer-grid { display:block; }.footer-grid nav { margin-top:18px; }

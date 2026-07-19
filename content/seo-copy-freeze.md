@@ -137,6 +137,16 @@ Quick-start steps:
 2. `Search for Pals` — type an English name or Paldeck number.
 3. `Check the result` — review the breeding steps and Palworld 1.0 data version before using Cake.
 
+### Plain-English game context
+
+Kicker: `Palworld in plain English`
+
+Body: `Palworld is an open-world survival game built around creatures called Pals. Two Pals can produce an egg at a Breeding Farm, but the child depends on the parent combination. This site helps you check that result or plan the parents you need.`
+
+Visible terms: `Pal`, `Parent`, `Target`, `Palbox`, `Cake`, `Chain`.
+
+CTA: `Read the beginner breeding guide`
+
 ### H2: `Popular Palworld breeding searches`
 
 Intro: `Open a Pal page to compare direct parent pairs, practical routes, and notable offspring.`
@@ -208,6 +218,22 @@ CTA: `Open the calculator`
 - H2: `Planning a multi-step chain`
 - H2: `Checking data versions and changes`
 - CTA: `Test a parent pair`
+
+## `/guide/breeding-basics/` — Beginner guide
+
+- Title: `Palworld Breeding for Beginners – Pals, Cake & Eggs`
+- Meta description: `A plain-English Palworld breeding guide explaining Pals, parents, Cake, eggs, Palbox, target Pals and breeding chains before you use a calculator.`
+- Primary query: `palworld breeding for beginners`
+- Supporting queries: `how to breed in palworld`, `palworld breeding guide`, `what is palbox`, `palworld breeding cake`
+- H1: `Palworld Breeding for Beginners`
+- H2: `What kind of game is Palworld?`
+- H2: `How Palworld breeding works in plain English`
+- H2: `Beginner glossary`
+- H2: `Which calculator mode should I use?`
+- H2: `Why can an old guide show a different result?`
+- H2: `Beginner questions`
+- CTA: `Choose the calculator mode that matches your goal`
+- Evidence boundary: original explanatory copy, one official store overview link, no copied game copy or media assets.
 
 ## `/guide/breeding-formula/`
 

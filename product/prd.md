@@ -104,6 +104,7 @@ At every result, make the supported game version, dataset version, update date a
 | `/combos/` | browse/filter | palworld breeding combos | Choose a target Pal |
 | `/chain/` | plan route | palworld breeding chain calculator | Add owned Pals |
 | `/guide/` | learn mechanics | palworld breeding guide | Open calculator |
+| `/guide/breeding-basics/` | learn terms and first steps | palworld breeding for beginners | Choose a calculator mode |
 | `/guide/breeding-formula/` | understand result | palworld breeding formula | Test a pair |
 | `/breeding/{pal}/` | breed one entity | how to breed {Pal} | Calculate this Pal |
 | `/data-sources/` | verify trust | data/supporting intent | View version history |
