@@ -155,13 +155,74 @@ function initChain(params) {
   const form = document.querySelector("[data-chain-form]");
   const output = document.querySelector("[data-chain-result]");
   if (!form || !output) return;
-  const saved = JSON.parse(localStorage.getItem("pbc-owned-pals") || "[]");
-  form.querySelectorAll("[name=owned]").forEach((input) => { input.checked = saved.includes(input.value); });
+  const ownedInputs = [...form.querySelectorAll("[name=owned]")];
+  const ownedSearch = form.querySelector("[data-owned-search]");
+  const addOwnedButton = form.querySelector("[data-add-owned]");
+  const ownedFeedback = form.querySelector("[data-owned-feedback]");
+  const ownedSummary = form.querySelector("[data-owned-summary]");
+  let saved = [];
+  try {
+    saved = JSON.parse(localStorage.getItem("pbc-owned-pals") || "[]");
+    if (!Array.isArray(saved)) saved = [];
+  } catch {
+    localStorage.removeItem("pbc-owned-pals");
+  }
+  ownedInputs.forEach((input) => { input.checked = saved.includes(input.value); });
+
+  const selectedOwned = () => ownedInputs.filter((input) => input.checked);
+  const refreshOwned = () => {
+    const selected = selectedOwned();
+    localStorage.setItem("pbc-owned-pals", JSON.stringify(selected.map((input) => input.value)));
+    if (!ownedSummary) return;
+    if (!selected.length) {
+      ownedSummary.innerHTML = "<p>No owned Pals added yet.</p>";
+      return;
+    }
+    ownedSummary.innerHTML = `<div class="owned-summary-head"><strong>${selected.length} selected</strong><span>Ready to plan</span></div><div class="owned-chips">${selected.map((input) => {
+      const pal = palsById.get(input.value);
+      return `<button type="button" data-remove-owned="${escapeHtml(input.value)}" aria-label="Remove ${escapeHtml(pal.name)} from my Palbox">${escapeHtml(pal.name)} <span aria-hidden="true">×</span></button>`;
+    }).join("")}</div>`;
+  };
+
+  const addOwned = () => {
+    const pal = resolvePal(ownedSearch?.value);
+    const checkbox = pal && ownedInputs.find((input) => input.value === pal.id);
+    if (!pal || !checkbox) {
+      if (ownedFeedback) ownedFeedback.textContent = "Choose a breedable Pal from the suggestions first.";
+      ownedSearch?.focus();
+      return;
+    }
+    const wasSelected = checkbox.checked;
+    checkbox.checked = true;
+    if (ownedSearch) ownedSearch.value = "";
+    if (ownedFeedback) ownedFeedback.textContent = wasSelected ? `${pal.name} is already in your Palbox.` : `${pal.name} added to your Palbox.`;
+    refreshOwned();
+    ownedSearch?.focus();
+  };
+
+  addOwnedButton?.addEventListener("click", addOwned);
+  ownedSearch?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    addOwned();
+  });
+  ownedInputs.forEach((input) => input.addEventListener("change", refreshOwned));
+  ownedSummary?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-remove-owned]");
+    if (!button) return;
+    const checkbox = ownedInputs.find((input) => input.value === button.dataset.removeOwned);
+    if (checkbox) checkbox.checked = false;
+    const pal = palsById.get(button.dataset.removeOwned);
+    if (ownedFeedback && pal) ownedFeedback.textContent = `${pal.name} removed from your Palbox.`;
+    refreshOwned();
+  });
+  refreshOwned();
   const render = () => {
     const targetInput = form.elements.namedItem("target");
     const target = resolvePal(targetInput.value);
     if (!target) return renderError(output, "Enter a target Pal name or Paldeck number from the suggestions.");
-    const owned = [...form.querySelectorAll("[name=owned]:checked")].map((input) => input.value);
+    const owned = selectedOwned().map((input) => input.value);
+    if (!owned.length) return renderError(output, "Add at least one Pal you already own before building a chain.");
     localStorage.setItem("pbc-owned-pals", JSON.stringify(owned));
     const constraints = {
       excludeLegendary: form.elements.namedItem("excludeLegendary").checked,
@@ -183,7 +244,10 @@ function initChain(params) {
   }
   document.querySelector("[data-clear-owned]")?.addEventListener("click", () => {
     localStorage.removeItem("pbc-owned-pals");
-    form.querySelectorAll("[name=owned]").forEach((input) => { input.checked = false; });
+    ownedInputs.forEach((input) => { input.checked = false; });
+    if (ownedSearch) ownedSearch.value = "";
+    if (ownedFeedback) ownedFeedback.textContent = "Your Palbox is empty. Add at least one starting Pal.";
+    refreshOwned();
   });
 }
 
