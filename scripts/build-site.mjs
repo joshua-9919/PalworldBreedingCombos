@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 
@@ -27,17 +28,30 @@ const appCss = await readFile(join(root, "src/app.css"), "utf8");
 const appJs = await readFile(join(root, "src/app.js"), "utf8");
 const chainEngineJs = await readFile(join(root, "src/chain-engine.js"), "utf8");
 const pairEngineJs = await readFile(join(root, "src/pair-engine.js"), "utf8");
+const fingerprint = (value) => createHash("sha256").update(value).digest("hex").slice(0, 12);
+const stylesBundle = `${prototypeCss}\n${appCss}`;
+const datasetJson = JSON.stringify(dataset);
+const chainEngineVersion = fingerprint(chainEngineJs);
+const pairEngineVersion = fingerprint(pairEngineJs);
+const appBundle = appJs
+  .replace('"./chain-engine.js"', `"./chain-engine.js?v=${chainEngineVersion}"`)
+  .replace('"./pair-engine.js"', `"./pair-engine.js?v=${pairEngineVersion}"`);
+const assetVersions = {
+  styles: fingerprint(stylesBundle),
+  app: fingerprint(appBundle),
+  dataset: fingerprint(datasetJson)
+};
 const origin = "https://palworldbreedingcombos.com";
 const noindex = !productionMode;
 
 await rm(out, { recursive: true, force: true });
 await mkdir(join(out, "assets"), { recursive: true });
 await mkdir(join(out, "brand"), { recursive: true });
-await writeFile(join(out, "assets/styles.css"), `${prototypeCss}\n${appCss}`);
-await writeFile(join(out, "assets/app.js"), appJs);
+await writeFile(join(out, "assets/styles.css"), stylesBundle);
+await writeFile(join(out, "assets/app.js"), appBundle);
 await writeFile(join(out, "assets/chain-engine.js"), chainEngineJs);
 await writeFile(join(out, "assets/pair-engine.js"), pairEngineJs);
-await writeFile(join(out, "assets/dataset.json"), JSON.stringify(dataset));
+await writeFile(join(out, "assets/dataset.json"), datasetJson);
 await cp(join(root, "public/brand"), join(out, "brand"), { recursive: true });
 await cp(join(root, "public/site.webmanifest"), join(out, "site.webmanifest"));
 
@@ -72,7 +86,7 @@ function datasetStrip() {
 function document({ path, title, description, active, body, schema }) {
   const canonical = `${origin}${path}`;
   const routeSchema = schema || { "@context":"https://schema.org", "@type":"WebPage", "name":title, "url":canonical };
-  return `<!doctype html><html lang="en" data-dataset-url="/assets/dataset.json"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07110f"><title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="robots" content="${noindex ? "noindex,nofollow" : "index,follow"}"><meta property="og:type" content="website"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/brand/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abstract breeding lineage diagram connecting parent nodes to an egg-shaped result"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/brand/og-default.png"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/assets/styles.css"><script type="application/ld+json">${JSON.stringify(routeSchema).replace(/</g, "\\u003c")}</script>${plausibleAnalytics}</head><body>${header(active)}${datasetStrip()}<main>${body}</main>${footer()}<script type="module" src="/assets/app.js"></script></body></html>`;
+  return `<!doctype html><html lang="en" data-dataset-url="/assets/dataset.json?v=${assetVersions.dataset}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#07110f"><title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(description)}"><meta name="robots" content="${noindex ? "noindex,nofollow" : "index,follow"}"><meta property="og:type" content="website"><meta property="og:title" content="${escapeHtml(title)}"><meta property="og:description" content="${escapeHtml(description)}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${origin}/brand/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Abstract breeding lineage diagram connecting parent nodes to an egg-shaped result"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="${origin}/brand/og-default.png"><link rel="canonical" href="${canonical}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/brand/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="stylesheet" href="/assets/styles.css?v=${assetVersions.styles}"><script type="application/ld+json">${JSON.stringify(routeSchema).replace(/</g, "\\u003c")}</script>${plausibleAnalytics}</head><body>${header(active)}${datasetStrip()}<main>${body}</main>${footer()}<script type="module" src="/assets/app.js?v=${assetVersions.app}"></script></body></html>`;
 }
 
 const emptyResult = (attribute = "data-result") => `<output class="result-panel" ${attribute} aria-live="polite"><div class="empty-egg" aria-hidden="true"><span></span></div><p class="result-label">Expected offspring</p><h3>Choose a Pal to get started</h3><p>Results will show their game version, dataset version, and verification status.</p></output>`;
@@ -144,7 +158,7 @@ const sitemapPaths = noindex ? [] : pages.map(([path]) => path).filter((path) =>
 await writeFile(join(out, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapPaths.map((path) => `<url><loc>${origin}${path}</loc></url>`).join("")}</urlset>`);
 await writeFile(join(out, "robots.txt"), noindex ? "User-agent: *\nDisallow: /\n" : `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
 await writeFile(join(out, "favicon.svg"), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#07110f"/><path d="M32 16c-8 0-13 10-13 20 0 9 5 14 13 14s13-5 13-14c0-10-5-20-13-20Z" fill="none" stroke="#f3b849" stroke-width="4"/><circle cx="13" cy="13" r="5" fill="none" stroke="#b7c9a4" stroke-width="3"/><circle cx="51" cy="13" r="5" fill="none" stroke="#b7c9a4" stroke-width="3"/><path d="m17 16 8 8m22-8-8 8" stroke="#b7c9a4" stroke-width="3"/></svg>`);
-await writeFile(join(out, "_headers"), `/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n\n/*.html\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
+await writeFile(join(out, "_headers"), `/assets/*\n  Cache-Control: public, max-age=0, must-revalidate\n\n/*.html\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n`);
 await writeFile(join(out, "404.html"), document({ path:"/404/", title:"Page Not Found – Palworld Breeding Combos", description:"The requested page was not found.", body:prosePage("Page not found","This route is not available.",`<p><a href="/">Return to the breeding calculator</a> or browse <a href="/combos/">all combos</a>.</p>`) }));
 
 console.log(JSON.stringify({ mode: fixtureMode ? "fixture" : candidateMode ? "candidate" : "production", pages: pages.length, output: out }, null, 2));
