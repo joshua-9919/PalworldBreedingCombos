@@ -20,6 +20,7 @@ for (const file of htmlFiles) {
   for (const required of ["<title>", "name=\"description\"", "name=\"robots\"", "property=\"og:title\"", "property=\"og:description\"", "property=\"og:image\"", "name=\"twitter:image\""]) {
     if (!html.includes(required)) errors.push(`${file}: missing ${required}`);
   }
+  if (!html.includes('name="p:domain_verify" content="876c1aee0d58498f8f084d242da8b83d"')) errors.push(`${file}: missing Pinterest domain verification`);
   const is404 = file.endsWith("404.html");
   if (!is404 && (!html.includes('rel="canonical"') || !html.includes('property="og:url"'))) errors.push(`${file}: missing canonical URL metadata`);
   if (is404 && (!html.includes('name="robots" content="noindex,nofollow"') || html.includes('rel="canonical"') || html.includes('type="application/ld+json"'))) errors.push(`${file}: 404 must be noindex without canonical or schema`);
