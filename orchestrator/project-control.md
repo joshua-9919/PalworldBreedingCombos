@@ -21,7 +21,7 @@
 - [x] GitHub 仓库已连接：`joshua-9919/PalworldBreedingCombos`
 - [x] Cloudflare Pages 生产部署及 root/www 主域名绑定已完成
 - [x] GSC、Bing Webmaster Tools sitemap 已提交；Plausible 已安装并收到首个测试访问
-- [ ] Pinterest 网站所有权：验证标签已纳入生产构建；部署后等待 Pinterest 平台确认
+- [x] Pinterest 网站所有权已通过 HTML 标签验证并连接到 `Palworld Breeding Combos` 账号
 - [x] 在 QA_GO 后确认允许生产部署与 DNS 绑定
 - [ ] 在上线后确认是否允许社区发帖、目录提交等公开推广
 
