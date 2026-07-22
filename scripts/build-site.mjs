@@ -53,6 +53,7 @@ await writeFile(join(out, "assets/chain-engine.js"), chainEngineJs);
 await writeFile(join(out, "assets/pair-engine.js"), pairEngineJs);
 await writeFile(join(out, "assets/dataset.json"), datasetJson);
 await cp(join(root, "public/brand"), join(out, "brand"), { recursive: true });
+await cp(join(root, "public/product-hunt"), join(out, "product-hunt"), { recursive: true });
 await cp(join(root, "public/site.webmanifest"), join(out, "site.webmanifest"));
 
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({
