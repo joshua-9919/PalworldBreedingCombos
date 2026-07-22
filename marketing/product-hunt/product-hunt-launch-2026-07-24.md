@@ -3,9 +3,9 @@
 ## Schedule
 
 - Target launch date: 2026-07-24
-- Product Hunt launch time: platform default, to be recorded exactly after scheduling
+- Product Hunt launch time: `2026-07-24 12:01am PT` / `2026-07-24 14:01 GMT+7 (Asia/Jakarta)`
 - Account: `zhoujh zhou`
-- Status: Product Hunt main-info draft saved; gallery, makers, extras, and final scheduling pending
+- Status: required checklist 100% complete; final `Confirm scheduled date` action awaiting Owner confirmation
 
 ## Main information
 
@@ -53,10 +53,13 @@ I would especially value feedback on the workflow: do you usually start with two
   - `https://palworldbreedingcombos.com/product-hunt/gallery-02-calculator.jpg`
   - `https://palworldbreedingcombos.com/product-hunt/gallery-03-reverse-lookup.jpg`
   - `https://palworldbreedingcombos.com/product-hunt/gallery-04-chain-planner-v3.jpg`
+- Production asset deployment: `https://34d0ed83.palworld-breeding-combos.pages.dev`
+- Product Hunt live checklist: required fields `100% Complete`; gallery requirement passed. Four public gallery assets are prepared, but importing all four into the draft has not been independently confirmed.
 
 ## Evidence boundaries
 
 - Free, ad-free, no payment, no affiliate links.
 - No official game artwork or game files are included in launch assets.
 - No save-file upload, account, or cloud Palbox storage.
-- Product Hunt categories and exact schedule timezone must be selected and verified from the live Product Hunt UI.
+- Product Hunt launch tags were selected from the live taxonomy: `Games`, `Free Games`.
+- The live scheduling dialog states that the launch will be visible on July 24 at 12:01am PT (`02:01pm GMT+7`) for 24 hours.
