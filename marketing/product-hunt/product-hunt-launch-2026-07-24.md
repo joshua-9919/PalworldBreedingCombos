@@ -5,7 +5,8 @@
 - Target launch date: 2026-07-24
 - Product Hunt launch time: `2026-07-24 12:01am PT` / `2026-07-24 14:01 GMT+7 (Asia/Jakarta)`
 - Account: `zhoujh zhou`
-- Status: required checklist 100% complete; final `Confirm scheduled date` action awaiting Owner confirmation
+- Status: `Scheduled` — Product Hunt displayed `Successfully Scheduled!` and the Pre-Launch Dashboard shows `Launch status: Scheduled`
+- Product Hunt launch URL: `https://www.producthunt.com/products/palworld-breeding-combos?launch=palworld-breeding-combos`
 
 ## Main information
 
@@ -63,3 +64,4 @@ I would especially value feedback on the workflow: do you usually start with two
 - No save-file upload, account, or cloud Palbox storage.
 - Product Hunt launch tags were selected from the live taxonomy: `Games`, `Free Games`.
 - The live scheduling dialog states that the launch will be visible on July 24 at 12:01am PT (`02:01pm GMT+7`) for 24 hours.
+- Final confirmation was submitted after explicit Owner approval on 2026-07-22. The resulting Pre-Launch Dashboard exposes `View launch`, `Edit launch`, and `Reschedule Launch`; no reschedule action was taken.
