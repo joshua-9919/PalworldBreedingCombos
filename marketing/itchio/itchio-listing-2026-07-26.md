@@ -2,9 +2,9 @@
 
 ## Status
 
-- Account: logged in; primary email verification pending
-- Project state: private draft saved (`project 4827906`)
-- Upload state: blocked by itch.io email-verification requirement; verification email resent on 2026-07-26
+- Account: logged in; primary email verified
+- Project state: private draft QA passed (`project 4827906`)
+- Upload state: HTML ZIP, 630×500 cover, and four screenshots uploaded successfully
 - Public release: requires final Owner confirmation
 - Intended URL slug: `palworld-breeding-combos`
 - Website UTM: `https://palworldbreedingcombos.com/?utm_source=itchio&utm_medium=referral&utm_campaign=tool_listing_20260726`
@@ -67,8 +67,12 @@ This is an independent, unofficial fan-made tool. It is not affiliated with, end
 - ZIP root contains `index.html`.
 - Embedded build uses relative asset URLs.
 - Parent-to-child calculation works inside an iframe/static server.
+- Private itch.io embed test passed: `163 · Snock + 84 · Dinossom → Reindrix`.
+- Private page displays game version `1.0`, the pinned dataset revision, and `verified`.
+- Embed is configured at `1100×720`, mobile friendly, fullscreen enabled, and scrollbars enabled.
+- Cover, four screenshots, project description, and AI disclosure persisted after reload.
 - Internal guide and advanced-mode links open the full production website with the itch.io UTM.
 - Plausible is removed from the embedded copy to avoid measuring the itch.io iframe as the production domain.
 - Embedded copy is `noindex,nofollow`; the itch.io project page is the intended discoverable listing.
 - Public release remains unconfirmed.
-- Next gate: verify the itch.io account email, upload the ZIP/cover/screenshots, run the private embed QA, then request Owner confirmation before selecting Public.
+- Next gate: request Owner confirmation before selecting Public, then verify the public URL as a logged-out visitor.

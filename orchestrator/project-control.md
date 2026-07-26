@@ -26,8 +26,9 @@
 - [x] 已授权按平台规则执行公开推广；Reddit 外链仍须等版主明确许可
 - [x] Palworld Wiki 编辑独立审核申请已通过 `Joshuazhou` 账号提交；2026-08-02 跟进
 - [x] DEV 技术文章已由 Owner 确认并公开发布；公开 URL：`https://dev.to/joshua9919/how-i-built-an-auditable-palworld-10-breeding-calculator-without-shipping-game-files-1jde`
-- [x] itch.io 私密草稿已创建（project `4827906`）；HTML 包、封面和截图已就绪
-- [ ] 完成 itch.io 账号邮箱验证后上传素材；切换 Public 仍需最终确认
+- [x] itch.io 账号邮箱已验证；私密草稿（project `4827906`）已上传 HTML 包、封面和 4 张截图
+- [x] itch.io 私密嵌入 QA 已通过：`Snock + Dinossom → Reindrix`，版本/数据集/verified 状态均正常
+- [ ] itch.io 切换 Public 仍需最终确认；当前页面继续保持 Draft
 
 ## Product Decision
 
@@ -56,7 +57,7 @@
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
 | 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 2026-07-19 全站复验与真实任务通过；404 索引缺陷已修复，P0=0，P1=0，剩余 P2=3 |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；Pinterest、Product Hunt、GitHub、DEV 技术文章已执行；itch.io 私密草稿待邮箱验证与公开确认；Palworld Wiki 待审核 |
+| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；Pinterest、Product Hunt、GitHub、DEV 技术文章已执行；itch.io 私密草稿 QA_PASS、待公开确认；Palworld Wiki 待审核 |
 | 12 data review | site-data-review-iteration | ITERATE | QA 行为通过，但 Plausible/GSC/Bing 尚无代表性 cohort；满 7 天且 100 次非 QA 访问后复盘 |
 
 ## Risks
@@ -71,6 +72,6 @@
 ## Current State
 
 - running：无
-- waiting：真实自然流量积累；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-02 跟进）；itch.io 邮箱验证与公开确认
-- blocked：itch.io 文件上传被账号邮箱未验证阻塞；验证邮件已于 2026-07-26 重新发送
+- waiting：真实自然流量积累；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-02 跟进）；itch.io 公开确认
+- blocked：无
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）
