@@ -23,7 +23,8 @@
 - [x] GSC、Bing Webmaster Tools sitemap 已提交；Plausible 已安装并收到首个测试访问
 - [x] Pinterest 网站所有权已通过 HTML 标签验证并连接到 `Palworld Breeding Combos` 账号
 - [x] 在 QA_GO 后确认允许生产部署与 DNS 绑定
-- [ ] 在上线后确认是否允许社区发帖、目录提交等公开推广
+- [x] 已授权按平台规则执行公开推广；Reddit 外链仍须等版主明确许可
+- [ ] 登录 Palworld Wiki 或其 Discord，以便提交已准备好的编辑独立审核申请
 
 ## Product Decision
 
@@ -52,7 +53,7 @@
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
 | 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 2026-07-19 全站复验与真实任务通过；404 索引缺陷已修复，P0=0，P1=0，剩余 P2=3 |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 均已上线/提交；公开推广未授权 |
+| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；Pinterest、Product Hunt、GitHub 已执行，Palworld Wiki 申请待登录 |
 | 12 data review | site-data-review-iteration | ITERATE | QA 行为通过，但 Plausible/GSC/Bing 尚无代表性 cohort；满 7 天且 100 次非 QA 访问后复盘 |
 
 ## Risks
@@ -67,6 +68,6 @@
 ## Current State
 
 - running：无
-- waiting：真实自然流量积累与公开推广授权
-- blocked：公开推广未授权（不影响站点访问与自然收录）
+- waiting：真实自然流量积累；Reddit 版主许可；Palworld Wiki 编辑审核申请
+- blocked：Palworld Wiki/Discord 当前无登录态，申请草稿尚未提交
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）

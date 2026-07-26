@@ -22,7 +22,7 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 - Google Search Console domain ownership is verified and the production sitemap was submitted successfully (10 URLs).
 - Bing Webmaster Tools accepted the production sitemap successfully (10 URLs).
 - Plausible privacy-friendly analytics is installed using the Owner-provided site script from `plausible.shipsolo.io`; Privacy discloses the provider and aggregate-measurement purpose. The dashboard received the first QA visit.
-- Public promotion and directory/community submission remain unauthorized.
+- Public promotion is authorized within platform rules. Pinterest, Product Hunt, and the public GitHub repository have been executed; Reddit external-link promotion remains permission-gated, and the Palworld Wiki editorial-review request is prepared but not submitted because the current browser has no Wiki or Discord login.
 - The 2026-07-19 full-site QA covered desktop and 390 px mobile tasks, all primary controls, 10 content/legal pages and production HTTP/SEO delivery. The site now has 13 public pages and 12 indexable sitemap URLs, including `/how-to-use/`.
 - An SEO defect on the generic 404 was repaired: it now emits `noindex,nofollow`, no canonical/`og:url` and no JSON-LD, with automated regression coverage.
 - Production QA found no P0 or remaining P1 defects. The dataset transfers as 340 KB gzip in the current check but remains a P2 parse/cache monitor; the `www` canonical-host redirect remains P2.
