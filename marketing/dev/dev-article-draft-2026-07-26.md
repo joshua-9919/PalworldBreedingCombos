@@ -9,10 +9,12 @@ tags:
   - javascript
 cover_image: ./assets/palworld-breeding-data-cover.png
 canonical_url:
-status: SAVED_AS_UNPUBLISHED_DEV_DRAFT
+status: PUBLISHED
 dev_draft_id: 2669635
 dev_account: joshua-9919
 prepared_at: 2026-07-26
+published_at: 2026-07-26
+public_url: https://dev.to/joshua9919/how-i-built-an-auditable-palworld-10-breeding-calculator-without-shipping-game-files-1jde
 ---
 
 Breeding calculators look simple from the outside: choose two parents and display a child. The harder engineering problem is trust.
