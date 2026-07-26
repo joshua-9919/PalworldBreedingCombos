@@ -10,12 +10,16 @@
 - UTM: intentionally omitted because this is a request for a clean editorial reference, not a campaign-controlled social post
 - Operator disclosure: Palworld Breeding Combos, independent and unofficial fan project
 - Prepared at: `2026-07-26 17:41 WIB`
-- Status: `READY_AWAITING_WIKI_LOGIN`
-- Live backlink: `NOT_SUBMITTED`
+- Submitted at: `2026-07-26 18:59 WIB` / `2026-07-26 11:59 UTC`
+- Submitted by Wiki account: `Joshuazhou`
+- Status: `SUBMITTED_AWAITING_EDITOR_REVIEW`
+- Public discussion:
+  <https://palworld.wiki.gg/wiki/Talk:Breeding#Request_for_independent_review_%E2%80%94_Palworld_Breeding_Combos>
+- Live backlink: `DISCUSSION_LINK_ONLY` — the homepage, data-source page, and repository are linked from the public request; the Breeding article itself has not been changed
 - `rel` / index evidence: `NOT_APPLICABLE`
-- Blocker: the current Chrome session is not logged in to Palworld Wiki or Discord. Anonymous visitors can only view the Talk page source, and the Wiki account page is currently held at a Cloudflare browser-security check.
-- Next owner action: log in to an existing Palworld Wiki account, create one, or log in to Discord and join the Wiki server. Do not send a password or verification code in chat.
-- Follow-up rule: after a successful submission, check the discussion after 7 days. Do not repeat the request sooner and do not add the link directly to the article without editor approval.
+- Submission note: the DiscussionTools form exposed an empty CAPTCHA field without rendering a challenge. The request was successfully submitted through MediaWiki's classic source editor instead.
+- Follow-up date: `2026-08-02`
+- Follow-up rule: check the discussion after 7 days. Do not repeat the request sooner and do not add the link directly to the article without editor approval.
 
 ## Evidence reviewed
 
@@ -68,9 +72,9 @@ criteria or a better place to request review. Thank you.
 
 ## Verification checklist after submission
 
-- [ ] A visible Talk-page topic or Discord message exists.
-- [ ] The displayed copy includes the operator disclosure.
-- [ ] The homepage, data-source page, and repository links resolve.
-- [ ] The submission URL or message evidence is recorded here.
-- [ ] A seven-day follow-up date is recorded.
+- [x] A visible Talk-page topic exists.
+- [x] The displayed copy includes the operator disclosure.
+- [x] The homepage, data-source page, and repository links resolve.
+- [x] The submission URL is recorded here.
+- [x] A seven-day follow-up date is recorded.
 - [ ] If an editor adds the resource, verify the public article link, HTTP status, anchor text, `rel` attribute, and indexability separately.
