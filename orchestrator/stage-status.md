@@ -15,4 +15,4 @@
 | 09 QA | DONE_PRODUCTION | 2026-07-19 | 桌面/390 px 移动端全功能、按钮、路由、SEO、404 与生产交付复验；P0=0，P1=0，P2=3 |
 | Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
 | 11 Launch | LIVE | 2026-07-18 | Pages production 及 root/www 主域名已上线，HTTP 200/canonical/robots/sitemap/formula-noindex smoke 通过 |
-| 12 Data Review | ITERATE | 2026-07-19 | 技术与 QA 行为通过；真实 cohort 不足，满 7 天且 100 次非 QA 访问后再判定 Scale/Kill |
+| 12 Data Review | ITERATE_WITH_EARLY_SEARCH_TRACTION | 2026-07-29 | Plausible 225 visitors；GSC 65 clicks / 3,820 impressions / avg position 9.4；Direct 含 QA 流量，继续高相关玩家渠道和索引观察 |

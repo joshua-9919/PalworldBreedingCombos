@@ -5,7 +5,7 @@
 - Target launch date: 2026-07-24
 - Product Hunt launch time: `2026-07-24 12:01am PT` / `2026-07-24 14:01 GMT+7 (Asia/Jakarta)`
 - Account: `zhoujh zhou`
-- Status: `Scheduled` — Product Hunt displayed `Successfully Scheduled!` and the Pre-Launch Dashboard shows `Launch status: Scheduled`
+- Status: `PUBLISHED_VERIFIED` — live page independently verified on 2026-07-29 with product title, tagline, Upvote control, and two clickable website links
 - Product Hunt launch URL: `https://www.producthunt.com/products/palworld-breeding-combos?launch=palworld-breeding-combos`
 
 ## Main information
@@ -65,3 +65,4 @@ I would especially value feedback on the workflow: do you usually start with two
 - Product Hunt launch tags were selected from the live taxonomy: `Games`, `Free Games`.
 - The live scheduling dialog states that the launch will be visible on July 24 at 12:01am PT (`02:01pm GMT+7`) for 24 hours.
 - Final confirmation was submitted after explicit Owner approval on 2026-07-22. The resulting Pre-Launch Dashboard exposes `View launch`, `Edit launch`, and `Reschedule Launch`; no reschedule action was taken.
+- Post-launch verification on 2026-07-29: the public page loaded as `Palworld Breeding Combos: Plan Palworld 1.0 breeding combos and shortest chains`, showed `Visit website`, and linked to `https://palworldbreedingcombos.com/?ref=producthunt` with `rel="noreferrer noopener ugc"`.

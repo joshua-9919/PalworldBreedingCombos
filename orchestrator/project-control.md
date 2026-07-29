@@ -58,8 +58,8 @@
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
 | 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 2026-07-19 全站复验与真实任务通过；404 索引缺陷已修复，P0=0，P1=0，剩余 P2=3 |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；Pinterest、Product Hunt、GitHub、DEV 技术文章与 itch.io 公开工具页已执行；Palworld Wiki 待审核 |
-| 12 data review | site-data-review-iteration | ITERATE | QA 行为通过，但 Plausible/GSC/Bing 尚无代表性 cohort；满 7 天且 100 次非 QA 访问后复盘 |
+| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；GitHub、DEV、itch.io、Product Hunt 与 11 个 Pinterest Pins 已公开验活；Palworld Wiki 仅讨论页链接，正文待审核 |
+| 12 data review | site-data-review-iteration | ITERATE_WITH_EARLY_SEARCH_TRACTION | 2026-07-29：Plausible 225 visitors / 246 visits；GSC 65 clicks / 3,820 impressions / avg position 9.4。Direct 含 QA 流量，不升级为 Scale；继续高相关玩家渠道与索引观察 |
 
 ## Risks
 
@@ -68,11 +68,12 @@
 - P1：1.0 热点窗口短，近期大量新 EMD 站已经进入 SERP。
 - P2：数据源文件 7.54 MB 未压缩；线上 gzip 传输实测 340 KB / 0.37 秒，但 `max-age=0` 且仍为整包客户端解析，需用真实移动端数据持续观察。
 - P2：`www` 当前返回 200 而非 301 到主域；canonical 已指向主域，但仍建议统一跳转。
+- P2：GSC 2026-07-24 快照有 7 个 `Discovered - currently not indexed` URL；等待 Google 刷新后复核，不能把提交成功等同于收录。
 - P2：没有付费关键词 API，精确 volume/KD/CPC 暂缺；不得编造。
 
 ## Current State
 
 - running：无
-- waiting：真实自然流量积累；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-02 跟进）
+- waiting：GSC 外链报告处理完成；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-02 跟进）
 - blocked：无
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）

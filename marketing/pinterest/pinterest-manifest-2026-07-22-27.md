@@ -9,15 +9,15 @@
 
 | content_id | schedule (WIB) | headline | CTA | title | target | topic | alt text | status |
 |---|---|---|---|---|---|---|---|---|
-| `pbc_calculator_01` | `2026-07-22 10:00` | `PALWORLD BREEDING / CALCULATOR` | `Calculate a Combo` | Palworld Breeding Calculator for Two Parent Pals | `/` | Video Games | Two parent cards connect to an egg result above the text Palworld Breeding Calculator. | SCHEDULED |
-| `pbc_child_result_01` | `2026-07-22 18:00` | `WHAT WILL TWO PALS / PRODUCE?` | `Check the Result` | What Will These Two Pals Produce? | `/` | Video Games | Parent A and Parent B flow into a highlighted child result card. | SCHEDULED |
-| `pbc_find_parents_01` | `2026-07-23 10:00` | `FIND PARENTS FOR / A TARGET PAL` | `Find Parent Pairs` | Find Parent Pairs for a Target Pal | `/` | Video Games | A target card is matched with two parent cards above the text Find Parents for a Target Pal. | SCHEDULED |
-| `pbc_combos_44851_01` | `2026-07-24 10:00` | `BROWSE 44,851 / BREEDING COMBOS` | `Browse All Combos` | Browse 44,851 Palworld Breeding Combos | `/combos/` | Video Games | A dark searchable data table shows sample parent and child combination rows. | SCHEDULED |
-| `pbc_combos_list_01` | `2026-07-24 18:00` | `PALWORLD BREEDING / COMBOS LIST` | `Search the List` | Palworld Breeding Combos List | `/combos/` | Video Games | Search and filter controls sit above a list of breeding combination rows. | SCHEDULED |
-| `pbc_chain_01` | `2026-07-25 18:00` | `BUILD A PALWORLD / BREEDING CHAIN` | `Plan a Chain` | Build a Palworld Breeding Chain | `/chain/` | Video Games | Connected nodes form a three-step route from owned Pals to a target Pal. | SCHEDULED |
-| `pbc_owned_pals_01` | `2026-07-26 10:00` | `USE ONLY THE PALS / YOU ALREADY OWN` | `Use Your Palbox` | Plan with Only the Pals You Already Own | `/chain/` | Video Games | Checked owned-Pal cards connect through a short route to a target card. | SCHEDULED |
-| `pbc_basics_01` | `2026-07-26 18:00` | `PALWORLD BREEDING / BASICS` | `Read the Beginner Guide` | Palworld Breeding Basics for Beginners | `/guide/` | Video Games | Three numbered cards explain choose parents, breed an egg, and get the child Pal. | SCHEDULED |
-| `pbc_glossary_01` | `2026-07-27 18:00` | `PARENT, CHILD & / CHAIN EXPLAINED` | `Learn the Terms` | Parent Pal, Child Pal and Breeding Chain Explained | `/how-to-use/` | Video Games | Three glossary cards define Parent Pal, Child Pal, and Breeding Chain. | SCHEDULED |
+| `pbc_calculator_01` | `2026-07-22 10:00` | `PALWORLD BREEDING / CALCULATOR` | `Calculate a Combo` | Palworld Breeding Calculator for Two Parent Pals | `/` | Video Games | Two parent cards connect to an egg result above the text Palworld Breeding Calculator. | PUBLISHED_VERIFIED |
+| `pbc_child_result_01` | `2026-07-22 18:00` | `WHAT WILL TWO PALS / PRODUCE?` | `Check the Result` | What Will These Two Pals Produce? | `/` | Video Games | Parent A and Parent B flow into a highlighted child result card. | PUBLISHED_VERIFIED |
+| `pbc_find_parents_01` | `2026-07-23 10:00` | `FIND PARENTS FOR / A TARGET PAL` | `Find Parent Pairs` | Find Parent Pairs for a Target Pal | `/` | Video Games | A target card is matched with two parent cards above the text Find Parents for a Target Pal. | PUBLISHED_VERIFIED |
+| `pbc_combos_44851_01` | `2026-07-24 10:00` | `BROWSE 44,851 / BREEDING COMBOS` | `Browse All Combos` | Browse 44,851 Palworld Breeding Combos | `/combos/` | Video Games | A dark searchable data table shows sample parent and child combination rows. | PUBLISHED_VERIFIED |
+| `pbc_combos_list_01` | `2026-07-24 18:00` | `PALWORLD BREEDING / COMBOS LIST` | `Search the List` | Palworld Breeding Combos List | `/combos/` | Video Games | Search and filter controls sit above a list of breeding combination rows. | PUBLISHED_VERIFIED |
+| `pbc_chain_01` | `2026-07-25 18:00` | `BUILD A PALWORLD / BREEDING CHAIN` | `Plan a Chain` | Build a Palworld Breeding Chain | `/chain/` | Video Games | Connected nodes form a three-step route from owned Pals to a target Pal. | PUBLISHED_VERIFIED |
+| `pbc_owned_pals_01` | `2026-07-26 10:00` | `USE ONLY THE PALS / YOU ALREADY OWN` | `Use Your Palbox` | Plan with Only the Pals You Already Own | `/chain/` | Video Games | Checked owned-Pal cards connect through a short route to a target Pal. | PUBLISHED_VERIFIED |
+| `pbc_basics_01` | `2026-07-26 18:00` | `PALWORLD BREEDING / BASICS` | `Read the Beginner Guide` | Palworld Breeding Basics for Beginners | `/guide/` | Video Games | Three numbered cards explain choose parents, breed an egg, and get the child Pal. | PUBLISHED_VERIFIED |
+| `pbc_glossary_01` | `2026-07-27 18:00` | `PARENT, CHILD & / CHAIN EXPLAINED` | `Learn the Terms` | Parent Pal, Child Pal and Breeding Chain Explained | `/how-to-use/` | Video Games | Three glossary cards define Parent Pal, Child Pal, and Breeding Chain. | PUBLISHED_VERIFIED |
 
 ## Descriptions and destinations
 
@@ -84,6 +84,22 @@
 - Commerce settings: PASS — similar-product shopping turned off on all 9 editorial Pins.
 - Destination preflight: PASS — all 9 UTM URLs returned HTTP 200 and retained `utm_source`, `utm_medium`, `utm_campaign`, and unique `utm_content` values.
 - Post-publication destination-button click: PENDING BY DESIGN — scheduled Pins do not expose their public Pin URLs until publication; verify each public Pin after its release time.
+
+## Post-publication verification — 2026-07-29
+
+All nine Pins were visible on the public `palworldbreedingcombos` profile. Each public Pin returned HTTP 200 and contained its intended `palworldbreedingcombos.com` destination.
+
+| content_id | public Pin |
+|---|---|
+| `pbc_calculator_01` | `https://www.pinterest.com/pin/1087549010068994493/` |
+| `pbc_child_result_01` | `https://www.pinterest.com/pin/1087549010069014873/` |
+| `pbc_find_parents_01` | `https://www.pinterest.com/pin/1087549010069069209/` |
+| `pbc_combos_44851_01` | `https://www.pinterest.com/pin/1087549010069144733/` |
+| `pbc_combos_list_01` | `https://www.pinterest.com/pin/1087549010069164002/` |
+| `pbc_chain_01` | `https://www.pinterest.com/pin/1087549010069238391/` |
+| `pbc_owned_pals_01` | `https://www.pinterest.com/pin/1087549010069292278/` |
+| `pbc_basics_01` | `https://www.pinterest.com/pin/1087549010069316063/` |
+| `pbc_glossary_01` | `https://www.pinterest.com/pin/1087549010069392832/` |
 
 ## Pinterest schedule records
 

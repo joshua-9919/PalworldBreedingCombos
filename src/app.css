@@ -10,7 +10,14 @@
 .prose h3 { margin: 30px 0 10px; font-size: 23px; }
 .prose p, .prose li { color: #465950; }
 .prose a { color: #3e674f; font-weight: 700; }
-.prose code { padding: 2px 5px; background: var(--paper-200); border-radius: 3px; }
+.prose code {
+  max-width: 100%;
+  padding: 2px 5px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  background: var(--paper-200);
+  border-radius: 3px;
+}
 .short-answer { margin:0 0 36px; padding:22px 24px; border-left:4px solid var(--moss-500); background:#ebe2cc; }.short-answer strong { color:#365747; text-transform:uppercase; letter-spacing:.08em; font-size:12px; }.short-answer p { margin:8px 0 0; font-size:17px; }
 .breeding-steps { padding-left:22px; }.breeding-steps li { margin:14px 0; padding-left:6px; }
 .term-glossary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }.term-glossary div { padding:16px 18px; border:1px solid var(--line-paper); background:#fbf7ec; }.term-glossary dt { color:#365747; font-weight:800; }.term-glossary dd { margin:4px 0 0; color:#52625b; font-size:14px; }
