@@ -30,6 +30,7 @@
 - [x] itch.io 私密嵌入 QA 已通过：`Snock + Dinossom → Reindrix`，版本/数据集/verified 状态均正常
 - [x] itch.io 已由 Owner 确认切换 Public；公开 URL：`https://joshua-9919.itch.io/palworld-breeding-combos`
 - [x] itch.io 未登录访问验证通过：HTTP 200、项目介绍与主站 UTM 外链均可见
+- [x] Steam Community Guide 已完成原创英文草稿、单链接披露、素材映射和私密 QA 清单；尚未在 Steam 创建或公开
 
 ## Product Decision
 
@@ -74,6 +75,6 @@
 ## Current State
 
 - running：无
-- waiting：GSC 外链报告处理完成；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-03 已跟进，不再重复催促）
+- waiting：GSC 外链报告处理完成；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-03 已跟进，不再重复催促）；Steam Guide 私密创建与 Owner 公开确认
 - blocked：无
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）
