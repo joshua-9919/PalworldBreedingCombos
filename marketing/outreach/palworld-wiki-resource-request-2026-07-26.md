@@ -12,14 +12,17 @@
 - Prepared at: `2026-07-26 17:41 WIB`
 - Submitted at: `2026-07-26 18:59 WIB` / `2026-07-26 11:59 UTC`
 - Submitted by Wiki account: `Joshuazhou`
-- Status: `SUBMITTED_AWAITING_EDITOR_REVIEW`
+- Status: `FOLLOWED_UP_AWAITING_EDITOR_REVIEW`
 - Public discussion:
   <https://palworld.wiki.gg/wiki/Talk:Breeding#Request_for_independent_review_%E2%80%94_Palworld_Breeding_Combos>
 - Live backlink: `DISCUSSION_LINK_ONLY` — the homepage, data-source page, and repository are linked from the public request; the Breeding article itself has not been changed
 - `rel` / index evidence: `NOT_APPLICABLE`
 - Submission note: the DiscussionTools form exposed an empty CAPTCHA field without rendering a challenge. The request was successfully submitted through MediaWiki's classic source editor instead.
-- Follow-up date: `2026-08-02`
-- Follow-up rule: check the discussion after 7 days. Do not repeat the request sooner and do not add the link directly to the article without editor approval.
+- Followed up at: `2026-08-03 21:32 WIB` / `2026-08-03 14:32 UTC`
+- Follow-up permalink:
+  <https://palworld.wiki.gg/wiki/Talk:Breeding#c-Joshuazhou-20260803143200-Joshuazhou-20260726115900>
+- Follow-up result: publicly visible as the second comment in the original topic; no editor reply or Breeding-article placement was present when submitted
+- Follow-up rule: this was the single planned reminder. Do not send another reminder or add the link directly to the article. Wait for an editor response or independent placement.
 
 ## Evidence reviewed
 
@@ -77,4 +80,5 @@ criteria or a better place to request review. Thank you.
 - [x] The homepage, data-source page, and repository links resolve.
 - [x] The submission URL is recorded here.
 - [x] A seven-day follow-up date is recorded.
+- [x] The single follow-up was published and its permalink was verified.
 - [ ] If an editor adds the resource, verify the public article link, HTTP status, anchor text, `rel` attribute, and indexability separately.

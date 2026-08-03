@@ -12,7 +12,7 @@
 - 生产站核心任务可用：父母算子代、目标反查父母、Owned Pals 最短链。
 - 自动构建、站点、合规、chain、pair 检查全部通过。
 - GitHub、DEV、itch.io、Product Hunt 与 11 个 Pinterest Pins 均为公开外链。
-- Palworld Wiki 目前只有公开讨论页链接，Breeding 正文尚未收录。
+- Palworld Wiki 目前只有公开讨论页链接；2026-08-03 已完成唯一一次礼貌跟进，Breeding 正文尚未收录。
 - Plausible 最近 28 天：225 visitors / 246 visits / 482 pageviews。
 - GSC：65 clicks / 3,820 impressions / CTR 1.7% / average position 9.4。
 
@@ -23,7 +23,7 @@
 ## 下一步
 
 1. 发布并复验移动端断行修复。
-2. 2026-08-02 对 Palworld Wiki 审核申请做一次礼貌跟进。
+2. 等待 Palworld Wiki 编辑回复；不再重复跟进，也不自行修改 Breeding 正文。
 3. 准备原创 Steam Community Guide；完成内容和披露后再请求 Owner 确认发布。
 4. Permission-first 联系 Palworld 社区/Discord 的资源频道管理员。
 5. Reddit 继续普通参与；没有版主明确许可，不发外链。

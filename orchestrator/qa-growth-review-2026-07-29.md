@@ -73,7 +73,7 @@ The direct cohort includes QA and owner traffic, so it is not valid to treat all
 | itch.io project | LIVE | HTTP 200; calculator and data-sources links visible; itch.io adds `nofollow`. It did not appear in the currently displayed Plausible top-source list. |
 | Product Hunt | LIVE | Public product page, Upvote control, and two `Visit website` links verified; Plausible shows 6 visitors. |
 | Pinterest | LIVE | Two earlier Pins plus nine scheduled Pins are public; all nine batch Pins returned 200 and contain the intended destination; Plausible shows 2 visitors. |
-| Palworld Wiki Talk:Breeding | DISCUSSION_LINK_ONLY | Public request contains homepage and data-source links with `nofollow`; no reply and no editorial placement in the Breeding article yet. |
+| Palworld Wiki Talk:Breeding | DISCUSSION_LINK_ONLY | Public request contains homepage and data-source links with `nofollow`; the single planned follow-up was published on 2026-08-03. No editor reply or editorial placement in the Breeding article yet. |
 | Reddit r/Palworld | NO_BACKLINK | External-link promotion remains permission-gated. Current Rule 5 signals prohibit self-promotion; do not post the site without explicit moderator approval. |
 | GSC external-links report | WAITING_PLATFORM_REFRESH | Report is still processing. |
 
@@ -85,7 +85,7 @@ The direct cohort includes QA and owner traffic, so it is not valid to treat all
 
 ## Next backlink sequence
 
-1. `2026-08-02`: follow up once on the existing Palworld Wiki editorial-review request. Do not add the link directly to the article.
+1. Wait for the Palworld Wiki editorial response. The one-time follow-up was completed on `2026-08-03`; do not follow up again or add the link directly to the article.
 2. Prepare an original Palworld 1.0 Steam Community Guide focused on two-parent lookup, reverse lookup, and Owned Pals chains. Include one disclosed tool link only after the guide itself is complete and useful.
 3. Ask a relevant Palworld Discord/community resource moderator for permission to share the free tool in a tools/resources channel. Treat this as referral/user-feedback acquisition, not guaranteed SEO equity.
 4. Continue Reddit account warming and ordinary participation. Do not publish an external link unless r/Palworld moderators explicitly approve it.
