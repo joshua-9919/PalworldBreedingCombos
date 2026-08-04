@@ -25,7 +25,7 @@
 1. 发布并复验移动端断行修复。
 2. 等待 Palworld Wiki 编辑回复；不再重复跟进，也不自行修改 Breeding 正文。
 3. 原创 Steam Community Guide 已形成完整英文草稿与发布清单；下一步在 Steam 创建非公开草稿并完成格式/链接 QA，公开前仍需 Owner 确认。
-4. Permission-first 联系 Palworld 社区/Discord 的资源频道管理员。
+4. Palworld Wiki Discord 邀请已验证，且不含链接的管理员许可申请已准备；等待 Owner 登录并加入服务器后，先只读检查规则和正确频道。
 5. Reddit 继续普通参与；没有版主明确许可，不发外链。
 
 ## 待处理 P2
