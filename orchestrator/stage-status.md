@@ -11,8 +11,8 @@
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 Data | DONE | 2026-07-18 | 300 Pal / 44,851 combinations 已促进为 Owner-approved production dataset 并通过生产校验 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
-| 10 Reviews | DONE_FOR_QA | 2026-07-18 | SEO、PM、Compliance 均已 GO_FOR_QA；生产证据留到 Launch Gate |
-| 09 QA | DONE_PRODUCTION | 2026-07-19 | 桌面/390 px 移动端全功能、按钮、路由、SEO、404 与生产交付复验；P0=0，P1=0，P2=3 |
+| 10 Reviews | CONDITIONAL_GO_PENDING_DEPLOY | 2026-09-06 | GSC/Bing sitemap 已成功重提；新 301/懒加载构建待部署复验 |
+| 09 QA | CONDITIONAL_GO_PENDING_DEPLOY_REQA | 2026-09-06 | 390×844 现网公开页与核心任务通过；新构建需独立复测事件、分享、301 与工具页懒加载 |
 | Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权 |
-| 11 Launch | LIVE | 2026-07-18 | Pages production 及 root/www 主域名已上线，HTTP 200/canonical/robots/sitemap/formula-noindex smoke 通过 |
-| 12 Data Review | ITERATE_WITH_EARLY_SEARCH_TRACTION | 2026-07-29 | Plausible 225 visitors；GSC 65 clicks / 3,820 impressions / avg position 9.4；Direct 含 QA 流量，继续高相关玩家渠道和索引观察 |
+| 11 Launch | LIVE_REVIEW_ONLY | 2026-09-06 | 既有 GitHub/DEV/itch.io/Product Hunt/Pinterest/Wiki 讨论页资产仍可见；本轮没有新的公开动作 |
+| 12 Data Review | ITERATE_PLAUSIBLE_UNCONFIGURED | 2026-09-06 | GSC/Bing 已刷新；自托管 Plausible 暂无 Palworld site 配置，不能读取事件数据或 Scale |

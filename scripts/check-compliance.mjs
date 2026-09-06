@@ -14,6 +14,7 @@ const pages = Object.fromEntries(await Promise.all(
 ));
 const home = await readFile(join(root, "index.html"), "utf8");
 const app = await readFile(join(root, "assets/app.js"), "utf8");
+const analytics = await readFile(join(root, "assets/analytics.js"), "utf8");
 const allHtml = [home, ...Object.values(pages)].join("\n");
 
 for (const route of ["privacy", "terms", "disclaimer", "data-sources"]) {
@@ -33,6 +34,10 @@ for (const match of allHtml.matchAll(/<script[^>]+src="([^"]+)"/g)) {
   if (/^https?:\/\//.test(match[1]) && match[1] !== "https://plausible.shipsolo.io/js/pa-Tuwmm86GExPpwNCxPPO8b.js") errors.push(`unapproved external script: ${match[1]}`);
 }
 if (!app.includes('localStorage.getItem("pbc-owned-pals")') || !app.includes('localStorage.removeItem("pbc-owned-pals")')) errors.push("owned-Pals local storage lifecycle is incomplete");
+for (const eventName of ["calculate", "chain", "share"]) {
+  if (!app.includes(`track("${eventName}"`) && !analytics.includes(`window.pbcTrack("${eventName}"`)) errors.push(`analytics event missing: ${eventName}`);
+}
+if (!analytics.includes('window.pbcTrack("outbound-click"') || !analytics.includes("utm_source")) errors.push("outbound-click or UTM attribution missing");
 
 if (errors.length) {
   console.error("COMPLIANCE_CHECK_FAILED");

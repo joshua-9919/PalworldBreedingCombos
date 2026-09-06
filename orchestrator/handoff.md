@@ -2,10 +2,11 @@
 
 ## 当前结论
 
-- 状态：`LIVE / CONDITIONAL_GO`
-- QA：P0=0，P1=0，P2=3
-- 增长：`ITERATE_WITH_EARLY_SEARCH_TRACTION`
-- 详细证据：`orchestrator/qa-growth-review-2026-07-29.md`
+- 状态：`OPTIMIZATION_REVIEWING / CONDITIONAL_GO_PENDING_DEPLOY / ITERATE`
+- QA：390×844 现网公开页与核心任务通过；新构建部署后需复测 301、懒加载、分享和事件
+- 增长：`ITERATE_PLAUSIBLE_UNCONFIGURED`
+- 详细证据：`orchestrator/full-site-audit-2026-09-06.md`
+- 本轮执行：`orchestrator/optimization-execution-2026-09-06.md`
 
 ## 已确认
 
@@ -13,8 +14,8 @@
 - 自动构建、站点、合规、chain、pair 检查全部通过。
 - GitHub、DEV、itch.io、Product Hunt 与 11 个 Pinterest Pins 均为公开外链。
 - Palworld Wiki 目前只有公开讨论页链接；2026-08-03 已完成唯一一次礼貌跟进，Breeding 正文尚未收录。
-- Plausible 最近 28 天：225 visitors / 246 visits / 482 pageviews。
-- GSC：65 clicks / 3,820 impressions / CTR 1.7% / average position 9.4。
+- 最新可用旧数据（2026-07-29）：Plausible 225 visitors / 246 visits / 482 pageviews；GSC 65 clicks / 3,820 impressions / CTR 1.7% / average position 9.4。Direct 含 QA/Owner，不能当作当前规模化证据。
+- 本轮：公开生产页、390×844 真实用户任务、metadata/schema/formula noindex 复核通过；GSC/Bing sitemap 已成功重提；Plausible 账号暂无 Palworld site 配置。
 
 ## 本轮修复
 
@@ -22,14 +23,16 @@
 
 ## 下一步
 
-1. 发布并复验移动端断行修复。
-2. 等待 Palworld Wiki 编辑回复；不再重复跟进，也不自行修改 Breeding 正文。
-3. 原创 Steam Community Guide 已形成完整英文草稿与发布清单；下一步在 Steam 创建非公开草稿并完成格式/链接 QA，公开前仍需 Owner 确认。
-4. Palworld Wiki Discord 邀请已验证，且不含链接的管理员许可申请已准备；等待 Owner 登录并加入服务器后，先只读检查规则和正确频道。
-5. Reddit 继续普通参与；没有版主明确许可，不发外链。
+1. Owner 批准并部署当前构建，然后独立复测 `www` → 根域 301、非工具页 dataset 懒加载、事件和分享按钮。
+2. 在 Plausible 自托管创建/接入 Palworld site，确认 calculate/chain/outbound-click/share 和 UTM 归因。
+3. 等待 Palworld Wiki 编辑回复；不再重复跟进，也不自行修改 Breeding 正文。
+4. Steam Guide 只有在 Owner 有账号时创建非公开草稿；公开前仍需精确批准。
+5. Discord 先登录、读规则并申请许可；Reddit 没有版主明确许可不发外链。
 
 ## 待处理 P2
 
 - `www` 200 → root 301。
-- GSC 7 个 discovered-not-indexed URL 等平台刷新后复核。
+- 非工具页 dataset 懒加载与移动性能复测。
+- GSC/Bing 当前索引覆盖、外链报告和最近 28 天 Plausible 复盘。
+- 新 source revision 通过生产校验后，8–12 个实体页小批量 noindex→review→index 实验。
 - 后续设计迭代扩大移动端小链接的触控区域。

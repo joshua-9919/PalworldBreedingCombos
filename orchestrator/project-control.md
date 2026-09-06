@@ -12,7 +12,9 @@
 - 禁止事项：不得自称官方；不得复制竞品数据或受保护素材；不得在未确认权利与来源时使用游戏图片；不得未经 Owner Review 绑定生产 DNS 或公开推广
 - 上线期望：快速 BUILD_NOW；不牺牲数据准确性与 QA
 - 当前模式：automation_factory
-- 当前状态：LIVE_REVIEWED
+- 当前状态：OPTIMIZATION_READY_BLOCKED_DEPLOY
+- 最近审计：`orchestrator/full-site-audit-2026-09-06.md`
+- 最近执行：`orchestrator/optimization-execution-2026-09-06.md`
 - 唯一事实源：本文件 + `stage-dag.md` + `kanban-plan.md`
 
 ## Owner 只需要处理
@@ -55,27 +57,28 @@
 | 06 design | site-design-student | DONE | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 backend/data | backend-auto-site-cloudflare-workers | DONE | 300 Pal / 44,851 rows 生产数据已经 Owner 批准并通过 production validator |
 | 07 frontend | frontend-site-automation | DONE | searchable inputs、chain constraints、URL state 已验证；新增 `/how-to-use/` 并替换顶部 Guide 导航，完整指南保留在页内与 Footer |
-| 10 SEO review | seo-launch-workflow | DONE_FOR_QA | 完整 candidate noindex 预览、metadata/FAQ/schema/sitemap 复核通过；线上提交待部署 |
+| 10 SEO review | seo-launch-workflow | CONDITIONAL_GO_PENDING_DEPLOY | GSC sitemap 已于 2026-09-06 成功重提；Bing sitemap 已成功重提；新 301/懒加载构建待部署复验 |
 | 04 compliance recheck | student-site-compliance-pipeline | DONE_FOR_QA | 免费/无广告/非官方 MVP 合规检查通过；生产前等 Owner 风险确认 |
 | 02 PM acceptance | product-definition-prd | DONE_FOR_QA | 完整 lookup、最短链与同种反查 P1 已修复；entity pages 保留 launch gate |
-| 09 QA | student-site-qa-acceptance | DONE_PRODUCTION | 2026-07-19 全站复验与真实任务通过；404 索引缺陷已修复，P0=0，P1=0，剩余 P2=3 |
+| 09 QA | student-site-qa-acceptance | CONDITIONAL_GO_PENDING_DEPLOY_REQA | 390×844 现网公开页与核心任务通过；新构建尚未部署，需独立复测事件、分享、301 与工具页懒加载 |
 | Owner Review | owner | DONE | 免费无商业化范围、事实数据风险、Indonesia Terms、Cloudflare/DNS 已批准 |
-| 11 launch | site-ops-growth-launch | LIVE | Pages、root/www、Plausible、GSC/Bing sitemap 已上线/提交；GitHub、DEV、itch.io、Product Hunt 与 11 个 Pinterest Pins 已公开验活；Palworld Wiki 申请与单次跟进均公开，仍只有讨论页链接，正文待审核 |
-| 12 data review | site-data-review-iteration | ITERATE_WITH_EARLY_SEARCH_TRACTION | 2026-07-29：Plausible 225 visitors / 246 visits；GSC 65 clicks / 3,820 impressions / avg position 9.4。Direct 含 QA 流量，不升级为 Scale；继续高相关玩家渠道与索引观察 |
+| 11 launch | site-ops-growth-launch | LIVE_REVIEW_ONLY | 既有 GitHub、DEV、itch.io、Product Hunt、Pinterest 与 Wiki 讨论页资产仍可见；本轮没有新的公开动作 |
+| 12 data review | site-data-review-iteration | ITERATE_PLAUSIBLE_UNCONFIGURED | GSC/Bing 已刷新；Plausible 自托管账号暂无 Palworld site 配置；保留早期信号，不升级为 Scale |
 
 ## Risks
 
 - P0：1.0 繁殖数据若不准确，工具核心价值失效；在数据源、版本和交叉验证完成前不得宣称完整准确。
 - P1：`Palworld` 属品牌词；必须明确非官方、避免官方视觉冒充，并保留域名/IP投诉风险。
 - P1：1.0 热点窗口短，近期大量新 EMD 站已经进入 SERP。
-- P2：数据源文件 7.54 MB 未压缩；线上 gzip 传输实测 340 KB / 0.37 秒，但 `max-age=0` 且仍为整包客户端解析，需用真实移动端数据持续观察。
-- P2：`www` 当前返回 200 而非 301 到主域；canonical 已指向主域，但仍建议统一跳转。
+- P2：数据源文件约 7.2 MB 未压缩；本地构建已改为只有工具页注入并读取 dataset，待部署后测量真实网络节省。
+- P2：`www` 现网当前仍返回 200；构建已加入 `_redirects` 301 规则，待部署后复验。
+- P2：新事件和分享按钮尚未进入生产，Plausible 站点配置仍缺失。
 - P2：GSC 2026-07-24 快照有 7 个 `Discovered - currently not indexed` URL；等待 Google 刷新后复核，不能把提交成功等同于收录。
 - P2：没有付费关键词 API，精确 volume/KD/CPC 暂缺；不得编造。
 
 ## Current State
 
 - running：无
-- waiting：GSC 外链报告处理完成；Reddit 版主许可；Palworld Wiki 编辑审核结果（2026-08-03 已跟进，不再重复催促）；Steam Guide 暂存（无账号）；Discord 登录、规则检查与许可申请
-- blocked：无
+- waiting：允许 Git 写入并推送 main；部署后生产 301/懒加载/事件复验；Plausible site 配置；Palworld Wiki 编辑审核结果（2026-08-03 已跟进，不再重复催促）；Steam Guide 私密草稿；Discord 登录、规则检查与许可申请
+- blocked：`.git/index` 只读导致无法 commit/push；新数据 source revision 尚未提供，实体页小批量索引实验不能启动；Plausible 自托管当前没有 Palworld site，不能读取事件数据
 - done：00 setup / domain decision；01 Research Gate；02 PRD / Route Contract + PM recheck；03 Pricing；04 Compliance Contract + recheck；05 SEO Copy Freeze；06 Design Source；08 Data Contract + technical cross-check；07 Frontend implementation；10 SEO recheck；09 Production QA（P0=0/P1=0）

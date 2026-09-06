@@ -8,6 +8,8 @@ let dataset;
 let palsById;
 let palsByLookup;
 
+const track = (name, props = {}) => window.pbcTrack?.(name, props);
+
 const combinations = () => dataset.combinations || dataset.specialCombinations.map((combo) => ({
   ...combo, parentAGender: "WILDCARD", parentBGender: "WILDCARD"
 }));
@@ -35,6 +37,10 @@ function updateQuery(values) {
   const params = new URLSearchParams();
   Object.entries(values).forEach(([key, value]) => { if (value) params.set(key, value); });
   history.replaceState(null, "", `${location.pathname}${params.size ? `?${params}` : ""}${location.hash}`);
+}
+
+function shareMarkup() {
+  return '<div class="result-actions"><button class="button secondary share-button" type="button" data-share-result>Copy share link</button><span class="share-feedback" data-share-feedback role="status" aria-live="polite"></span></div>';
 }
 
 const metaMarkup = () => {
@@ -79,11 +85,13 @@ function initParentsCalculator(params) {
     updateQuery({ mode: "parents", parentA: parentA.slug, parentB: parentB.slug });
     if (result.choices) {
       output.classList.add("result-ready");
-      output.innerHTML = `<p class="result-label">Gender-dependent offspring</p><h3>Parent genders change the child</h3><div class="pair-list">${result.choices.map((choice) => `<div class="pair-row"><span>${escapeHtml(palsById.get(choice.parentAId).name)} (${escapeHtml(choice.parentAGender.toLowerCase())}) + ${escapeHtml(palsById.get(choice.parentBId).name)} (${escapeHtml(choice.parentBGender.toLowerCase())})</span><span>→</span><span>${escapeHtml(palsById.get(choice.childId).name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+      output.innerHTML = `<p class="result-label">Gender-dependent offspring</p><h3>Parent genders change the child</h3><div class="pair-list">${result.choices.map((choice) => `<div class="pair-row"><span>${escapeHtml(palsById.get(choice.parentAId).name)} (${escapeHtml(choice.parentAGender.toLowerCase())}) + ${escapeHtml(palsById.get(choice.parentBId).name)} (${escapeHtml(choice.parentBGender.toLowerCase())})</span><span>→</span><span>${escapeHtml(palsById.get(choice.childId).name)}</span></div>`).join("")}</div>${shareMarkup()}${metaMarkup()}`;
+      track("calculate", { mode: "parents", result: "gender-dependent" });
       return;
     }
     output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Expected offspring</p><h3 class="result-title">${escapeHtml(result.child.name)}</h3><p>Rule type: ${escapeHtml(result.rule)}. Verification: ${escapeHtml(result.verification)}.</p>${metaMarkup()}`;
+    output.innerHTML = `<p class="result-label">Expected offspring</p><h3 class="result-title">${escapeHtml(result.child.name)}</h3><p>Rule type: ${escapeHtml(result.rule)}. Verification: ${escapeHtml(result.verification)}.</p>${shareMarkup()}${metaMarkup()}`;
+    track("calculate", { mode: "parents", result: result.child.slug });
   };
   form.addEventListener("submit", (event) => { event.preventDefault(); render(); });
   if (params.get("mode") === "parents" && (params.has("parentA") || params.has("parentB"))) {
@@ -111,9 +119,10 @@ function initTargetLookup(params) {
     const renderPairs = (showAll = false) => {
       const visiblePairs = showAll ? pairs : pairs.slice(0, 24);
       output.classList.add("result-ready");
-      output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><p class="result-count">Showing ${visiblePairs.length.toLocaleString()} of ${pairs.length.toLocaleString()} validated pairs</p><div class="pair-list">${visiblePairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}${pair.parentAGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentAGender.toLowerCase())})` : ""}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}${pair.parentBGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentBGender.toLowerCase())})` : ""}</span></div>`).join("")}</div>${!showAll && pairs.length > visiblePairs.length ? `<button class="button secondary result-more" type="button" data-show-all-pairs>Show all ${pairs.length.toLocaleString()} combinations</button>` : ""}${metaMarkup()}`;
+      output.innerHTML = `<p class="result-label">Direct parent combinations</p><h3>${escapeHtml(target.name)}</h3><p class="result-count">Showing ${visiblePairs.length.toLocaleString()} of ${pairs.length.toLocaleString()} validated pairs</p><div class="pair-list">${visiblePairs.map((pair) => `<div class="pair-row"><span>${escapeHtml(pair.parentA.name)}${pair.parentAGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentAGender.toLowerCase())})` : ""}</span><span>+</span><span>${escapeHtml(pair.parentB.name)}${pair.parentBGender !== "WILDCARD" ? ` (${escapeHtml(pair.parentBGender.toLowerCase())})` : ""}</span></div>`).join("")}</div>${!showAll && pairs.length > visiblePairs.length ? `<button class="button secondary result-more" type="button" data-show-all-pairs>Show all ${pairs.length.toLocaleString()} combinations</button>` : ""}${shareMarkup()}${metaMarkup()}`;
       output.querySelector("[data-show-all-pairs]")?.addEventListener("click", () => renderPairs(true));
     };
+    track("calculate", { mode: "target", target: target.slug, resultCount: pairs.length });
     renderPairs();
   };
   input.addEventListener("change", render);
@@ -154,7 +163,8 @@ function initOneParent(params) {
       });
     if (!results.length) return renderError(output, "No validated partner results exist for this Pal in the active dataset.");
     output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Partner results</p><h3>${escapeHtml(parent.name)}</h3><div class="pair-list">${results.map((item) => `<div class="pair-row"><span>${item.parentGender !== "WILDCARD" ? `${escapeHtml(item.parentGender.toLowerCase())} + ` : "+ "}${escapeHtml(item.partner.name)}${item.partnerGender !== "WILDCARD" ? ` (${escapeHtml(item.partnerGender.toLowerCase())})` : ""}</span><span>→</span><span>${escapeHtml(item.child.name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+    output.innerHTML = `<p class="result-label">Partner results</p><h3>${escapeHtml(parent.name)}</h3><div class="pair-list">${results.map((item) => `<div class="pair-row"><span>${item.parentGender !== "WILDCARD" ? `${escapeHtml(item.parentGender.toLowerCase())} + ` : "+ "}${escapeHtml(item.partner.name)}${item.partnerGender !== "WILDCARD" ? ` (${escapeHtml(item.partnerGender.toLowerCase())})` : ""}</span><span>→</span><span>${escapeHtml(item.child.name)}</span></div>`).join("")}</div>${shareMarkup()}${metaMarkup()}`;
+    track("calculate", { mode: "one-parent", parent: parent.slug, resultCount: results.length });
   };
   input.addEventListener("change", render);
   input.addEventListener("keydown", (event) => {
@@ -251,7 +261,8 @@ function initChain(params) {
     const result = findShortestChain({ ownedIds: owned, targetId: target.id, constraints, pals: dataset.pals, combinations: combinations() });
     if (!result.ok) return renderError(output, result.message);
     output.classList.add("result-ready");
-    output.innerHTML = `<p class="result-label">Shortest available chain</p><h3>${result.steps.length ? `${result.steps.length} breeding step${result.steps.length === 1 ? "" : "s"}` : "Already in your Palbox"}</h3><div class="pair-list">${result.steps.map((step) => `<div class="pair-row"><span>${escapeHtml(palsById.get(step.parentAId).name)} + ${escapeHtml(palsById.get(step.parentBId).name)}</span><span>→</span><span>${escapeHtml(palsById.get(step.childId).name)}</span></div>`).join("")}</div>${metaMarkup()}`;
+    output.innerHTML = `<p class="result-label">Shortest available chain</p><h3>${result.steps.length ? `${result.steps.length} breeding step${result.steps.length === 1 ? "" : "s"}` : "Already in your Palbox"}</h3><div class="pair-list">${result.steps.map((step) => `<div class="pair-row"><span>${escapeHtml(palsById.get(step.parentAId).name)} + ${escapeHtml(palsById.get(step.parentBId).name)}</span><span>→</span><span>${escapeHtml(palsById.get(step.childId).name)}</span></div>`).join("")}</div>${shareMarkup()}${metaMarkup()}`;
+    track("chain", { target: target.slug, steps: result.steps.length });
   };
   form.addEventListener("submit", (event) => { event.preventDefault(); render(); });
   if (params.has("target")) {
@@ -271,6 +282,7 @@ function initChain(params) {
 }
 
 async function start() {
+  if (!document.querySelector("[data-parents-form], [data-target-select], [data-one-parent], [data-chain-form]")) return;
   try {
     const response = await fetch(datasetUrl, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -285,5 +297,17 @@ async function start() {
     });
   }
 }
+
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-share-result]");
+  if (!button) return;
+  const feedback = button.parentElement?.querySelector("[data-share-feedback]");
+  try {
+    await navigator.clipboard.writeText(location.href);
+    if (feedback) feedback.textContent = "Link copied";
+  } catch {
+    if (feedback) feedback.textContent = "Copy failed — copy the URL from your address bar";
+  }
+});
 
 start();

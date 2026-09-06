@@ -45,6 +45,7 @@ for (const file of htmlFiles) {
 }
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
+const redirects = await readFile(join(root, "_redirects"), "utf8");
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
   if (!html.includes('name="robots" content="noindex,nofollow"')) continue;
@@ -52,8 +53,21 @@ for (const file of htmlFiles) {
   if (canonical && sitemap.includes(`<loc>${canonical}</loc>`)) errors.push(`${file}: noindex canonical appears in sitemap`);
 }
 
-for (const required of ["robots.txt", "sitemap.xml", "404.html", "favicon.svg", "site.webmanifest", "brand/logo-mark.png", "brand/logo-mark-512.png", "brand/apple-touch-icon.png", "brand/og-default.png", "assets/dataset.json", "assets/app.js", "assets/chain-engine.js", "assets/pair-engine.js", "assets/styles.css"]) {
+for (const required of ["robots.txt", "sitemap.xml", "_redirects", "404.html", "favicon.svg", "site.webmanifest", "brand/logo-mark.png", "brand/logo-mark-512.png", "brand/apple-touch-icon.png", "brand/og-default.png", "assets/dataset.json", "assets/app.js", "assets/analytics.js", "assets/chain-engine.js", "assets/pair-engine.js", "assets/styles.css"]) {
   try { await stat(join(root, required)); } catch { errors.push(`missing build artifact ${required}`); }
+}
+if (!redirects.includes("Cloudflare Bulk Redirects") || !redirects.includes("does not support domain-level matching")) errors.push("Cloudflare host redirect handoff missing");
+
+const interactiveRoutes = ["/", "/combos/", "/chain/"];
+for (const route of interactiveRoutes) {
+  const file = route === "/" ? join(root, "index.html") : join(root, route.slice(1), "index.html");
+  const html = await readFile(file, "utf8");
+  if (!html.includes("data-dataset-url") || !html.includes("/assets/app.js")) errors.push(`${file}: interactive route missing dataset/app bootstrap`);
+}
+for (const route of ["/how-to-use/", "/guide/", "/guide/breeding-basics/", "/data-sources/", "/about/", "/contact/", "/privacy/", "/terms/", "/disclaimer/", "/guide/breeding-formula/"]) {
+  const file = join(root, route.slice(1), "index.html");
+  const html = await readFile(file, "utf8");
+  if (html.includes('data-dataset-url=') || html.includes('/assets/app.js')) errors.push(`${file}: non-tool route should not bootstrap the dataset app`);
 }
 
 if (errors.length) {
