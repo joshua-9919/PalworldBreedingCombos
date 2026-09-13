@@ -1,6 +1,6 @@
 # Production Launch Gate — 2026-07-18
 
-Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
+Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`（2026-09-13 复验：`QA_GO / SEO_GO_PENDING_INDEX_REFRESH`）
 
 ## Completed
 
@@ -26,3 +26,11 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`
 - The 2026-07-19 full-site QA covered desktop and 390 px mobile tasks, all primary controls, 10 content/legal pages and production HTTP/SEO delivery. The site now has 13 public pages and 12 indexable sitemap URLs, including `/how-to-use/`.
 - An SEO defect on the generic 404 was repaired: it now emits `noindex,nofollow`, no canonical/`og:url` and no JSON-LD, with automated regression coverage.
 - Production QA found no P0 or remaining P1 defects. The dataset transfers as 340 KB gzip in the current check but remains a P2 parse/cache monitor; the `www` canonical-host redirect remains P2.
+
+## 2026-09-13 update
+
+- The 2026-09-06 optimization build (route-level dataset lazy-loading, analytics events, copy-share-link, `_redirects`) was deployed to production by the Owner; production matches `analytics.js?v=471e067365bb` and source commit `3f68988` was pushed to `origin/agent/site-foundation`.
+- `www` → root 301 now live (path+query preserved); the long-standing P2 redirect item is closed.
+- Plausible site configured (`pa-Tuwmm86GExPpwNCxPPO8b.js`); `calculate` and `share` events verified reaching the endpoint via network capture during post-deploy Re-QA.
+- Post-deploy independent Re-QA passed on desktop and 390×844 (no overflow, no console errors); QA gate raised to GO.
+- Evidence: `orchestrator/ops-review-2026-09-13.md`.
