@@ -2,32 +2,30 @@
 
 ## 当前结论
 
-- 状态：`LIVE_QA_GO_ITERATE_VISIBILITY_RECOVERY`
-- 一句话：2026-10-04 例行全站复验 QA_GO（P0=0/P1=0）；GSC 登录态解锁后发现近 28 天搜索可见度崩塌（62 曝光/0 点击/排名 29.4），上游 v1.22.0 数据 diff 完成（组合 0 变更、1 处英文名待更），维持 ITERATE 并把主线收紧为可见度恢复 + 数据小更新。
-- 详细证据：`orchestrator/data-review-2026-10-04.md`（复盘+运营计划）、`orchestrator/qa-production-review-2026-10-04.md`（QA）
+- 状态：`LIVE_V1220_DEPLOYED_INDEXNOW_SUBMITTED`
+- 一句话：v1.22.0 数据更新已批准、验证、部署生产（main@073d3fd，部署后 smoke 全过），IndexNow 已提交 12 个 canonical URL（202）；可见度恢复手段全部落地，进入 2–4 周观察窗口。
+- 详细证据：`orchestrator/launch-gates.md`（2026-10-04 update 节）、`orchestrator/data-review-2026-10-04.md`、`orchestrator/qa-production-review-2026-10-04.md`
 
-## 已确认（2026-10-04 本轮）
+## 已确认（2026-10-04 本轮第二批）
 
-- QA 例行复验：本地构建与 6 项校验脚本全过；13 路由 200、404 与 www 301 正常；懒加载与 Plausible 脚本在线；生产 analytics.js / dataset.json 内容哈希与本地构建完全一致；真实用户任务（parents/target/chain/share/URL 恢复）与事件上报全过；390×844 四页无溢出；控制台 0 error。
-- GSC 首次解锁读取：3 个月 65 点击/4,200 曝光/排名 11.5；**近 28 天 0 点击/62 曝光/排名 29.4**（7 月为 3,820 曝光/排名 9.4）；索引 6/12，6 个 Discovered 未索引（含 `/how-to-use/`、`/guide/breeding-basics/` 两个内容页）。
-- 上游 palcalc v1.22.0（2026-09-18）全量 diff：44,851 组合语义 0 变更；`ElecSnail_Ground` 英文名 Snock Lux→Snock Terra；多语言别名修正。站点数据准确性主张仍成立。
-- 公开渠道资产（GitHub/DEV/itch.io/Product Hunt）全部存活（200）。
+- 数据管线：import(v1.22.0) → validate valid → cross-source 6 断言 → 新鲜 palworld.tools 快照 288/288 Pals、251/251 组合 → 新旧 diff（组合逐行一致，仅 8 处元数据变更）→ promote → 生产校验通过。
+- 向后兼容：旧分享 URL `?parentA=snock-lux` 与输入 "Snock Lux" 均解析到新名 `163B · Snock Terra`（本地与生产双验证）。
+- 部署：`073d3fd` 先以 Preview（`4090ee89`）验证，再快进推送 `main` 生产上线；生产 dataset `palcalc-v28-v1.22.0-owner-approved-20261004`、`updated 2026-10-04`、13 路由 200、301/懒加载/事件/控制台全部复验通过。
+- IndexNow：key 文件生产可访问（200），12 URL 提交返回 202。
 
 ## 需要 Owner 处理
 
-1. 批准数据集更新到 palcalc v1.22.0（变更面极小：1 个英文名+别名；组合 0 变更；批准后走 import→validator→交叉验证→promote→部署）。
-2. 在浏览器登录 Plausible（plausible.shipsolo.io）与 Bing Webmaster 并保持打开，或提供 Plausible 共享链接（GSC 已可用）。
-3. Steam Guide：有 Steam 账号时创建 Friends-only 草稿（公开前需精确批准）。
-4. Wiki Discord：登录并加入服务器后先读规则再申请许可。
+1. 在浏览器登录 Plausible（plausible.shipsolo.io）与 Bing Webmaster 并保持打开，或提供 Plausible 共享链接（GSC 已可用）——解锁 28 天访客/来源/漏斗。
+2. Steam Guide：有 Steam 账号时创建 Friends-only 草稿（公开前需精确批准）。
+3. Wiki Discord：登录并加入服务器后先读规则再申请许可。
 
-## 下一步自动动作（无需 Owner）
+## 下一步自动动作（观察窗口，无需 Owner）
 
-1. Bing IndexNow 一次性提交 12 个 canonical URL（上轮计划未执行项）。
-2. 从已索引 6 页向 `/how-to-use/`、`/guide/breeding-basics/` 增加语境化内链。
-3. 渠道维持 permission-first：Steam/Discord/Reddit 未获许可不做公开外链动作。
+1. 2–4 周后复查（固定口径）：GSC 近 28 天 vs 本轮基线（62 曝光/0 点击/排名 29.4）；索引 6→?（重点 `/how-to-use/`、`/guide/breeding-basics/`）；IndexNow/新构建是否触发重抓。
+2. 实体页小批量实验闸门：v1.22.0 已上线，剩余条件为"28 天可见度止跌"。
+3. 渠道 permission-first 不变。
 
 ## 待处理 P2
 
-- 站内 "Snock Lux" 显示名与上游 v1.22.0 "Snock Terra" 不一致（并入 v1.22.0 更新）。
-- `/data-sources/` 增加"数据复核日期：2026-10-04"声明（并入 v1.22.0 更新）。
-- meta description 长度复查（Bing 提示部分过短；等 Bing 登录态复核）。
+- meta description 长度复查（等 Bing 登录态复核）。
+- Plausible v2 自带 `Form: Submission` 自动事件，复盘口径需与自定义 calculate/chain 事件区分。

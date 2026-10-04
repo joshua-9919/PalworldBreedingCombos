@@ -34,3 +34,13 @@ Status: `PRODUCTION_LIVE_DOMAIN_SMOKE_PASS`（2026-09-13 复验：`QA_GO / SEO_G
 - Plausible site configured (`pa-Tuwmm86GExPpwNCxPPO8b.js`); `calculate` and `share` events verified reaching the endpoint via network capture during post-deploy Re-QA.
 - Post-deploy independent Re-QA passed on desktop and 390×844 (no overflow, no console errors); QA gate raised to GO.
 - Evidence: `orchestrator/ops-review-2026-09-13.md`.
+
+## 2026-10-04 update
+
+- Dataset refreshed from palcalc v1.17.6 to v1.22.0 (upstream released 2026-09-18). Full semantic diff: all 44,851 combinations identical; only user-visible change is the `ElecSnail_Ground` English display-name correction (Snock Lux → Snock Terra) plus localized-name fixes. Legacy name/slug retained as lookup aliases so pre-rename share URLs keep resolving.
+- Pipeline evidence: import → validate (valid) → cross-source (6 assertions pass) → fresh palworld.tools snapshot verify (288/288 pals, 251/251 comparable combos, 0 power mismatches) → old-vs-new diff (8 metadata fields only) → promote with owner update approval `data/approvals/owner-dataset-update-2026-10-04.json` → production validation pass.
+- Production dataset: `palcalc-v28-v1.22.0-owner-approved-20261004`; source ledger `data/source-ledger/palcalc-v1.22.0.candidate.json`.
+- Content: `/data-sources/` gained an "Upstream review log" section; `/guide/` gained a contextual link to `/how-to-use/`; IndexNow key file shipped at site root.
+- Deploy: commit `073d3fd` pushed to `origin/agent/site-foundation` (Preview `4090ee89` verified) and fast-forwarded to `origin/main` (production); production live ~45 s after push.
+- Post-deploy smoke: 13 routes 200; `www`→root 301 preserved; dataset strip shows `updated 2026-10-04`; legacy `?parentA=snock-lux` share URL resolves to `163B · Snock Terra`; `calculate` event fires with new slug (`snock-terra`, result `sibelyx`); non-tool pages still lazy (0 dataset injections); console 0 errors; `analytics.js?v=471e067365bb` unchanged.
+- IndexNow: submitted all 12 canonical URLs via api.indexnow.org with hosted key `4226991db07d14876d370fd11f5c3c28` — HTTP 202 accepted.
