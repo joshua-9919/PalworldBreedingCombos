@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "reviewStatus": "backward-compatibility-aliases",
+  "reason": "palcalc v1.22.0 renamed the ElecSnail_Ground Pal's English display name from 'Snock Lux' to 'Snock Terra' (matching the ground-element variant naming). The previous English name and URL slug are kept as lookup aliases so existing share URLs and typed queries continue to resolve after the dataset update.",
+  "aliases": [
+    {
+      "id": "elecsnail-ground",
+      "values": ["Snock Lux", "snock-lux"]
+    }
+  ]
+}

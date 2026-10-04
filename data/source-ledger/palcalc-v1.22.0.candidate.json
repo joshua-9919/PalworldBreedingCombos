@@ -1,0 +1,76 @@
+{
+  "ledgerVersion": "1.0.0",
+  "datasetVersion": "palcalc-v28-v1.22.0",
+  "sources": [
+    {
+      "sourceId": "palcalc-db-v1-22-0",
+      "sourceType": "other",
+      "locator": "https://github.com/tylercamp/palcalc/blob/v1.22.0/PalCalc.Model/db.json",
+      "revision": "v1.22.0 (commit 8566b9addf72e62bc424c59293afd97eacb038ec)",
+      "rightsBasis": "Candidate normalization from tylercamp/palcalc, whose repository code is MIT licensed. Extracted Palworld game data remains subject to separate IP review; this record is not production clearance.",
+      "retrievedAt": "2026-10-04T07:19:00Z",
+      "checksum": "sha256:93a5c0e2e48281a7c3fdbecd537989eaaf70e28f9dcca029f6e3834807d052fc"
+    },
+    {
+      "sourceId": "palcalc-breeding-v1-22-0",
+      "sourceType": "other",
+      "locator": "https://github.com/tylercamp/palcalc/blob/v1.22.0/PalCalc.Model/breeding.json",
+      "revision": "v1.22.0 (commit 8566b9addf72e62bc424c59293afd97eacb038ec)",
+      "rightsBasis": "Candidate normalization from tylercamp/palcalc, whose repository code is MIT licensed. Extracted Palworld game data remains subject to separate IP review; this record is not production clearance.",
+      "retrievedAt": "2026-10-04T07:19:00Z",
+      "checksum": "sha256:e0f3a3eeca656ff506f4c1307397cad1bf156680d8c90ca6250ea790f11b38bb"
+    },
+    {
+      "sourceId": "palworld-tools-build-fresh-snapshot-2026-10-04",
+      "sourceType": "other",
+      "locator": "https://www.palworld.tools/breeding",
+      "revision": "snapshot-2026-10-04",
+      "rightsBasis": "Read-only corroboration of roster ranks and comparable unique combinations. No page HTML, UI, prose, images or bulk export is committed or redistributed; this is verification evidence, not publication clearance.",
+      "retrievedAt": "2026-10-04T07:46:00Z",
+      "checksum": "not-retained-temporary-snapshot"
+    },
+    {
+      "sourceId": "palcalc-upstream-diff-v1-17-6-v1-22-0",
+      "sourceType": "other",
+      "locator": "https://github.com/tylercamp/palcalc/compare/v1.17.6...v1.22.0",
+      "revision": "full semantic diff performed 2026-10-04",
+      "rightsBasis": "Verification evidence: 44,851 combinations byte-semantically identical (0 added, 0 removed, 0 field changes); 299 upstream Pals 0 added/removed; user-visible changes limited to the ElecSnail_Ground English display name correction (Snock Lux -> Snock Terra) and localized-name fixes.",
+      "retrievedAt": "2026-10-04T07:20:00Z",
+      "checksum": "not-applicable-assertion-evidence"
+    },
+    {
+      "sourceId": "astralym-reviewed-overlay",
+      "sourceType": "other",
+      "locator": "data/verification/palworld-1.0-overrides.json",
+      "revision": "1.0.0",
+      "rightsBasis": "Locally authored factual correction supported by two linked public sources; contains no third-party media or prose.",
+      "retrievedAt": "2026-07-18T09:35:32Z",
+      "checksum": "sha256:7150c371bc6624b58dd1514b725dab91c73d27b2db2bc9a17154dbc796b47236"
+    },
+    {
+      "sourceId": "legacy-name-aliases",
+      "sourceType": "other",
+      "locator": "data/verification/legacy-name-aliases.json",
+      "revision": "1.0.0",
+      "rightsBasis": "Locally authored backward-compatibility alias list so pre-rename share URLs and typed queries keep resolving; contains no third-party content.",
+      "retrievedAt": "2026-10-04T08:10:00Z",
+      "checksum": "sha256:a4e9889374bd9b14cbde761689d0bf5fcd4b3a55517ae4bc1bae39bb309a101a"
+    }
+  ],
+  "transform": {
+    "script": "scripts/import-palcalc.mjs",
+    "revision": "v1.22.0-update",
+    "description": "Normalize pinned PalCalc v1.22.0 data, apply the evidence-linked Astralym overlay and the legacy-name alias list, cross-check public source facts without copying images, UI, page text or stored snapshots. Preserve gender-specific rows and keep every record non-indexable pending review."
+  },
+  "review": {
+    "reviewer": "Codex automated source intake and cross-source technical review; Owner update approval recorded in data/approvals/owner-dataset-update-2026-10-04.json",
+    "reviewedAt": "2026-10-04T08:15:00Z",
+    "status": "verified",
+    "knownGaps": [
+      "MIT repository licensing does not itself grant rights to Pocketpair game data.",
+      "Public corroboration supports technical accuracy but does not itself provide publication permission.",
+      "Pocketpair's derivative-work guideline does not expressly approve a factual calculator/database and restricts highly commercial or profit-oriented use.",
+      "Upstream db.json metadata beyond names and breeding power (for example fullness values) is not consumed by this site."
+    ]
+  }
+}

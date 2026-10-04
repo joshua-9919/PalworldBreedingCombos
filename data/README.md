@@ -28,14 +28,15 @@ Rules:
 
 ## Candidate intake
 
-The current reproducible candidate is pinned to `tylercamp/palcalc` v1.17.6 / commit `8b7e2f779e47fddae16ddcb973e828ba20c02b80`.
+The current reproducible candidate is pinned to `tylercamp/palcalc` v1.22.0 (commit `8566b9addf72e62bc424c59293afd97eacb038ec`; the 2026-07-18 initial release used v1.17.6 / commit `8b7e2f779e47fddae16ddcb973e828ba20c02b80`). A full semantic diff between the two upstream revisions is recorded in `data/source-ledger/palcalc-v1.22.0.candidate.json`: all 44,851 combinations are identical, and the only user-visible change is the `ElecSnail_Ground` English display-name correction (`Snock Lux` → `Snock Terra`) plus localized-name fixes. `--aliases` injects backward-compatible legacy name/slug lookups so pre-rename share URLs keep resolving.
 
 ```bash
 node scripts/import-palcalc.mjs \
   --db /path/to/PalCalc.Model/db.json \
   --breeding /path/to/PalCalc.Model/breeding.json \
   --overrides data/verification/palworld-1.0-overrides.json \
-  --revision v1.17.6 \
+  --aliases data/verification/legacy-name-aliases.json \
+  --revision v1.22.0 \
   --out /tmp/pbc-launch-candidate.json
 
 node scripts/validate-data.mjs /tmp/pbc-launch-candidate.json
@@ -67,8 +68,8 @@ npm run check:pairs -- /tmp/pbc-launch-candidate.json
 
 - Machine-readable schema: PASS.
 - Synthetic fixture: PASS after `node scripts/validate-data.mjs data/fixtures/dataset.fixture.json`.
-- Production source ledger: MISSING.
-- Production launch dataset: MISSING.
-- Cloudflare deployment: BLOCKED by setup and Owner Review.
+- Production source ledger: PASS (`data/source-ledger/palcalc-v1.22.0.candidate.json`; v1.17.6 ledger retained).
+- Production launch dataset: PASS (`palcalc-v28-v1.22.0-owner-approved-20261004`; approved in `data/approvals/owner-dataset-update-2026-10-04.json`).
+- Cloudflare deployment: LIVE; production pushes go through `origin/agent/site-foundation`.
 
-[NEEDS_REVIEW]
+[DONE]

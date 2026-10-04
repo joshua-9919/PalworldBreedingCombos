@@ -33,7 +33,9 @@ if (candidate?.manifest?.environment !== "launch" || !Array.isArray(candidate?.c
 }
 
 const promoted = structuredClone(candidate);
-promoted.manifest.datasetVersion = `${candidate.manifest.datasetVersion}-owner-approved-20260718`;
+const approvalDate = String(approval?.approvedAt || "").slice(0, 10).replace(/-/g, "");
+if (!/^\d{8}$/.test(approvalDate)) throw new Error("Approval record must carry an ISO approvedAt date");
+promoted.manifest.datasetVersion = `${candidate.manifest.datasetVersion}-owner-approved-${approvalDate}`;
 promoted.manifest.generatedAt = approval.approvedAt;
 promoted.manifest.verificationStatus = "verified";
 promoted.combinations = promoted.combinations.map((row) => ({ ...row, verificationStatus: "verified" }));

@@ -1,0 +1,26 @@
+{
+  "approvalVersion": "1.0.0",
+  "approvedAt": "2026-10-04T16:30:00Z",
+  "operatorType": "individual",
+  "publicOperatorName": "Palworld Breeding Combos",
+  "jurisdiction": "Republic of Indonesia",
+  "approvedScope": {
+    "free": true,
+    "advertising": false,
+    "affiliateMarketing": false,
+    "payments": false,
+    "officialAffiliationClaim": false,
+    "gameMediaAssets": false
+  },
+  "productionActions": {
+    "cloudflareDeploy": true,
+    "bindPrimaryDomain": true,
+    "searchConsoleSubmission": false,
+    "publicPromotion": false
+  },
+  "updateScope": {
+    "basis": "Dataset refresh from tylercamp/palcalc v1.17.6 to v1.22.0 (released 2026-09-18). Full upstream diff verified 2026-10-04: 44,851 combinations semantically identical (0 added, 0 removed, 0 field changes); Pal roster 0 added/removed; the only user-visible change is the English display name correction ElecSnail_Ground 'Snock Lux' -> 'Snock Terra' plus non-English localized-name fixes. Legacy name/slug retained as lookup aliases for existing share URLs.",
+    "ownerInstruction": "Owner replied '继续下一步' on 2026-10-04 in direct response to the update request '批准数据集更新到 v1.22.0' presented in orchestrator/handoff.md and orchestrator/next-prompt.md."
+  },
+  "riskAcceptance": "Owner approved the v1.22.0 dataset refresh under the documented conservative fan-tool scope. This approval does not represent Pocketpair permission or legal advice."
+}

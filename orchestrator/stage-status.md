@@ -11,8 +11,8 @@
 | 06 Design | DONE | 2026-07-17 | HTML/CSS 真源、tokens、状态与移动端 handoff |
 | 08 Data | DONE | 2026-07-18 | 300 Pal / 44,851 combinations 已促进为 Owner-approved production dataset 并通过生产校验 |
 | 07 Frontend | DONE | 2026-07-18 | 可搜索输入、chain constraints、URL state 与无效分享态已完成 |
-| 10 Reviews | GO_PENDING_INDEX_REFRESH | 2026-09-13 | 技术 SEO 全通过；www 301 已生效；GSC/Bing sitemap 重提后等待索引刷新 |
-| 09 QA | GO | 2026-09-13 | 部署后独立 Re-QA 全过：calculate/share 事件、URL 恢复、390px 移动端、懒加载、控制台（P0=0/P1=0） |
-| Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权；9-06 构建已由 Owner 部署 |
-| 11 Launch | LIVE_REVIEW_ONLY | 2026-09-13 | 既有公开资产仍可见；本轮仅内部源码同步（3f68988 已推送），无新公开动作 |
-| 12 Data Review | ITERATE_WAITING_ANALYTICS_LOGIN | 2026-09-13 | 事件链路已验证健康；Plausible/GSC/Bing 缺登录态，28 天数据未读取；维持 ITERATE |
+| 10 Reviews | GO_INDEX_STALLED_6_OF_12 | 2026-10-04 | 技术 SEO 全通过；索引 6/12 停滞；近 28 天可见度下滑（62 曝光/排名 29.4） |
+| 09 QA | GO | 2026-10-04 | 例行复验全过：构建/校验/13 路由/301/懒加载/事件/URL 恢复/390px/控制台（P0=0/P1=0） |
+| Owner Review | DONE | 2026-07-18 | 个人运营；公开名 Palworld Breeding Combos；Indonesia；Cloudflare/DNS 已授权；9-06 构建已由 Owner 部署；v1.22.0 数据更新待批 |
+| 11 Launch | LIVE_REVIEW_ONLY | 2026-10-04 | 公开资产复核全部存活；无新公开动作 |
+| 12 Data Review | ITERATE_VISIBILITY_RECOVERY | 2026-10-04 | GSC 解锁：28 天 0 点击/62 曝光/排名 29.4；上游 v1.22.0 组合 0 变更、1 处英文名待更；维持 ITERATE |

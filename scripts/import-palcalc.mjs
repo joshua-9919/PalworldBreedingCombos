@@ -41,6 +41,20 @@ if (args.overrides) {
   }
 }
 
+let legacyAliasBuffer;
+if (args.aliases) {
+  legacyAliasBuffer = await readFile(resolve(args.aliases));
+  const legacyAliases = JSON.parse(legacyAliasBuffer);
+  const byId = new Map(pals.map((pal) => [pal.id, pal]));
+  for (const entry of legacyAliases.aliases || []) {
+    const pal = byId.get(entry.id);
+    if (!pal) throw new Error(`Legacy alias targets unknown Pal ${entry.id}`);
+    for (const value of entry.values) {
+      if (!pal.aliases.includes(value)) pal.aliases.push(value);
+    }
+  }
+}
+
 const idByInternalName = new Map(db.Pals.map((pal) => [pal.InternalName, slugify(pal.InternalName)]));
 const combinations = breeding.Breeding.map((source) => {
   const parentA = { id: idByInternalName.get(source.Parent1InternalName), gender: source.Parent1Gender };
@@ -64,7 +78,7 @@ const dataset = {
     gameVersion: "1.0",
     datasetVersion: `palcalc-${db.Version}-${args.revision}`.replace(/[^a-zA-Z0-9._-]/g, "-"),
     generatedAt,
-    sourceRevision: `tylercamp/palcalc@${args.revision};db-sha256:${sha256(dbBuffer)};breeding-sha256:${sha256(breedingBuffer)}${overrideBuffer ? `;overrides-sha256:${sha256(overrideBuffer)}` : ""}`,
+    sourceRevision: `tylercamp/palcalc@${args.revision};db-sha256:${sha256(dbBuffer)};breeding-sha256:${sha256(breedingBuffer)}${overrideBuffer ? `;overrides-sha256:${sha256(overrideBuffer)}` : ""}${legacyAliasBuffer ? `;legacy-aliases-sha256:${sha256(legacyAliasBuffer)}` : ""}`,
     verificationStatus: "partially-verified",
     recordCounts: { pals: pals.length, specialCombinations: 0, combinations: combinations.length }
   },
